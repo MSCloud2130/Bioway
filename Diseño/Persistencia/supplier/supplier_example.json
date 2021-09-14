@@ -1,0 +1,17 @@
+{
+    "_id": {
+        "$oid": "613e3070d2acf338c07a2d2b"
+    },
+    "email": "pedro.perez@gmail.com",
+    "name": "Pedro Perez",
+    "age": 25,
+    "picture": "",
+    "description": "Me gusta viajar.",
+    "phone": "3101234567",
+    "web_page": "www.misviajes.com.co",
+    "social_accounts": [
+        "www.twitter.com/qweqwr5q",
+        "www.facebook.com/qrqwrqwr"      
+    ],
+    "class": "javeriana.ms.supplier.entities.Supplier"
+}

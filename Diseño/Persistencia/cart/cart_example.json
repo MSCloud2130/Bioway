@@ -1,0 +1,16 @@
+{
+    "_id": {
+        "$oid": "613e3070d2acf338c07a2d2b"
+    },
+    "customerId": "613e3070d2acf338c07a2d2b",
+    "totalCost": 100000,
+    "items": [
+        {
+            "productId": "613e3070d2acf338c07a2d2b",
+            "productUrl": "localhost:8080/products/613e3070d2acf338c07a2d2b",
+            "unitPrice": 20000,
+            "quantity": 5
+        }
+    ],
+    "_class": "javeriana.ms.cart.entities.Cart"
+}

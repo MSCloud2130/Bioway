@@ -1,0 +1,181 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "_id": {
+                "$oid": "613e3070d2acf338c07a2d2b"
+            },
+            "customerId": "613e3070d2acf338c07a2d2b",
+            "totalCost": 100000,
+            "items": [
+                {
+                    "productId": "613e3070d2acf338c07a2d2b",
+                    "productUrl": "localhost:8080/products/613e3070d2acf338c07a2d2b",
+                    "unitPrice": 20000,
+                    "quantity": 5
+                }
+            ],
+            "_class": "javeriana.ms.cart.entities.Cart"
+        }
+    ],
+    "required": [
+        "_id",
+        "customerId",
+        "totalCost",
+        "items",
+        "_class"
+    ],
+    "properties": {
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "object",
+            "title": "The _id schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "$oid": "613e3070d2acf338c07a2d2b"
+                }
+            ],
+            "required": [
+                "$oid"
+            ],
+            "properties": {
+                "$oid": {
+                    "$id": "#/properties/_id/properties/%24oid",
+                    "type": "string",
+                    "title": "The $oid schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "613e3070d2acf338c07a2d2b"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "customerId": {
+            "$id": "#/properties/customerId",
+            "type": "string",
+            "title": "The customerId schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "613e3070d2acf338c07a2d2b"
+            ]
+        },
+        "totalCost": {
+            "$id": "#/properties/totalCost",
+            "type": "integer",
+            "title": "The totalCost schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+                100000
+            ]
+        },
+        "items": {
+            "$id": "#/properties/items",
+            "type": "array",
+            "title": "The items schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "productId": "613e3070d2acf338c07a2d2b",
+                        "productUrl": "localhost:8080/products/613e3070d2acf338c07a2d2b",
+                        "unitPrice": 20000,
+                        "quantity": 5
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/items/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/items/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "productId": "613e3070d2acf338c07a2d2b",
+                                "productUrl": "localhost:8080/products/613e3070d2acf338c07a2d2b",
+                                "unitPrice": 20000,
+                                "quantity": 5
+                            }
+                        ],
+                        "required": [
+                            "productId",
+                            "productUrl",
+                            "unitPrice",
+                            "quantity"
+                        ],
+                        "properties": {
+                            "productId": {
+                                "$id": "#/properties/items/items/anyOf/0/properties/productId",
+                                "type": "string",
+                                "title": "The productId schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "613e3070d2acf338c07a2d2b"
+                                ]
+                            },
+                            "productUrl": {
+                                "$id": "#/properties/items/items/anyOf/0/properties/productUrl",
+                                "type": "string",
+                                "title": "The productUrl schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "localhost:8080/products/613e3070d2acf338c07a2d2b"
+                                ]
+                            },
+                            "unitPrice": {
+                                "$id": "#/properties/items/items/anyOf/0/properties/unitPrice",
+                                "type": "integer",
+                                "title": "The unitPrice schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": 0,
+                                "examples": [
+                                    20000
+                                ]
+                            },
+                            "quantity": {
+                                "$id": "#/properties/items/items/anyOf/0/properties/quantity",
+                                "type": "integer",
+                                "title": "The quantity schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": 0,
+                                "examples": [
+                                    5
+                                ]
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        },
+        "_class": {
+            "$id": "#/properties/_class",
+            "type": "string",
+            "title": "The _class schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "javeriana.ms.cart.entities.Cart"
+            ]
+        }
+    },
+    "additionalProperties": true
+}

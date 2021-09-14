@@ -1,0 +1,97 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "_id": {
+                "$oid": "613e3070d2acf338c07a2d2b"
+            },
+            "email": "pedro.perez@gmail.com",
+            "password": "Qwerty1234!",
+            "type": "CUSTOMER",
+            "_class": "javeriana.ms.authentication.entities.User"
+        }
+    ],
+    "required": [
+        "_id",
+        "email",
+        "password",
+        "type",
+        "_class"
+    ],
+    "properties": {
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "object",
+            "title": "The _id schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "$oid": "613e3070d2acf338c07a2d2b"
+                }
+            ],
+            "required": [
+                "$oid"
+            ],
+            "properties": {
+                "$oid": {
+                    "$id": "#/properties/_id/properties/%24oid",
+                    "type": "string",
+                    "title": "The $oid schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "613e3070d2acf338c07a2d2b"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "email": {
+            "$id": "#/properties/email",
+            "type": "string",
+            "title": "The email schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "pedro.perez@gmail.com"
+            ]
+        },
+        "password": {
+            "$id": "#/properties/password",
+            "type": "string",
+            "title": "The password schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "Qwerty1234!"
+            ]
+        },
+        "type": {
+            "$id": "#/properties/type",
+            "type": "string",
+            "title": "The type schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "CUSTOMER"
+            ]
+        },
+        "_class": {
+            "$id": "#/properties/_class",
+            "type": "string",
+            "title": "The _class schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "javeriana.ms.authentication.entities.User"
+            ]
+        }
+    },
+    "additionalProperties": true
+}

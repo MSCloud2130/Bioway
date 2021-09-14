@@ -1,0 +1,180 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "_id": {
+                "$oid": "613e3070d2acf338c07a2d2b"
+            },
+            "email": "pedro.perez@gmail.com",
+            "name": "Pedro Perez",
+            "age": 25,
+            "picture": "",
+            "description": "Me gusta viajar.",
+            "phone": "3101234567",
+            "web_page": "www.misviajes.com.co",
+            "social_accounts": [
+                "www.twitter.com/qweqwr5q",
+                "www.facebook.com/qrqwrqwr"
+            ],
+            "class": "javeriana.ms.supplier.entities.Supplier"
+        }
+    ],
+    "required": [
+        "_id",
+        "email",
+        "name",
+        "age",
+        "picture",
+        "description",
+        "phone",
+        "web_page",
+        "social_accounts",
+        "class"
+    ],
+    "properties": {
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "object",
+            "title": "The _id schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "$oid": "613e3070d2acf338c07a2d2b"
+                }
+            ],
+            "required": [
+                "$oid"
+            ],
+            "properties": {
+                "$oid": {
+                    "$id": "#/properties/_id/properties/%24oid",
+                    "type": "string",
+                    "title": "The $oid schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "613e3070d2acf338c07a2d2b"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "email": {
+            "$id": "#/properties/email",
+            "type": "string",
+            "title": "The email schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "pedro.perez@gmail.com"
+            ]
+        },
+        "name": {
+            "$id": "#/properties/name",
+            "type": "string",
+            "title": "The name schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "Pedro Perez"
+            ]
+        },
+        "age": {
+            "$id": "#/properties/age",
+            "type": "integer",
+            "title": "The age schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+                25
+            ]
+        },
+        "picture": {
+            "$id": "#/properties/picture",
+            "type": "string",
+            "title": "The picture schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "description": {
+            "$id": "#/properties/description",
+            "type": "string",
+            "title": "The description schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "Me gusta viajar."
+            ]
+        },
+        "phone": {
+            "$id": "#/properties/phone",
+            "type": "string",
+            "title": "The phone schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "3101234567"
+            ]
+        },
+        "web_page": {
+            "$id": "#/properties/web_page",
+            "type": "string",
+            "title": "The web_page schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "www.misviajes.com.co"
+            ]
+        },
+        "social_accounts": {
+            "$id": "#/properties/social_accounts",
+            "type": "array",
+            "title": "The social_accounts schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    "www.twitter.com/qweqwr5q",
+                    "www.facebook.com/qrqwrqwr"
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/social_accounts/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/social_accounts/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "www.twitter.com/qweqwr5q",
+                            "www.facebook.com/qrqwrqwr"
+                        ]
+                    }
+                ]
+            }
+        },
+        "class": {
+            "$id": "#/properties/class",
+            "type": "string",
+            "title": "The class schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "javeriana.ms.supplier.entities.Supplier"
+            ]
+        }
+    },
+    "additionalProperties": true
+}

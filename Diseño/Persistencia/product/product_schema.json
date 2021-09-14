@@ -1,0 +1,1081 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "_id": {
+                "$oid": "613e3070d2acf338c07a2d2b"
+            },
+            "name": "Tour Parque Tayrona",
+            "price": 90000,
+            "type": "ECOTOUR",
+            "supplier": {
+                "id": "613e3070d2acf338c07a2d2b",
+                "name": "Pedro Perez",
+                "resource": ""
+            },
+            "description": "",
+            "questions": [
+                {
+                    "_id": {
+                        "$oid": "613e3070d2acf338c07a2d2b"
+                    },
+                    "customer": {
+                        "id": "613e3070d2acf338c07a2d2b",
+                        "resource": ""
+                    },
+                    "dateTime": {
+                        "$date": "2021-09-12T16:52:58.204Z"
+                    },
+                    "content": "¿Cuánto dura el tour?",
+                    "answer": "2 horas."
+                }
+            ],
+            "ratings": [
+                {
+                    "customer": {
+                        "id": "613e3070d2acf338c07a2d2b",
+                        "resource": ""
+                    },
+                    "value": 4,
+                    "comment": "Muy bueno."
+                }
+            ],
+            "links": [
+                ""
+            ],
+            "pictures": [
+                ""
+            ],
+            "updates": [
+                {
+                    "_id": {
+                        "$oid": "613e3070d2acf338c07a2d2b"
+                    },
+                    "dateTime": {
+                        "$date": "2021-09-12T16:52:58.204Z"
+                    },
+                    "title": "Cambios al tour",
+                    "content": "El tour cambia de ruta desde el 2 de noviembre."
+                }
+            ],
+            "faqs": [
+                {
+                    "_id": {
+                        "$oid": "613e3070d2acf338c07a2d2b"
+                    },
+                    "question": "¿Qué pasa si llueve?",
+                    "answer": "Si llueve, el tour se suspende hasta que pare."
+                }
+            ],
+            "checkIn": {
+                "$date": "2021-09-12T00:00:00.000Z"
+            },
+            "checkOut": {
+                "$date": "2021-09-20T00:00:00.000Z"
+            },
+            "location": {
+                "address": "",
+                "latitude": 0,
+                "longitude": 0
+            },
+            "departure": {
+                "$date": "2021-09-12T16:52:58.204Z"
+            },
+            "departureLocation": {
+                "address": "",
+                "latitude": 0,
+                "longitude": 0
+            },
+            "arrivalLocation": {
+                "address": "",
+                "latitude": 0,
+                "longitude": 0
+            },
+            "transportType": "",
+            "_class": "javeriana.ms.purchase.entities.Product"
+        }
+    ],
+    "required": [
+        "_id",
+        "name",
+        "price",
+        "type",
+        "supplier",
+        "description",
+        "questions",
+        "ratings",
+        "links",
+        "pictures",
+        "updates",
+        "faqs",
+        "checkIn",
+        "checkOut",
+        "location",
+        "departure",
+        "departureLocation",
+        "arrivalLocation",
+        "transportType",
+        "_class"
+    ],
+    "properties": {
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "object",
+            "title": "The _id schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "$oid": "613e3070d2acf338c07a2d2b"
+                }
+            ],
+            "required": [
+                "$oid"
+            ],
+            "properties": {
+                "$oid": {
+                    "$id": "#/properties/_id/properties/%24oid",
+                    "type": "string",
+                    "title": "The $oid schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "613e3070d2acf338c07a2d2b"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "name": {
+            "$id": "#/properties/name",
+            "type": "string",
+            "title": "The name schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "Tour Parque Tayrona"
+            ]
+        },
+        "price": {
+            "$id": "#/properties/price",
+            "type": "integer",
+            "title": "The price schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+                90000
+            ]
+        },
+        "type": {
+            "$id": "#/properties/type",
+            "type": "string",
+            "title": "The type schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "ECOTOUR"
+            ]
+        },
+        "supplier": {
+            "$id": "#/properties/supplier",
+            "type": "object",
+            "title": "The supplier schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "id": "613e3070d2acf338c07a2d2b",
+                    "name": "Pedro Perez",
+                    "resource": ""
+                }
+            ],
+            "required": [
+                "id",
+                "name",
+                "resource"
+            ],
+            "properties": {
+                "id": {
+                    "$id": "#/properties/supplier/properties/id",
+                    "type": "string",
+                    "title": "The id schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "613e3070d2acf338c07a2d2b"
+                    ]
+                },
+                "name": {
+                    "$id": "#/properties/supplier/properties/name",
+                    "type": "string",
+                    "title": "The name schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "Pedro Perez"
+                    ]
+                },
+                "resource": {
+                    "$id": "#/properties/supplier/properties/resource",
+                    "type": "string",
+                    "title": "The resource schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        ""
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "description": {
+            "$id": "#/properties/description",
+            "type": "string",
+            "title": "The description schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "questions": {
+            "$id": "#/properties/questions",
+            "type": "array",
+            "title": "The questions schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "_id": {
+                            "$oid": "613e3070d2acf338c07a2d2b"
+                        },
+                        "customer": {
+                            "id": "613e3070d2acf338c07a2d2b",
+                            "resource": ""
+                        },
+                        "dateTime": {
+                            "$date": "2021-09-12T16:52:58.204Z"
+                        },
+                        "content": "¿Cuánto dura el tour?",
+                        "answer": "2 horas."
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/questions/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/questions/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "_id": {
+                                    "$oid": "613e3070d2acf338c07a2d2b"
+                                },
+                                "customer": {
+                                    "id": "613e3070d2acf338c07a2d2b",
+                                    "resource": ""
+                                },
+                                "dateTime": {
+                                    "$date": "2021-09-12T16:52:58.204Z"
+                                },
+                                "content": "¿Cuánto dura el tour?",
+                                "answer": "2 horas."
+                            }
+                        ],
+                        "required": [
+                            "_id",
+                            "customer",
+                            "dateTime",
+                            "content",
+                            "answer"
+                        ],
+                        "properties": {
+                            "_id": {
+                                "$id": "#/properties/questions/items/anyOf/0/properties/_id",
+                                "type": "object",
+                                "title": "The _id schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "$oid": "613e3070d2acf338c07a2d2b"
+                                    }
+                                ],
+                                "required": [
+                                    "$oid"
+                                ],
+                                "properties": {
+                                    "$oid": {
+                                        "$id": "#/properties/questions/items/anyOf/0/properties/_id/properties/%24oid",
+                                        "type": "string",
+                                        "title": "The $oid schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "613e3070d2acf338c07a2d2b"
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": true
+                            },
+                            "customer": {
+                                "$id": "#/properties/questions/items/anyOf/0/properties/customer",
+                                "type": "object",
+                                "title": "The customer schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "id": "613e3070d2acf338c07a2d2b",
+                                        "resource": ""
+                                    }
+                                ],
+                                "required": [
+                                    "id",
+                                    "resource"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "$id": "#/properties/questions/items/anyOf/0/properties/customer/properties/id",
+                                        "type": "string",
+                                        "title": "The id schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "613e3070d2acf338c07a2d2b"
+                                        ]
+                                    },
+                                    "resource": {
+                                        "$id": "#/properties/questions/items/anyOf/0/properties/customer/properties/resource",
+                                        "type": "string",
+                                        "title": "The resource schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            ""
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": true
+                            },
+                            "dateTime": {
+                                "$id": "#/properties/questions/items/anyOf/0/properties/dateTime",
+                                "type": "object",
+                                "title": "The dateTime schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "$date": "2021-09-12T16:52:58.204Z"
+                                    }
+                                ],
+                                "required": [
+                                    "$date"
+                                ],
+                                "properties": {
+                                    "$date": {
+                                        "$id": "#/properties/questions/items/anyOf/0/properties/dateTime/properties/%24date",
+                                        "type": "string",
+                                        "title": "The $date schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "2021-09-12T16:52:58.204Z"
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": true
+                            },
+                            "content": {
+                                "$id": "#/properties/questions/items/anyOf/0/properties/content",
+                                "type": "string",
+                                "title": "The content schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "¿Cuánto dura el tour?"
+                                ]
+                            },
+                            "answer": {
+                                "$id": "#/properties/questions/items/anyOf/0/properties/answer",
+                                "type": "string",
+                                "title": "The answer schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "2 horas."
+                                ]
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        },
+        "ratings": {
+            "$id": "#/properties/ratings",
+            "type": "array",
+            "title": "The ratings schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "customer": {
+                            "id": "613e3070d2acf338c07a2d2b",
+                            "resource": ""
+                        },
+                        "value": 4,
+                        "comment": "Muy bueno."
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/ratings/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/ratings/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "customer": {
+                                    "id": "613e3070d2acf338c07a2d2b",
+                                    "resource": ""
+                                },
+                                "value": 4,
+                                "comment": "Muy bueno."
+                            }
+                        ],
+                        "required": [
+                            "customer",
+                            "value",
+                            "comment"
+                        ],
+                        "properties": {
+                            "customer": {
+                                "$id": "#/properties/ratings/items/anyOf/0/properties/customer",
+                                "type": "object",
+                                "title": "The customer schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "id": "613e3070d2acf338c07a2d2b",
+                                        "resource": ""
+                                    }
+                                ],
+                                "required": [
+                                    "id",
+                                    "resource"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "$id": "#/properties/ratings/items/anyOf/0/properties/customer/properties/id",
+                                        "type": "string",
+                                        "title": "The id schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "613e3070d2acf338c07a2d2b"
+                                        ]
+                                    },
+                                    "resource": {
+                                        "$id": "#/properties/ratings/items/anyOf/0/properties/customer/properties/resource",
+                                        "type": "string",
+                                        "title": "The resource schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            ""
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": true
+                            },
+                            "value": {
+                                "$id": "#/properties/ratings/items/anyOf/0/properties/value",
+                                "type": "integer",
+                                "title": "The value schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": 0,
+                                "examples": [
+                                    4
+                                ]
+                            },
+                            "comment": {
+                                "$id": "#/properties/ratings/items/anyOf/0/properties/comment",
+                                "type": "string",
+                                "title": "The comment schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "Muy bueno."
+                                ]
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        },
+        "links": {
+            "$id": "#/properties/links",
+            "type": "array",
+            "title": "The links schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    ""
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/links/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/links/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            ""
+                        ]
+                    }
+                ]
+            }
+        },
+        "pictures": {
+            "$id": "#/properties/pictures",
+            "type": "array",
+            "title": "The pictures schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    ""
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/pictures/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/pictures/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            ""
+                        ]
+                    }
+                ]
+            }
+        },
+        "updates": {
+            "$id": "#/properties/updates",
+            "type": "array",
+            "title": "The updates schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "_id": {
+                            "$oid": "613e3070d2acf338c07a2d2b"
+                        },
+                        "dateTime": {
+                            "$date": "2021-09-12T16:52:58.204Z"
+                        },
+                        "title": "Cambios al tour",
+                        "content": "El tour cambia de ruta desde el 2 de noviembre."
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/updates/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/updates/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "_id": {
+                                    "$oid": "613e3070d2acf338c07a2d2b"
+                                },
+                                "dateTime": {
+                                    "$date": "2021-09-12T16:52:58.204Z"
+                                },
+                                "title": "Cambios al tour",
+                                "content": "El tour cambia de ruta desde el 2 de noviembre."
+                            }
+                        ],
+                        "required": [
+                            "_id",
+                            "dateTime",
+                            "title",
+                            "content"
+                        ],
+                        "properties": {
+                            "_id": {
+                                "$id": "#/properties/updates/items/anyOf/0/properties/_id",
+                                "type": "object",
+                                "title": "The _id schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "$oid": "613e3070d2acf338c07a2d2b"
+                                    }
+                                ],
+                                "required": [
+                                    "$oid"
+                                ],
+                                "properties": {
+                                    "$oid": {
+                                        "$id": "#/properties/updates/items/anyOf/0/properties/_id/properties/%24oid",
+                                        "type": "string",
+                                        "title": "The $oid schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "613e3070d2acf338c07a2d2b"
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": true
+                            },
+                            "dateTime": {
+                                "$id": "#/properties/updates/items/anyOf/0/properties/dateTime",
+                                "type": "object",
+                                "title": "The dateTime schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "$date": "2021-09-12T16:52:58.204Z"
+                                    }
+                                ],
+                                "required": [
+                                    "$date"
+                                ],
+                                "properties": {
+                                    "$date": {
+                                        "$id": "#/properties/updates/items/anyOf/0/properties/dateTime/properties/%24date",
+                                        "type": "string",
+                                        "title": "The $date schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "2021-09-12T16:52:58.204Z"
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": true
+                            },
+                            "title": {
+                                "$id": "#/properties/updates/items/anyOf/0/properties/title",
+                                "type": "string",
+                                "title": "The title schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "Cambios al tour"
+                                ]
+                            },
+                            "content": {
+                                "$id": "#/properties/updates/items/anyOf/0/properties/content",
+                                "type": "string",
+                                "title": "The content schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "El tour cambia de ruta desde el 2 de noviembre."
+                                ]
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        },
+        "faqs": {
+            "$id": "#/properties/faqs",
+            "type": "array",
+            "title": "The faqs schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "_id": {
+                            "$oid": "613e3070d2acf338c07a2d2b"
+                        },
+                        "question": "¿Qué pasa si llueve?",
+                        "answer": "Si llueve, el tour se suspende hasta que pare."
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/faqs/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/faqs/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "_id": {
+                                    "$oid": "613e3070d2acf338c07a2d2b"
+                                },
+                                "question": "¿Qué pasa si llueve?",
+                                "answer": "Si llueve, el tour se suspende hasta que pare."
+                            }
+                        ],
+                        "required": [
+                            "_id",
+                            "question",
+                            "answer"
+                        ],
+                        "properties": {
+                            "_id": {
+                                "$id": "#/properties/faqs/items/anyOf/0/properties/_id",
+                                "type": "object",
+                                "title": "The _id schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "$oid": "613e3070d2acf338c07a2d2b"
+                                    }
+                                ],
+                                "required": [
+                                    "$oid"
+                                ],
+                                "properties": {
+                                    "$oid": {
+                                        "$id": "#/properties/faqs/items/anyOf/0/properties/_id/properties/%24oid",
+                                        "type": "string",
+                                        "title": "The $oid schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "613e3070d2acf338c07a2d2b"
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": true
+                            },
+                            "question": {
+                                "$id": "#/properties/faqs/items/anyOf/0/properties/question",
+                                "type": "string",
+                                "title": "The question schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "¿Qué pasa si llueve?"
+                                ]
+                            },
+                            "answer": {
+                                "$id": "#/properties/faqs/items/anyOf/0/properties/answer",
+                                "type": "string",
+                                "title": "The answer schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "Si llueve, el tour se suspende hasta que pare."
+                                ]
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        },
+        "checkIn": {
+            "$id": "#/properties/checkIn",
+            "type": "object",
+            "title": "The checkIn schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "$date": "2021-09-12T00:00:00.000Z"
+                }
+            ],
+            "required": [
+                "$date"
+            ],
+            "properties": {
+                "$date": {
+                    "$id": "#/properties/checkIn/properties/%24date",
+                    "type": "string",
+                    "title": "The $date schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "2021-09-12T00:00:00.000Z"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "checkOut": {
+            "$id": "#/properties/checkOut",
+            "type": "object",
+            "title": "The checkOut schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "$date": "2021-09-20T00:00:00.000Z"
+                }
+            ],
+            "required": [
+                "$date"
+            ],
+            "properties": {
+                "$date": {
+                    "$id": "#/properties/checkOut/properties/%24date",
+                    "type": "string",
+                    "title": "The $date schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "2021-09-20T00:00:00.000Z"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "location": {
+            "$id": "#/properties/location",
+            "type": "object",
+            "title": "The location schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "address": "",
+                    "latitude": 0,
+                    "longitude": 0
+                }
+            ],
+            "required": [
+                "address",
+                "latitude",
+                "longitude"
+            ],
+            "properties": {
+                "address": {
+                    "$id": "#/properties/location/properties/address",
+                    "type": "string",
+                    "title": "The address schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        ""
+                    ]
+                },
+                "latitude": {
+                    "$id": "#/properties/location/properties/latitude",
+                    "type": "integer",
+                    "title": "The latitude schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        0
+                    ]
+                },
+                "longitude": {
+                    "$id": "#/properties/location/properties/longitude",
+                    "type": "integer",
+                    "title": "The longitude schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        0
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "departure": {
+            "$id": "#/properties/departure",
+            "type": "object",
+            "title": "The departure schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "$date": "2021-09-12T16:52:58.204Z"
+                }
+            ],
+            "required": [
+                "$date"
+            ],
+            "properties": {
+                "$date": {
+                    "$id": "#/properties/departure/properties/%24date",
+                    "type": "string",
+                    "title": "The $date schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "2021-09-12T16:52:58.204Z"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "departureLocation": {
+            "$id": "#/properties/departureLocation",
+            "type": "object",
+            "title": "The departureLocation schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "address": "",
+                    "latitude": 0,
+                    "longitude": 0
+                }
+            ],
+            "required": [
+                "address",
+                "latitude",
+                "longitude"
+            ],
+            "properties": {
+                "address": {
+                    "$id": "#/properties/departureLocation/properties/address",
+                    "type": "string",
+                    "title": "The address schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        ""
+                    ]
+                },
+                "latitude": {
+                    "$id": "#/properties/departureLocation/properties/latitude",
+                    "type": "integer",
+                    "title": "The latitude schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        0
+                    ]
+                },
+                "longitude": {
+                    "$id": "#/properties/departureLocation/properties/longitude",
+                    "type": "integer",
+                    "title": "The longitude schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        0
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "arrivalLocation": {
+            "$id": "#/properties/arrivalLocation",
+            "type": "object",
+            "title": "The arrivalLocation schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "address": "",
+                    "latitude": 0,
+                    "longitude": 0
+                }
+            ],
+            "required": [
+                "address",
+                "latitude",
+                "longitude"
+            ],
+            "properties": {
+                "address": {
+                    "$id": "#/properties/arrivalLocation/properties/address",
+                    "type": "string",
+                    "title": "The address schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        ""
+                    ]
+                },
+                "latitude": {
+                    "$id": "#/properties/arrivalLocation/properties/latitude",
+                    "type": "integer",
+                    "title": "The latitude schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        0
+                    ]
+                },
+                "longitude": {
+                    "$id": "#/properties/arrivalLocation/properties/longitude",
+                    "type": "integer",
+                    "title": "The longitude schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        0
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "transportType": {
+            "$id": "#/properties/transportType",
+            "type": "string",
+            "title": "The transportType schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "_class": {
+            "$id": "#/properties/_class",
+            "type": "string",
+            "title": "The _class schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "javeriana.ms.purchase.entities.Product"
+            ]
+        }
+    },
+    "additionalProperties": true
+}

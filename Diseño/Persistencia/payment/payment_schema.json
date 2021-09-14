@@ -1,0 +1,150 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "_id": {
+                "$oid": "613e3070d2acf338c07a2d2b"
+            },
+            "dateTime": {
+                "$date": "2021-09-12T16:52:58.204Z"
+            },
+            "card": {
+                "$ref": "card",
+                "$id": "1234567890123456"
+            },
+            "value": 100000,
+            "_class": "javeriana.ms.payment.entities.Payment"
+        }
+    ],
+    "required": [
+        "_id",
+        "dateTime",
+        "card",
+        "value",
+        "_class"
+    ],
+    "properties": {
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "object",
+            "title": "The _id schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "$oid": "613e3070d2acf338c07a2d2b"
+                }
+            ],
+            "required": [
+                "$oid"
+            ],
+            "properties": {
+                "$oid": {
+                    "$id": "#/properties/_id/properties/%24oid",
+                    "type": "string",
+                    "title": "The $oid schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "613e3070d2acf338c07a2d2b"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "dateTime": {
+            "$id": "#/properties/dateTime",
+            "type": "object",
+            "title": "The dateTime schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "$date": "2021-09-12T16:52:58.204Z"
+                }
+            ],
+            "required": [
+                "$date"
+            ],
+            "properties": {
+                "$date": {
+                    "$id": "#/properties/dateTime/properties/%24date",
+                    "type": "string",
+                    "title": "The $date schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "2021-09-12T16:52:58.204Z"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "card": {
+            "$id": "#/properties/card",
+            "type": "object",
+            "title": "The card schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "$ref": "card",
+                    "$id": "1234567890123456"
+                }
+            ],
+            "required": [
+                "$ref",
+                "$id"
+            ],
+            "properties": {
+                "$ref": {
+                    "$id": "#/properties/card/properties/%24ref",
+                    "type": "string",
+                    "title": "The $ref schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "card"
+                    ]
+                },
+                "$id": {
+                    "$id": "#/properties/card/properties/%24id",
+                    "type": "string",
+                    "title": "The $id schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "1234567890123456"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "value": {
+            "$id": "#/properties/value",
+            "type": "integer",
+            "title": "The value schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+                100000
+            ]
+        },
+        "_class": {
+            "$id": "#/properties/_class",
+            "type": "string",
+            "title": "The _class schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "javeriana.ms.payment.entities.Payment"
+            ]
+        }
+    },
+    "additionalProperties": true
+}
