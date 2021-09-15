@@ -1,0 +1,14 @@
+{
+    "_id": {
+        "$oid": "613e3070d2acf338c07a2d2b"
+    },
+    "dateTime": {
+        "$date": "2021-09-12T16:52:58.204Z"
+    },
+    "card": {
+        "$ref": "card",
+        "$id": "1234567890123456"
+    },
+    "value": 100000,
+    "_class": "javeriana.ms.payment.entities.Payment"
+}

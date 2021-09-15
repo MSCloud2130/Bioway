@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "cardNumber": "1234567890123456",
+            "expirationDate": "12/25",
+            "securityCode": "123",
+            "_class": "javeriana.ms.payment.entities.Card"
+        }
+    ],
+    "required": [
+        "cardNumber",
+        "expirationDate",
+        "securityCode",
+        "_class"
+    ],
+    "properties": {
+        "cardNumber": {
+            "$id": "#/properties/cardNumber",
+            "type": "string",
+            "title": "The cardNumber schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "1234567890123456"
+            ]
+        },
+        "expirationDate": {
+            "$id": "#/properties/expirationDate",
+            "type": "string",
+            "title": "The expirationDate schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "12/25"
+            ]
+        },
+        "securityCode": {
+            "$id": "#/properties/securityCode",
+            "type": "string",
+            "title": "The securityCode schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "123"
+            ]
+        },
+        "_class": {
+            "$id": "#/properties/_class",
+            "type": "string",
+            "title": "The _class schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "javeriana.ms.payment.entities.Card"
+            ]
+        }
+    },
+    "additionalProperties": true
+}
