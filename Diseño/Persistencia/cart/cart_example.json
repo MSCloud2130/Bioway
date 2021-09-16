@@ -1,8 +1,5 @@
 {
-    "_id": {
-        "$oid": "613e3070d2acf338c07a2d2b"
-    },
-    "customerId": "613e3070d2acf338c07a2d2b",
+    "_id": "613e3070d2acf338c07a2d2b",
     "totalCost": 100000,
     "items": [
         {

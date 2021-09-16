@@ -17,15 +17,18 @@
             "total": 90000,
             "supplier": {
                 "id": "613e3070d2acf338c07a2d2b",
-                "resource": ""
+                "resource": "",
+                "name": "Pablo Rodríguez"
             },
             "customer": {
                 "id": "613e3070d2acf338c07a2d2b",
-                "resource": ""
+                "resource": "",
+                "name": "Pedro Pérez"
             },
             "product": {
                 "id": "613e3070d2acf338c07a2d2b",
-                "resource": ""
+                "resource": "",
+                "name": "Tour Parque Tayrona"
             },
             "_class": "javeriana.ms.purchase.entities.Purchase"
         }
@@ -126,12 +129,14 @@
             "examples": [
                 {
                     "id": "613e3070d2acf338c07a2d2b",
-                    "resource": ""
+                    "resource": "",
+                    "name": "Pablo Rodríguez"
                 }
             ],
             "required": [
                 "id",
-                "resource"
+                "resource",
+                "name"
             ],
             "properties": {
                 "id": {
@@ -153,6 +158,16 @@
                     "examples": [
                         ""
                     ]
+                },
+                "name": {
+                    "$id": "#/properties/supplier/properties/name",
+                    "type": "string",
+                    "title": "The name schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "Pablo Rodríguez"
+                    ]
                 }
             },
             "additionalProperties": true
@@ -166,12 +181,14 @@
             "examples": [
                 {
                     "id": "613e3070d2acf338c07a2d2b",
-                    "resource": ""
+                    "resource": "",
+                    "name": "Pedro Pérez"
                 }
             ],
             "required": [
                 "id",
-                "resource"
+                "resource",
+                "name"
             ],
             "properties": {
                 "id": {
@@ -193,6 +210,16 @@
                     "examples": [
                         ""
                     ]
+                },
+                "name": {
+                    "$id": "#/properties/customer/properties/name",
+                    "type": "string",
+                    "title": "The name schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "Pedro Pérez"
+                    ]
                 }
             },
             "additionalProperties": true
@@ -206,12 +233,14 @@
             "examples": [
                 {
                     "id": "613e3070d2acf338c07a2d2b",
-                    "resource": ""
+                    "resource": "",
+                    "name": "Tour Parque Tayrona"
                 }
             ],
             "required": [
                 "id",
-                "resource"
+                "resource",
+                "name"
             ],
             "properties": {
                 "id": {
@@ -232,6 +261,16 @@
                     "default": "",
                     "examples": [
                         ""
+                    ]
+                },
+                "name": {
+                    "$id": "#/properties/product/properties/name",
+                    "type": "string",
+                    "title": "The name schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "Tour Parque Tayrona"
                     ]
                 }
             },

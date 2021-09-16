@@ -9,15 +9,18 @@
     "total": 90000,
     "supplier":{
         "id": "613e3070d2acf338c07a2d2b",
-        "resource": ""
+        "resource": "",
+        "name": "Pablo Rodríguez"
     },
     "customer":{
         "id": "613e3070d2acf338c07a2d2b",
-        "resource": ""
+        "resource": "",
+        "name": "Pedro Pérez"
     },
     "product":{
         "id": "613e3070d2acf338c07a2d2b",
-        "resource": ""
+        "resource": "",
+        "name": "Tour Parque Tayrona"
     },
     "_class": "javeriana.ms.purchase.entities.Purchase"
 }

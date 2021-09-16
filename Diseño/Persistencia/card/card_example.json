@@ -1,5 +1,6 @@
 {
     "cardNumber": "1234567890123456",
+    "name": "Pedro Pérez",
     "expirationDate": "12/25",
     "securityCode": "123",
     "_class": "javeriana.ms.payment.entities.Card"

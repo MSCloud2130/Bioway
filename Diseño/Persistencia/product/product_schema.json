@@ -26,6 +26,7 @@
                     },
                     "customer": {
                         "id": "613e3070d2acf338c07a2d2b",
+                        "name": "Pedro Perez",
                         "resource": ""
                     },
                     "dateTime": {
@@ -257,6 +258,7 @@
                         },
                         "customer": {
                             "id": "613e3070d2acf338c07a2d2b",
+                            "name": "Pedro Perez",
                             "resource": ""
                         },
                         "dateTime": {
@@ -284,6 +286,7 @@
                                 },
                                 "customer": {
                                     "id": "613e3070d2acf338c07a2d2b",
+                                    "name": "Pedro Perez",
                                     "resource": ""
                                 },
                                 "dateTime": {
@@ -338,11 +341,13 @@
                                 "examples": [
                                     {
                                         "id": "613e3070d2acf338c07a2d2b",
+                                        "name": "Pedro Perez",
                                         "resource": ""
                                     }
                                 ],
                                 "required": [
                                     "id",
+                                    "name",
                                     "resource"
                                 ],
                                 "properties": {
@@ -354,6 +359,16 @@
                                         "default": "",
                                         "examples": [
                                             "613e3070d2acf338c07a2d2b"
+                                        ]
+                                    },
+                                    "name": {
+                                        "$id": "#/properties/questions/items/anyOf/0/properties/customer/properties/name",
+                                        "type": "string",
+                                        "title": "The name schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "Pedro Perez"
                                         ]
                                     },
                                     "resource": {
