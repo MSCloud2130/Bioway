@@ -22,13 +22,6 @@ public class GetProductGetController {
         return ResponseEntity.status(HttpStatus.OK).body(product);
     }
 
-    //TODO: REMOVE
-    @PostMapping(value = "test", produces = "application/json")
-    public ResponseEntity createTestData(){
-        productFinder.addTestData();
-        return ResponseEntity.status(HttpStatus.OK).body(null);
-    }
-
     @ExceptionHandler(ProductNotFoundException.class)
     public ResponseEntity handleProductNotFoundException(ProductNotFoundException exception){
         HashMap<String,String> response = new HashMap<>(){{

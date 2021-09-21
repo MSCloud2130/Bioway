@@ -28,29 +28,4 @@ public class ProductFinder {
         return requestedProduct.get();
     }
 
-    //TODO: REMOVE
-    public void addTestData() {
-        Transport transportProduct = new Transport();
-        transportProduct.setName("Transporte a Parque Tayrona");
-        transportProduct.setDescription("Transporte desde el areopuerto de Santa Marta al Parque Tayrona");
-        List<String> transportLinks = new ArrayList<>();
-        transportLinks.add("https://www.youtube.com/");
-        transportProduct.setLinks(transportLinks);
-
-        ProductCustomer customer = new ProductCustomer();
-        customer.setId("12345");
-        customer.setName("Pedro Perez");
-        customer.setResource("recurso.com");
-
-        Question question = new Question();
-        question.setDate(LocalDateTime.now());
-        question.setContent("Cuanto dura el trayecto?");
-        question.setAuthor(customer);
-        transportProduct.addQuestion(question);
-
-        transportProduct.setTransportType("Van");
-
-        repository.save(transportProduct);
-    }
-
 }
