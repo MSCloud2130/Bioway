@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @RequestMapping("login")
@@ -21,12 +22,15 @@ public class AuthenticateUserPostController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity execute(@RequestBody LogInRequest request){
-        Token token=authenticator.execute(request.getEmail(), request.getPassword());
+        List<String> data=authenticator.execute(request.getEmail(), request.getPassword());
         HttpStatus status =HttpStatus.ACCEPTED;
-        if(token==null){
+        LogInResponse response=null;
+        if(data==null){
             status=HttpStatus.UNAUTHORIZED;
+        }else{
+            response=new LogInResponse(data.get(0),data.get(1));
         }
-        return ResponseEntity.status(status).body(token);
+        return ResponseEntity.status(status).body(response);
     }
 
     @ExceptionHandler(UserNotFoundException.class)
@@ -55,15 +59,25 @@ public class AuthenticateUserPostController {
     }
 
     static class LogInRequest{
+        private String id;
         private String email;
         private String password;
 
         public LogInRequest() {
         }
 
-        public LogInRequest(String email, String password) {
+        public LogInRequest(String id, String email, String password) {
+            this.id = id;
             this.email = email;
             this.password = password;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
         }
 
         public String getEmail() {
@@ -80,6 +94,35 @@ public class AuthenticateUserPostController {
 
         public void setPassword(String password) {
             this.password = password;
+        }
+    }
+
+    static class LogInResponse{
+        private String id;
+        private String token;
+
+        public LogInResponse() {
+        }
+
+        public LogInResponse(String id, String token) {
+            this.id = id;
+            this.token = token;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getToken() {
+            return token;
+        }
+
+        public void setToken(String token) {
+            this.token = token;
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.omega.bioway.suppliers.service;
 
 import com.omega.bioway.suppliers.business.SupplierCreator;
+import com.omega.bioway.suppliers.crosscutting.entities.Supplier;
 import com.omega.bioway.suppliers.crosscutting.exceptions.BadRequestException;
 import com.omega.bioway.suppliers.crosscutting.exceptions.SupplierAlreadyExistException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,10 @@ public class CreateSupplierPostController {
 
     @PostMapping()
     public ResponseEntity execute(@RequestBody CreateSupplierRequest request){
-        creator.execute(request.getEmail(), request.getName(),request.getAge(),request.getPicture(),
+        Supplier sup= creator.execute(request.getEmail(), request.getName(),request.getAge(),request.getPicture(),
                 request.getDescription(), request.getPhone(),request.getWebPage(),request.getSocialAccounts());
-        return ResponseEntity.status(HttpStatus.CREATED).body(null);
+        HashMap<String, String> response=sup.getAllData();
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
     }
 

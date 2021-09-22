@@ -158,11 +158,13 @@ public class Supplier {
             put("phone",phone);
             put("webPage",webPage);
             if(socialAccounts!=null){
-                for (int i=0;i<socialAccounts.size();i++) {
-                    put("SocialAccount"+i,socialAccounts.get(i));
-                }
+                put("socialAccounts",socialAccounts.toString());
             }
         }};
         return data;
+    }
+
+    public void setNewId() {
+        this.id = id = UUID.randomUUID().toString();
     }
 }

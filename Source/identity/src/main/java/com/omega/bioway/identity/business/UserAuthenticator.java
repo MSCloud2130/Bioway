@@ -11,6 +11,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Service;
 import io.jsonwebtoken.Jwts;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -24,6 +25,7 @@ public class UserAuthenticator {
     private final String ID="identity";
     private final String CLAIM="authorities";
     private final int validity=60000;
+    private final String ROLL="ROLL_";
 
     private UserRepository repository;
 
@@ -32,13 +34,15 @@ public class UserAuthenticator {
         this.repository = repository;
     }
 
-    public Token execute(String email, String password){
+    public List<String> execute(String email, String password){
         List<GrantedAuthority> grantedAuthorities= null;
         String token=null;
+        List<String> data=new ArrayList<>();
         Optional<User> user=repository.findByEmail(email);
         if(user.isPresent()){
             if(user.get().getPassword().equals(password)){
-                grantedAuthorities=AuthorityUtils.commaSeparatedStringToAuthorityList(user.get().getType());
+                data.add(user.get().getId());
+                grantedAuthorities=AuthorityUtils.commaSeparatedStringToAuthorityList(ROLL+user.get().getType());
                 token=Jwts.builder()
                         .setId(ID)
                         .setSubject(email)
@@ -48,7 +52,8 @@ public class UserAuthenticator {
                         .setExpiration(new Date(System.currentTimeMillis()+validity))
                         .signWith(SignatureAlgorithm.HS512, SECRET.getBytes()).compact();
                 token=PREFIX +token;
-                return new Token(token);
+                data.add(token);
+                return data;
             }
             return null;
         }else{

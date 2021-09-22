@@ -19,12 +19,16 @@ public class UserCreator {
         this.repository = repository;
     }
 
-    public void execute(String email, String password, String type){
+    public void execute(String id,String email, String password, String type){
         Optional<User> user=repository.findByEmail(email);
         if(user.isPresent()){
             throw new UserAlreadyExistException("User with email: "+email+" already exists");
         }
-        repository.save(new User(email,password,type));
+        user=repository.findById(id);
+        if(user.isPresent()){
+            throw new UserAlreadyExistException("User with id: "+id+" already exists");
+        }
+        repository.save(new User(id,email,password,type));
         return;
     }
 }

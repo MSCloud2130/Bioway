@@ -19,7 +19,7 @@ public class CreateUserPostController {
 
     @PostMapping()
     public ResponseEntity execute(@RequestBody CreateUserRequest request){
-        userCreator.execute(request.getEmail(),request.getPassword(), request.getType());
+        userCreator.execute(request.getId(),request.getEmail(),request.getPassword(), request.getType());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
 
     }
@@ -49,6 +49,7 @@ public class CreateUserPostController {
     }
 
     static class CreateUserRequest{
+        private String id;
         private String email;
         private String password;
         private String type;
@@ -56,10 +57,19 @@ public class CreateUserPostController {
         public CreateUserRequest() {
         }
 
-        public CreateUserRequest(String email, String password, String type) {
+        public CreateUserRequest(String id, String email, String password, String type) {
+            this.id = id;
             this.email = email;
             this.password = password;
             this.type = type;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
         }
 
         public String getEmail() {

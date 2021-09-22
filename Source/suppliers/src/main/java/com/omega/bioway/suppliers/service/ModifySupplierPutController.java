@@ -21,7 +21,7 @@ public class ModifySupplierPutController {
     private SupplierModifier modifier;
 
     @PutMapping(value = "/{supplier_id}")
-    public ResponseEntity execute(@PathParam("supplier_id") String supplierId, @RequestBody ModifySupplierRequest request){
+    public ResponseEntity execute(@PathVariable("supplier_id") String supplierId, @RequestBody ModifySupplierRequest request){
         modifier.execute(supplierId,request.getName(),request.getAge(),request.getPicture(),request.getDescription(),
                 request.getPhone(),request.getWebPage(),request.getSocialAccounts());
         return ResponseEntity.status(HttpStatus.OK).body(null);

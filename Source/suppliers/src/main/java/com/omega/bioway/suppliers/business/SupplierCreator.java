@@ -20,11 +20,23 @@ public class SupplierCreator {
         this.repository = repository;
     }
 
-    public void execute(String email, String name, int age, String picture, String description, String phone, String webPage, List<String> socialAccounts){
+    public Supplier execute(String email, String name, int age, String picture, String description, String phone, String webPage, List<String> socialAccounts){
         Optional<Supplier> sup=repository.findByEmail(email);
         if(sup.isPresent()){
             throw  new SupplierAlreadyExistException("Supplier with email: "+email+" already exist");
         }
-        repository.save(new Supplier(email,name,age,picture,description,phone,webPage,socialAccounts));
+        Supplier nSup=new Supplier(email,name,age,picture,description,phone,webPage,socialAccounts);
+        boolean exist=true;
+        do{
+            sup=repository.findById(nSup.getId());
+            if(sup.isEmpty()){
+                exist=false;
+            }else{
+                nSup.setNewId();
+            }
+        }while(exist);
+        repository.save(nSup);
+        return nSup;
     }
+
 }

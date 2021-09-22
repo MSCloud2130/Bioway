@@ -6,10 +6,7 @@ import com.omega.bioway.suppliers.crosscutting.exceptions.SupplierNotFoundExcept
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.PathParam;
 import java.util.HashMap;
@@ -22,7 +19,7 @@ public class DeleteSupplierDeleteController {
     private SupplierDeleter deleter;
 
     @DeleteMapping(value = "/{supplier_id}")
-    public ResponseEntity execute(@PathParam("supplier_id") String supplierId){
+    public ResponseEntity execute(@PathVariable("supplier_id") String supplierId){
         deleter.execute(supplierId);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }

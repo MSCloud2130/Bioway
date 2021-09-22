@@ -9,12 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 import java.util.HashMap;
 
 @RestController
@@ -25,7 +23,7 @@ public class FindSupplierGetController {
     private SupplierFinder finder;
 
     @GetMapping(value = "/{supplier_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity execute(@PathParam("supplier_id") String supplierId){
+    public ResponseEntity execute(@PathVariable(value ="supplier_id") String supplierId){
         Supplier supplier=finder.execute(supplierId);
         HashMap<String,String> response=supplier.getAllData();
         return ResponseEntity.status(HttpStatus.OK).body(response);

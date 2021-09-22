@@ -21,8 +21,9 @@ public class User {
         this.id = id = UUID.randomUUID().toString();
     }
 
-    public User(String email, String password, String type) {
-        this.id = UUID.randomUUID().toString();
+    public User(String id,String email, String password, String type) {
+        validateId(id);
+        this.id = id;
         this.validateEmail(email);
         this.email = email;
         this.validatePassword(password);
