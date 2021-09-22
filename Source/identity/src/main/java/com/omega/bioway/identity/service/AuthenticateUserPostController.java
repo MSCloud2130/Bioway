@@ -2,6 +2,7 @@ package com.omega.bioway.identity.service;
 
 import com.omega.bioway.identity.business.UserAuthenticator;
 import com.omega.bioway.identity.crosscutting.exceptions.BadRequestException;
+import com.omega.bioway.identity.crosscutting.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,6 +22,14 @@ public class AuthenticateUserPostController {
     public ResponseEntity execute(@RequestBody LogInRequest request){
         String token=authenticator.execute(request.getEmail(), request.getPassword());
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(token);
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<HashMap> handleUserNotFoundException(UserNotFoundException exception){
+        HashMap<String,String> response = new HashMap<>(){{
+            put("error",exception.getMessage());
+        }};
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
     @ExceptionHandler(BadRequestException.class)

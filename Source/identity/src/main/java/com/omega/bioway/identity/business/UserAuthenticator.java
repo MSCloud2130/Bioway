@@ -2,7 +2,7 @@ package com.omega.bioway.identity.business;
 
 import com.omega.bioway.identity.crosscutting.entities.User;
 import com.omega.bioway.identity.crosscutting.exceptions.BadRequestException;
-import com.omega.bioway.identity.crosscutting.exceptions.UserNotFound;
+import com.omega.bioway.identity.crosscutting.exceptions.UserNotFoundException;
 import com.omega.bioway.identity.dataaccess.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +29,7 @@ public class UserAuthenticator {
                 throw new BadRequestException("Incorrect password for user: "+email);
             }
         }else{
-            throw new UserNotFound("User with email: "+email+" not found");
+            throw new UserNotFoundException("User with email: "+email+" not found");
         }
     }
 }

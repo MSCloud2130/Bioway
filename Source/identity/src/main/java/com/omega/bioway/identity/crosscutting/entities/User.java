@@ -22,7 +22,7 @@ public class User {
     }
 
     public User(String email, String password, String type) {
-        this.id = id = UUID.randomUUID().toString();
+        this.id = UUID.randomUUID().toString();
         this.validateEmail(email);
         this.email = email;
         this.validatePassword(password);
@@ -56,11 +56,21 @@ public class User {
         }
     }
 
+    private void validateId(String id) {
+        try {
+            UUID.fromString(id);
+        }
+        catch (Exception e){
+            throw new BadRequestException("Invalid UUID");
+        }
+    }
+
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
+        validateId(id);
         this.id = id;
     }
 

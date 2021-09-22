@@ -5,7 +5,6 @@ import com.omega.bioway.identity.crosscutting.exceptions.BadRequestException;
 import com.omega.bioway.identity.crosscutting.exceptions.UserAlreadyExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +17,7 @@ public class CreateUserPostController {
     @Autowired
     private UserCreator userCreator;
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping()
     public ResponseEntity execute(@RequestBody CreateUserRequest request){
         userCreator.execute(request.getEmail(),request.getPassword(), request.getType());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
