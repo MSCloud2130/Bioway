@@ -1,8 +1,11 @@
-package com.omega.bioway.apigateway.service.user.entities.supplier;
+package com.omega.bioway.apigateway.service.user;
 
 import java.util.List;
 
-public class ModifySupplierRequest {
+public class RegisterRequest {
+    private String email;
+    private String password;
+    private String type;
     private String name;
     private int age;
     private String picture;
@@ -11,11 +14,15 @@ public class ModifySupplierRequest {
     private String webPage;
     private List<String> socialAccounts;
 
-    public ModifySupplierRequest() {
+    public RegisterRequest() {
     }
 
-    public ModifySupplierRequest(String name, int age, String picture, String description,
-                                 String phone, String webPage, List<String> socialAccounts) {
+    public RegisterRequest(String email, String password, String type, String name, int age,
+                           String picture, String description, String phone, String webPage,
+                           List<String> socialAccounts) {
+        this.email = email;
+        this.password = password;
+        this.type = type;
         this.name = name;
         this.age = age;
         this.picture = picture;
@@ -23,6 +30,30 @@ public class ModifySupplierRequest {
         this.phone = phone;
         this.webPage = webPage;
         this.socialAccounts = socialAccounts;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getName() {

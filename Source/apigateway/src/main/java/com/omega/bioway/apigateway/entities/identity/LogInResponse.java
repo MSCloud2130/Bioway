@@ -1,4 +1,4 @@
-package com.omega.bioway.apigateway.service.user.entities.identity;
+package com.omega.bioway.apigateway.entities.identity;
 
 public class LogInResponse{
     private String id;

@@ -1,12 +1,9 @@
-package com.omega.bioway.apigateway.service.user.entities;
+package com.omega.bioway.apigateway.entities.supplier;
 
 import java.util.List;
 
-public class SupplierRegisterResponse {
-    private String id;
+public class CreateSupplierRequest{
     private String email;
-    private String password;
-    private String type;
     private String name;
     private int age;
     private String picture;
@@ -15,16 +12,12 @@ public class SupplierRegisterResponse {
     private String webPage;
     private List<String> socialAccounts;
 
-    public SupplierRegisterResponse() {
+    public CreateSupplierRequest() {
     }
 
-    public SupplierRegisterResponse(String id, String email, String password, String type, String name, int age,
-                                    String picture, String description, String phone, String webPage,
-                                    List<String> socialAccounts) {
-        this.id = id;
+    public CreateSupplierRequest(String email, String name, int age, String picture, String description,
+                                 String phone, String webPage, List<String> socialAccounts) {
         this.email = email;
-        this.password = password;
-        this.type = type;
         this.name = name;
         this.age = age;
         this.picture = picture;
@@ -34,36 +27,12 @@ public class SupplierRegisterResponse {
         this.socialAccounts = socialAccounts;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getName() {

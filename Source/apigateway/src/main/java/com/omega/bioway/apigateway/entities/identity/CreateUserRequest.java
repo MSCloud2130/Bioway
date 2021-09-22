@@ -1,17 +1,19 @@
-package com.omega.bioway.apigateway.service.user.entities.identity;
+package com.omega.bioway.apigateway.entities.identity;
 
-public class LogInRequest{
+public class CreateUserRequest{
     private String id;
     private String email;
     private String password;
+    private String type;
 
-    public LogInRequest() {
+    public CreateUserRequest() {
     }
 
-    public LogInRequest(String id, String email, String password) {
+    public CreateUserRequest(String id, String email, String password, String type) {
         this.id = id;
         this.email = email;
         this.password = password;
+        this.type = type;
     }
 
     public String getId() {
@@ -36,5 +38,13 @@ public class LogInRequest{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

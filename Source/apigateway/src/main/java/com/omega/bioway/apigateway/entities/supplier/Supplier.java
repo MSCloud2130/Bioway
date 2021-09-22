@@ -1,4 +1,4 @@
-package com.omega.bioway.apigateway.service.user.entities.supplier;
+package com.omega.bioway.apigateway.entities.supplier;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

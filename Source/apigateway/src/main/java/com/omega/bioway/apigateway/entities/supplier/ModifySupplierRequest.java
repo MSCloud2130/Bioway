@@ -1,9 +1,8 @@
-package com.omega.bioway.apigateway.service.user.entities.supplier;
+package com.omega.bioway.apigateway.entities.supplier;
 
 import java.util.List;
 
-public class CreateSupplierRequest{
-    private String email;
+public class ModifySupplierRequest {
     private String name;
     private int age;
     private String picture;
@@ -12,12 +11,11 @@ public class CreateSupplierRequest{
     private String webPage;
     private List<String> socialAccounts;
 
-    public CreateSupplierRequest() {
+    public ModifySupplierRequest() {
     }
 
-    public CreateSupplierRequest(String email, String name, int age, String picture, String description,
+    public ModifySupplierRequest(String name, int age, String picture, String description,
                                  String phone, String webPage, List<String> socialAccounts) {
-        this.email = email;
         this.name = name;
         this.age = age;
         this.picture = picture;
@@ -25,14 +23,6 @@ public class CreateSupplierRequest{
         this.phone = phone;
         this.webPage = webPage;
         this.socialAccounts = socialAccounts;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getName() {
