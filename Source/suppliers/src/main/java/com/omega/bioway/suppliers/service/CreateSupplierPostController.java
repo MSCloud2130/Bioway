@@ -23,7 +23,7 @@ public class CreateSupplierPostController {
     public ResponseEntity execute(@RequestBody CreateSupplierRequest request){
         Supplier sup= creator.execute(request.getEmail(), request.getName(),request.getAge(),request.getPicture(),
                 request.getDescription(), request.getPhone(),request.getWebPage(),request.getSocialAccounts());
-        HashMap<String, String> response=sup.getAllData();
+        HashMap<String, Object> response=sup.getAllData();
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
     }

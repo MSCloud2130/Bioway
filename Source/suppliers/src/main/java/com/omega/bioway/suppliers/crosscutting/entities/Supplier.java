@@ -147,8 +147,8 @@ public class Supplier {
         this.socialAccounts = socialAccounts;
     }
 
-    public HashMap<String, String> getAllData() {
-        HashMap<String,String> data = new HashMap<String,String>(){{
+    public HashMap<String, Object> getAllData() {
+        HashMap<String,Object> data = new HashMap<String,Object>(){{
             put("id",id);
             put("email",email);
             put("name",name);
@@ -157,9 +157,7 @@ public class Supplier {
             put("description",description);
             put("phone",phone);
             put("webPage",webPage);
-            if(socialAccounts!=null){
-                put("socialAccounts",socialAccounts.toString());
-            }
+            put("socialAccounts",socialAccounts);
         }};
         return data;
     }

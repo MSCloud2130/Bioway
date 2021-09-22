@@ -25,7 +25,7 @@ public class FindSupplierGetController {
     @GetMapping(value = "/{supplier_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity execute(@PathVariable(value ="supplier_id") String supplierId){
         Supplier supplier=finder.execute(supplierId);
-        HashMap<String,String> response=supplier.getAllData();
+        HashMap<String,Object> response=supplier.getAllData();
         return ResponseEntity.status(HttpStatus.OK).body(response);
 
     }

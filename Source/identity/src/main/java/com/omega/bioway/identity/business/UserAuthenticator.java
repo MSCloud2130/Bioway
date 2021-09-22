@@ -39,25 +39,24 @@ public class UserAuthenticator {
         String token=null;
         List<String> data=new ArrayList<>();
         Optional<User> user=repository.findByEmail(email);
-        if(user.isPresent()){
-            if(user.get().getPassword().equals(password)){
-                data.add(user.get().getId());
-                grantedAuthorities=AuthorityUtils.commaSeparatedStringToAuthorityList(ROLL+user.get().getType());
-                token=Jwts.builder()
-                        .setId(ID)
-                        .setSubject(email)
-                        .claim(CLAIM,grantedAuthorities.stream().map(GrantedAuthority::getAuthority)
-                                .collect(Collectors.toList()))
-                        .setIssuedAt(new Date())
-                        .setExpiration(new Date(System.currentTimeMillis()+validity))
-                        .signWith(SignatureAlgorithm.HS512, SECRET.getBytes()).compact();
-                token=PREFIX +token;
-                data.add(token);
-                return data;
-            }
-            return null;
-        }else{
-            throw new UserNotFoundException("User with email: "+email+" not found");
+        if(user.isEmpty()) {
+            throw new UserNotFoundException("User with email: " + email + " not found");
         }
+        if(user.get().getPassword().equals(password)){
+            data.add(user.get().getId());
+            grantedAuthorities=AuthorityUtils.commaSeparatedStringToAuthorityList(ROLL+user.get().getType());
+            token=Jwts.builder()
+                    .setId(ID)
+                    .setSubject(email)
+                    .claim(CLAIM,grantedAuthorities.stream().map(GrantedAuthority::getAuthority)
+                            .collect(Collectors.toList()))
+                    .setIssuedAt(new Date())
+                    .setExpiration(new Date(System.currentTimeMillis()+validity))
+                    .signWith(SignatureAlgorithm.HS512, SECRET.getBytes()).compact();
+            token=PREFIX +token;
+            data.add(token);
+            return data;
+        }
+        return null;
     }
 }
