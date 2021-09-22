@@ -24,13 +24,6 @@ public class UserCreator {
         if(user.isPresent()){
             throw new UserAlreadyExistException("User with email: "+email+" already exists");
         }
-        if(type.equalsIgnoreCase("CUSTOMER")){
-            type="CUSTOMER";
-        }else if(type.equalsIgnoreCase("SUPPLIER")){
-            type="SUPPLIER";
-        }else{
-            throw new BadRequestException("Incorrect user type:"+type+". Pleas select: SUPPLIER or CUSTOMER");
-        }
         repository.save(new User(email,password,type));
         return;
     }

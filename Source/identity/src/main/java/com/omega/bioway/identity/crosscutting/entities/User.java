@@ -1,9 +1,12 @@
 package com.omega.bioway.identity.crosscutting.entities;
 
+import com.omega.bioway.identity.crosscutting.exceptions.BadRequestException;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Document(collection = "user")
 public class User {
@@ -20,9 +23,37 @@ public class User {
 
     public User(String email, String password, String type) {
         this.id = id = UUID.randomUUID().toString();
+        this.validateEmail(email);
         this.email = email;
+        this.validatePassword(password);
         this.password = password;
-        this.type = type;
+        this.type=this.validateType(type);
+    }
+
+    private String validateType(String type) {
+        if(type.equalsIgnoreCase("CUSTOMER")){
+            type="CUSTOMER";
+        }else if(type.equalsIgnoreCase("SUPPLIER")){
+            type="SUPPLIER";
+        }else{
+            throw new BadRequestException("Incorrect user type:"+type+". Pleas select: SUPPLIER or CUSTOMER");
+        }
+        return type;
+    }
+
+    private void validatePassword(String password) {
+        if(password.length()<=3){
+            throw new BadRequestException("Password must at least have 4 characters o numbers");
+        }
+        return;
+    }
+
+    private void validateEmail(String email) {
+        Pattern pattern = Pattern.compile("[a-z-A-Z-0-9]+@[a-z-A-Z]+(.(edu|com|co))+");
+        Matcher matcher = pattern.matcher(email);
+        if(!matcher.find()) {
+            throw new BadRequestException("Invalid email");
+        }
     }
 
     public String getId() {
@@ -38,6 +69,7 @@ public class User {
     }
 
     public void setEmail(String email) {
+        this.validateEmail(email);
         this.email = email;
     }
 
@@ -46,6 +78,7 @@ public class User {
     }
 
     public void setPassword(String password) {
+        this.validatePassword(password);
         this.password = password;
     }
 
@@ -54,6 +87,6 @@ public class User {
     }
 
     public void setType(String type) {
-        this.type = type;
+        this.type=this.validateType(type);
     }
 }
