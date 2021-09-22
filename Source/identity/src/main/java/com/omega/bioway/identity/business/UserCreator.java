@@ -20,7 +20,7 @@ public class UserCreator {
     }
 
     public void execute(String email, String password, String type){
-        Optional<User> user=repository.findById(email);
+        Optional<User> user=repository.findByEmail(email);
         if(user.isPresent()){
             throw new UserAlreadyExistException("User with email: "+email+" already exists");
         }
