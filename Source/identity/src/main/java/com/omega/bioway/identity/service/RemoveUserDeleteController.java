@@ -21,7 +21,7 @@ public class RemoveUserDeleteController {
 
     @DeleteMapping(value = "/{user_id}")
     public ResponseEntity execute(@PathVariable(value="user_id") String userId){
-
+        deleter.execute(userId);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 

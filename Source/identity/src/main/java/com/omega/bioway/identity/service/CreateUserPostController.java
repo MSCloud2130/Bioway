@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @RequestMapping("register")
@@ -19,9 +20,9 @@ public class CreateUserPostController {
 
     @PostMapping()
     public ResponseEntity execute(@RequestBody CreateUserRequest request){
-        userCreator.execute(request.getId(),request.getEmail(),request.getPassword(), request.getType());
-        return ResponseEntity.status(HttpStatus.CREATED).body(null);
-
+        List<String> data=userCreator.execute(request.getId(),request.getEmail(),request.getPassword(), request.getType());
+        RegisterResponse response=new RegisterResponse(data.get(0),data.get(1));
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @ExceptionHandler(UserAlreadyExistException.class)
@@ -94,6 +95,35 @@ public class CreateUserPostController {
 
         public void setType(String type) {
             this.type = type;
+        }
+    }
+
+    static class RegisterResponse{
+        private String id;
+        private String token;
+
+        public RegisterResponse() {
+        }
+
+        public RegisterResponse(String id, String token) {
+            this.id = id;
+            this.token = token;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getToken() {
+            return token;
+        }
+
+        public void setToken(String token) {
+            this.token = token;
         }
     }
 }
