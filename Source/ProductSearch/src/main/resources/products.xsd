@@ -1,0 +1,120 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+        targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+
+    <!--Generate the classes with mvn clean install-->
+    <!--All the clases are generated in target/generated-sources/jaxb/io/spring/guides/gs_producing_web_service/-->
+
+    <!--ALL PRODUCTS OPERATION-->
+    <xs:element name="getAllProductsRequest">
+        <xs:complexType>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAllProductsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="products" type="tns:ProductSOAP" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--FILTER BY NAME OPERATION-->
+    <xs:element name="findProductsByNameRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="productName" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="findProductsByNameResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="products" type="tns:ProductSOAP" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--FILTER BY TYPE OPERATION-->
+    <xs:element name="findProductsByTypeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="productType" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="findProductsByTypeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="products" type="tns:ProductSOAP" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--CREATE PRODUCT OPERATION-->
+    <xs:element name="createProductRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="productId" type="xs:string"/>
+                <xs:element name="productName" type="xs:string"/>
+                <xs:element name="productType" type="xs:string"/>
+                <xs:element name="productUri" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createProductResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="result" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--EDIT PRODUCT OPERATION-->
+    <xs:element name="editProductRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="productId" type="xs:string"/>
+                <xs:element name="productName" type="xs:string"/>
+                <xs:element name="productType" type="xs:string"/>
+                <xs:element name="productUri" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="editProductResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="result" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--DELETE PRODUCT OPERATION-->
+    <xs:element name="deleteProductRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="productId" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteProductResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="result" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="ProductSOAP">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="uri" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
