@@ -52,6 +52,23 @@
         </xs:complexType>
     </xs:element>
 
+    <!--FILTER BY SUPPLIER-ID OPERATION-->
+    <xs:element name="findProductsBySupplierIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="supplierId" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="findProductsBySupplierIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="products" type="tns:ProductSOAP" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <!--CREATE PRODUCT OPERATION-->
     <xs:element name="createProductRequest">
         <xs:complexType>
@@ -115,6 +132,7 @@
             <xs:element name="name" type="xs:string"/>
             <xs:element name="type" type="xs:string"/>
             <xs:element name="uri" type="xs:string"/>
+            <xs:element name="supplierId" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

@@ -5,7 +5,7 @@
     <soapenv:Header/>
     <soapenv:Body>
         <gs:findProductsByNameRequest>
-            <gs:productName>Viaje</gs:productName>
+            <gs:productName>Santa</gs:productName>
         </gs:findProductsByNameRequest>
     </soapenv:Body>
 </soapenv:Envelope>

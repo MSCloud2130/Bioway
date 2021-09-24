@@ -37,6 +37,7 @@ public class FilterProductByNameEndPointController {
             pSOAP.setName(p.getName());
             pSOAP.setType(p.getType());
             pSOAP.setUri(p.getUri());
+            pSOAP.setSupplierId(p.getSupplierId());
             response.getProducts().add(pSOAP);
         }
         return response;

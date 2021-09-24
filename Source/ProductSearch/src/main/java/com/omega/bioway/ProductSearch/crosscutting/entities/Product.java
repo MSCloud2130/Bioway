@@ -11,13 +11,15 @@ public class Product {
     private String name;
     private String type;
     private String uri;
+    private String supplierId;
 
     public Product(){}
 
-    public Product(String nName, String nType, String nUri){
+    public Product(String nName, String nType, String nUri, String nSupplierId){
         this.name = nName;
         this.type = nType;
         this.uri = nUri;
+        this.supplierId = nSupplierId;
     }
 
     public String getId(){
@@ -50,5 +52,13 @@ public class Product {
 
     public void setUri(String nUri){
         this.id = nUri;
+    }
+
+    public String getSupplierId(){
+        return this.supplierId;
+    }
+
+    public void setSupplierId(String nSupplierId){
+        this.supplierId = nSupplierId;
     }
 }
