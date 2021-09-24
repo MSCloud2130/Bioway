@@ -1,0 +1,105 @@
+[{
+  "_id": "43dcecc9-724c-4062-ac8f-402621f18485",
+  "checkIn": {
+    "$date": "2021-11-24T14:11:57.994Z"
+  },
+  "checkOut": {
+    "$date": "2021-12-01T14:11:57.994Z"
+  },
+  "location": {
+    "latitude": 11.243011201972344,
+    "longitude": -74.21494039215254,
+    "address": "Cra. 1c ##18-25, Santa Marta, Magdalena"
+  },
+  "price": 500000,
+  "name": "Hotel Santa Marta",
+  "type": "ACCOMMODATION",
+  "links": [
+    "https://www.youtube.com/",
+    "https://www.facebook.com/"
+  ],
+  "pictures": [
+    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.espanol.marriott.com%2Fhotels%2Ftravel%2Fsmrmc-santa-marta-marriott-resort-playa-dormida%2F&psig=AOvVaw39RnJb6G5Fg4UyxIHgHJ7c&ust=1632577237752000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCNDYt6Xel_MCFQAAAAAdAAAAABAD",
+    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tripadvisor.co%2FHotel_Review-g297484-d7810972-Reviews-Del_Mar_Hotel-Santa_Marta_Santa_Marta_Municipality_Magdalena_Department.html&psig=AOvVaw39RnJb6G5Fg4UyxIHgHJ7c&ust=1632577237752000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCNDYt6Xel_MCFQAAAAAdAAAAABAI"
+  ],
+  "description": "Hermoso hotel con playa privada.",
+  "supplier": {
+    "_id": "cd96b919-d54d-43ca-b648-b90153def1b2",
+    "name": "Pedro Perez",
+    "resource": "http://localhost:8080/suppliers/cd96b919-d54d-43ca-b648-b90153def1b2"
+  },
+  "questions": [],
+  "ratings": [],
+  "faqs": [
+    {
+      "_id": "9932ada3-3087-45fb-909a-4734b6858362",
+      "question": "¿Puedo llevar invitados a la playa?",
+      "answer": "No, solamente pueden ingresar los huéspedes del hotel."
+    }
+  ],
+  "updates": [
+    {
+      "_id": "faea0364-0ce8-466a-b5c7-7e666ad556b3",
+      "date": {
+        "$date": "2021-09-24T14:11:57.994Z"
+      },
+      "title": "Promoción Especial!",
+      "content": "¡Descuento del 20% hasta el 15 de octubre!¡No pierdas la oportunidad!"
+    }
+  ],
+  "_class": "com.omega.bioway.products.crosscutting.entities.Accommodation"
+},{
+  "_id": "227e4e0d-320e-491e-9258-15b100a7ed08",
+  "startTime": {
+    "$date": "2021-10-08T14:11:58.157Z"
+  },
+  "endTime": {
+    "$date": "2021-10-08T19:11:58.157Z"
+  },
+  "departureLocation": {
+    "latitude": 11.281764151608279,
+    "longitude": -73.91478437263598,
+    "address": "Entrada Parque Tayrona, Santa Marta, Magdalena"
+  },
+  "arrivalLocation": {
+    "latitude": 11.281764151608279,
+    "longitude": -73.91478437263598,
+    "address": "Entrada Parque Tayrona, Santa Marta, Magdalena"
+  },
+  "price": 200000,
+  "name": "Tour Parque Tayrona",
+  "type": "ECOTOUR",
+  "links": [
+    "https://www.youtube.com/",
+    "https://www.facebook.com/"
+  ],
+  "pictures": [
+    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.parquetayrona.com%2Fes%2Frazones-para-viajar-al-parque-tayrona%2F&psig=AOvVaw3TcdAIN5AzMmc4LW_FkyRt&ust=1632578468496000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCLCs1_Hil_MCFQAAAAAdAAAAABAD"
+  ],
+  "description": "Tour para entrar en contacto con la naturaleza.",
+  "supplier": {
+    "_id": "cd96b919-d54d-43ca-b648-b90153def1b2",
+    "name": "Pedro Perez",
+    "resource": "http://localhost:8080/suppliers/cd96b919-d54d-43ca-b648-b90153def1b2"
+  },
+  "questions": [],
+  "ratings": [],
+  "faqs": [
+    {
+      "_id": "9932ada3-3087-45fb-909a-4734b6858362",
+      "question": "¿Puedo llevar invitados a la playa?",
+      "answer": "No, solamente pueden ingresar los huéspedes del hotel."
+    }
+  ],
+  "updates": [
+    {
+      "_id": "faea0364-0ce8-466a-b5c7-7e666ad556b3",
+      "date": {
+        "$date": "2021-09-24T14:11:57.994Z"
+      },
+      "title": "Promoción Especial!",
+      "content": "¡Descuento del 20% hasta el 15 de octubre!¡No pierdas la oportunidad!"
+    }
+  ],
+  "_class": "com.omega.bioway.products.crosscutting.entities.EcoTour"
+}]
