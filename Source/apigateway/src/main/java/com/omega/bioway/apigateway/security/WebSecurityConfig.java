@@ -11,8 +11,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final String CUSTOMER="ROLL_CUSTOMER";
-    private final String SUPPLIER="ROLL_SUPPLIER";
+    private final String CUSTOMER="ROLE_CUSTOMER";
+    private final String SUPPLIER="ROLE_SUPPLIER";
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
