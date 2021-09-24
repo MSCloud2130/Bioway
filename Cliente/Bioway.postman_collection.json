@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f2906b87-aa2b-427d-9786-8be83585a8c6",
+		"_postman_id": "e21050cd-f652-497e-9ac1-af64dac8409e",
 		"name": "Bioway",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -186,86 +186,91 @@
 			]
 		},
 		{
-			"name": "Obtener producto",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/products/63922e5e-2c34-4c1e-a963-255a1119ce5b",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"products",
-						"63922e5e-2c34-4c1e-a963-255a1119ce5b"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Crear pregunta",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"questionContent\": \"La van tiene aire acondicionado?\",\r\n    \"userId\": \"123456\",\r\n    \"userName\": \"Pedro Perez\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Productos",
+			"item": [
+				{
+					"name": "Obtener producto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/227e4e0d-320e-491e-9258-15b100a7ed08",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"227e4e0d-320e-491e-9258-15b100a7ed08"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:9090/products/63922e5e-2c34-4c1e-a963-255a1119ce5b/questions",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"products",
-						"63922e5e-2c34-4c1e-a963-255a1119ce5b",
-						"questions"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Responder pregunta",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"answerContent\": \"Si.\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Crear pregunta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"questionContent\": \"¿El tour es apto para niños?\",\r\n    \"userId\": \"123456\",\r\n    \"userName\": \"Pedro Perez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/products/227e4e0d-320e-491e-9258-15b100a7ed08/questions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"products",
+								"227e4e0d-320e-491e-9258-15b100a7ed08",
+								"questions"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:9090/products/63922e5e-2c34-4c1e-a963-255a1119ce5b/questions/b192099f-ac83-4dbe-9799-35b896fe171b/answer",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"products",
-						"63922e5e-2c34-4c1e-a963-255a1119ce5b",
-						"questions",
-						"b192099f-ac83-4dbe-9799-35b896fe171b",
-						"answer"
-					]
+				{
+					"name": "Responder pregunta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"answerContent\": \"Claro que sí.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/products/227e4e0d-320e-491e-9258-15b100a7ed08/questions/7a5b6111-054a-43a1-b36f-abc22e768ca8/answer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"products",
+								"227e4e0d-320e-491e-9258-15b100a7ed08",
+								"questions",
+								"7a5b6111-054a-43a1-b36f-abc22e768ca8",
+								"answer"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
 			"name": "Create Supplier",
