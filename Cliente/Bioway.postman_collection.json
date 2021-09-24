@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "848aa89f-04a8-4879-9d45-117038c3f521",
+		"name": "Bioway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener producto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/63922e5e-2c34-4c1e-a963-255a1119ce5b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"63922e5e-2c34-4c1e-a963-255a1119ce5b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear pregunta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"questionContent\": \"La van tiene aire acondicionado?\",\r\n    \"userId\": \"123456\",\r\n    \"userName\": \"Pedro Perez\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/products/63922e5e-2c34-4c1e-a963-255a1119ce5b/questions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"products",
+						"63922e5e-2c34-4c1e-a963-255a1119ce5b",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Responder pregunta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"answerContent\": \"Si.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/products/63922e5e-2c34-4c1e-a963-255a1119ce5b/questions/b192099f-ac83-4dbe-9799-35b896fe171b/answer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"products",
+						"63922e5e-2c34-4c1e-a963-255a1119ce5b",
+						"questions",
+						"b192099f-ac83-4dbe-9799-35b896fe171b",
+						"answer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
