@@ -6,8 +6,8 @@ public class EcoTour extends Product{
 
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private LocalDateTime departureLocation;
-    private LocalDateTime arrivalLocation;
+    private Location departureLocation;
+    private Location arrivalLocation;
 
     public EcoTour() {
     }
@@ -28,19 +28,19 @@ public class EcoTour extends Product{
         this.endTime = endTime;
     }
 
-    public LocalDateTime getDepartureLocation() {
+    public Location getDepartureLocation() {
         return departureLocation;
     }
 
-    public void setDepartureLocation(LocalDateTime departureLocation) {
+    public void setDepartureLocation(Location departureLocation) {
         this.departureLocation = departureLocation;
     }
 
-    public LocalDateTime getArrivalLocation() {
+    public Location getArrivalLocation() {
         return arrivalLocation;
     }
 
-    public void setArrivalLocation(LocalDateTime arrivalLocation) {
+    public void setArrivalLocation(Location arrivalLocation) {
         this.arrivalLocation = arrivalLocation;
     }
 }

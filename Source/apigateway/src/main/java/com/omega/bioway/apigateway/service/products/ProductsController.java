@@ -7,6 +7,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 
@@ -24,17 +25,30 @@ public class ProductsController {
 
     @GetMapping(value = "products/{id}", produces = "application/json")
     public ResponseEntity getProduct(@PathVariable String id){
-        return restTemplate.getForEntity("http://products-service/products/{id}", Object.class, id);
+        try {
+            return restTemplate.getForEntity("http://products-service/products/{id}", Object.class, id);
+        } catch(HttpClientErrorException e) {
+            return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
+        }
+
     }
 
     @PostMapping(value = "products/{productId}/questions", consumes = "application/json")
     public ResponseEntity createQuestion(@PathVariable String productId, @RequestBody CreateQuestionRequest request){
-        return restTemplate.postForEntity("http://products-service/products/{productId}/questions", request, Object.class, productId);
+        try {
+            return restTemplate.postForEntity("http://products-service/products/{productId}/questions", request, Object.class, productId);
+        } catch(HttpClientErrorException e) {
+            return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
+        }
     }
 
     @PutMapping(value = "products/{productId}/questions/{questionId}/answer", consumes = "application/json")
-    public ResponseEntity execute(@PathVariable String productId, @PathVariable String questionId, @RequestBody SubmitAnswerRequest request) {
-        return restTemplate.exchange("http://products-service/products/{productId}/questions/{questionId}/answer", HttpMethod.PUT, new HttpEntity<>(request), Object.class, productId, questionId);
+    public ResponseEntity submitAnswer(@PathVariable String productId, @PathVariable String questionId, @RequestBody SubmitAnswerRequest request) {
+        try {
+            return restTemplate.exchange("http://products-service/products/{productId}/questions/{questionId}/answer", HttpMethod.PUT, new HttpEntity<>(request), Object.class, productId, questionId);
+        } catch(HttpClientErrorException e) {
+            return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
+        }
     }
 
 

@@ -11,8 +11,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final String CUSTOMER="ROLL_CUSTOMER";
-    private final String SUPPLIER="ROLL_SUPPLIER";
+    private final String CUSTOMER="ROLE_CUSTOMER";
+    private final String SUPPLIER="ROLE_SUPPLIER";
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -25,6 +25,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET,"/supplier/{supplier_id}").permitAll()
                 .antMatchers(HttpMethod.PUT,"/suppliers/{supplier_id}").hasAnyAuthority(SUPPLIER)
                 .antMatchers(HttpMethod.DELETE,"/suppliers/{supplier_id}").hasAnyAuthority(SUPPLIER)
+                .antMatchers(HttpMethod.GET,"/products/{id}").permitAll()
+                .antMatchers(HttpMethod.POST,"/products/{productId}/questions").hasAnyAuthority(CUSTOMER)
+                .antMatchers(HttpMethod.PUT,"/products/{productId}/questions").hasAnyAuthority(SUPPLIER)
                 .anyRequest().authenticated();
     }
 }

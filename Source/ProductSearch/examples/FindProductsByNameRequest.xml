@@ -1,0 +1,11 @@
+<!--This is an example to test the Find Products By Name Request-->
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+				xmlns:gs="http://spring.io/guides/gs-producing-web-service">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <gs:findProductsByNameRequest>
+            <gs:productName>Santa</gs:productName>
+        </gs:findProductsByNameRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

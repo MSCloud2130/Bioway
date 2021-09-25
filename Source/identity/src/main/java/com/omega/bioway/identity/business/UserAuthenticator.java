@@ -25,7 +25,7 @@ public class UserAuthenticator {
     private final String ID="identity";
     private final String CLAIM="authorities";
     private final int validity=60000;
-    private final String ROLL="ROLL_";
+    private final String ROLL="ROLE_";
 
     private UserRepository repository;
 

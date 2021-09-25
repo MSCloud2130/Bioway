@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+				xmlns:gs="http://spring.io/guides/gs-producing-web-service">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <gs:findProductsBySupplierIdRequest>
+            <gs:supplierId>cd96b919-d54d-43ca-b648-b90153def1b2</gs:supplierId>
+        </gs:findProductsBySupplierIdRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
