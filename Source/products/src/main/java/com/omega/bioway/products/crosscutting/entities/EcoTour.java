@@ -4,28 +4,28 @@ import java.time.LocalDateTime;
 
 public class EcoTour extends Product{
 
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
+    private LocalDateTime departureTime;
+    private LocalDateTime arrivalTime;
     private Location departureLocation;
     private Location arrivalLocation;
 
     public EcoTour() {
     }
 
-    public LocalDateTime getStartTime() {
-        return startTime;
+    public LocalDateTime getDepartureTime() {
+        return departureTime;
     }
 
-    public void setStartTime(LocalDateTime startTime) {
-        this.startTime = startTime;
+    public void setDepartureTime(LocalDateTime departureTime) {
+        this.departureTime = departureTime;
     }
 
-    public LocalDateTime getEndTime() {
-        return endTime;
+    public LocalDateTime getArrivalTime() {
+        return arrivalTime;
     }
 
-    public void setEndTime(LocalDateTime endTime) {
-        this.endTime = endTime;
+    public void setArrivalTime(LocalDateTime arrivalTime) {
+        this.arrivalTime = arrivalTime;
     }
 
     public Location getDepartureLocation() {
