@@ -22,9 +22,9 @@ public class CustomerGetController {
     @Autowired
     AllCustomersFinder customersFinder;
 
-    @GetMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity execute(@PathVariable String id){
-        Customer customer = customerFinder.execute(id);
+    @GetMapping(value = "/{customer_id}", produces = "application/json")
+    public ResponseEntity execute(@PathVariable(value = "customer_id") String customer_id){
+        Customer customer = customerFinder.execute(customer_id);
         return ResponseEntity.status(HttpStatus.OK).body(customer);
     }
 

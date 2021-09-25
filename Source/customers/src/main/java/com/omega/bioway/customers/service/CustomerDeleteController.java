@@ -18,8 +18,8 @@ public class CustomerDeleteController {
     @Autowired
     CustomerDeleter customerDeleter;
 
-    @DeleteMapping(value = "/{customerId}/", consumes = "application/json")
-    public ResponseEntity execute(@PathVariable String customerId){
+    @DeleteMapping(value = "/{customer_id}/", consumes = "application/json")
+    public ResponseEntity execute(@PathVariable(value = "customer_id") String customerId){
         customerDeleter.execute(customerId);
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }

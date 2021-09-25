@@ -17,9 +17,9 @@ public class CustomerPutController {
     @Autowired
     CustomerUpdater customerUpdater;
 
-    @PutMapping(value = "/{customerId}/", consumes = "application/json")
-    public ResponseEntity execute(@RequestBody Customer customer){
-        customerUpdater.execute(customer);
+    @PutMapping(value = "/{customer_id}/", consumes = "application/json")
+    public ResponseEntity execute(@RequestBody Customer customer, @PathVariable(value = "customer_id") String customerId){
+        customerUpdater.execute(customer, customerId);
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 

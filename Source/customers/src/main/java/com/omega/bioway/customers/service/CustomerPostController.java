@@ -19,8 +19,8 @@ public class CustomerPostController {
 
     @PostMapping(value = "/{customerId}", produces = "application/json")
     public ResponseEntity execute(@RequestBody Customer customer){
-        customerCreator.execute(customer);
-        return ResponseEntity.status(HttpStatus.CREATED).body(null);
+        Customer customerResult = customerCreator.execute(customer);
+        return ResponseEntity.status(HttpStatus.CREATED).body(customerResult);
     }
 
     @ExceptionHandler(Exception.class)
