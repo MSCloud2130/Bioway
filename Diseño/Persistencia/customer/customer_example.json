@@ -1,11 +1,9 @@
 {
-    "_id": {
-        "$oid": "613e3070d2acf338c07a2d2b"
-    },
-    "email": "pedro.perez@gmail.com",
-    "name": "Pedro Perez",
-    "age": 25,
-    "picture": "",
-    "description": "Me gusta viajar.",
-    "_class": "javeriana.ms.customer.entities.Customer"
+    "_id": "8c11d34a-61cb-4b40-b269-a6864a2aeb6b",
+    "name": "Pedro tully",
+    "email": "pedtul@supplier.com",
+    "age": 30,
+    "picture": "picture",
+    "description": "description",
+    "_class": "com.omega.bioway.customers.crosscutting.entities.Customer"
 }
