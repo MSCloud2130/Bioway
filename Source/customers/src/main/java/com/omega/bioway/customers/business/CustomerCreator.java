@@ -12,8 +12,9 @@ public class CustomerCreator {
     @Autowired
     CustomerRepository repository;
 
-    public void execute(Customer customer){
+    public Customer execute(Customer customer){
         repository.save(customer);
+        return customer;
     }
 
 }

@@ -14,8 +14,8 @@ public class CustomerUpdater {
     @Autowired
     CustomerFinder finder;
 
-    public void execute(Customer customer){
-        finder.execute(customer.getId());
+    public void execute(Customer customer, String customerId){
+        finder.execute(customerId);
         repository.save(customer);
     }
 }
