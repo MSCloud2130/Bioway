@@ -43,7 +43,7 @@ public class ProductsController {
     }
 
     @PutMapping(value = "products/{productId}/questions/{questionId}/answer", consumes = "application/json")
-    public ResponseEntity execute(@PathVariable String productId, @PathVariable String questionId, @RequestBody SubmitAnswerRequest request) {
+    public ResponseEntity submitAnswer(@PathVariable String productId, @PathVariable String questionId, @RequestBody SubmitAnswerRequest request) {
         try {
             return restTemplate.exchange("http://products-service/products/{productId}/questions/{questionId}/answer", HttpMethod.PUT, new HttpEntity<>(request), Object.class, productId, questionId);
         } catch(HttpClientErrorException e) {
