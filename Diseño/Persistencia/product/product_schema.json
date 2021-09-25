@@ -2,32 +2,28 @@
     "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "http://example.com/example.json",
     "type": "object",
-    "title": "The root schema",
-    "description": "The root schema comprises the entire JSON document.",
+    "title": "product schema",
+    "description": "Schema usado para la persistencia de los productos en el microservicio products",
     "default": {},
     "examples": [
         {
-            "_id": {
-                "$oid": "613e3070d2acf338c07a2d2b"
-            },
+            "_id": "43dcecc9-724c-4062-ac8f-402621f18485",
             "name": "Tour Parque Tayrona",
             "price": 90000,
             "type": "ECOTOUR",
             "supplier": {
                 "id": "613e3070d2acf338c07a2d2b",
                 "name": "Pedro Perez",
-                "resource": ""
+                "resource": "http://localhost:8080/suppliers/43dcecc9-724c-4062-ac8f-402621f18485"
             },
             "description": "",
             "questions": [
                 {
-                    "_id": {
-                        "$oid": "613e3070d2acf338c07a2d2b"
-                    },
-                    "customer": {
-                        "id": "613e3070d2acf338c07a2d2b",
+                    "_id": "43dcecc9-724c-4062-ac8f-402621f18485",
+                    "author": {
+                        "id": "43dcecc9-724c-4062-ac8f-402621f18485",
                         "name": "Pedro Perez",
-                        "resource": ""
+                        "resource": "http://localhost:8080/customers/43dcecc9-724c-4062-ac8f-402621f18485"
                     },
                     "dateTime": {
                         "$date": "2021-09-12T16:52:58.204Z"
@@ -38,25 +34,24 @@
             ],
             "ratings": [
                 {
-                    "customer": {
-                        "id": "613e3070d2acf338c07a2d2b",
-                        "resource": ""
+                    "author": {
+                        "id": "43dcecc9-724c-4062-ac8f-402621f18485",
+                        "name": "Pedro Perez",
+                        "resource": "http://localhost:8080/customers/43dcecc9-724c-4062-ac8f-402621f18485"
                     },
                     "value": 4,
                     "comment": "Muy bueno."
                 }
             ],
             "links": [
-                ""
+                "https://www.youtube.com/"
             ],
             "pictures": [
-                ""
+                "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.semana.com%2Fimpacto%2Farticulo%2Fparque-tayrona-reabrira-sus-puertas-al-ecoturismo-en-noviembre---colombia-hoy%2F57078%2F&psig=AOvVaw3uNGbT3snTff0edcmXCB8k&ust=1632677684262000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCLix273UmvMCFQAAAAAdAAAAABAI"
             ],
             "updates": [
                 {
-                    "_id": {
-                        "$oid": "613e3070d2acf338c07a2d2b"
-                    },
+                    "_id": "43dcecc9-724c-4062-ac8f-402621f18485",
                     "dateTime": {
                         "$date": "2021-09-12T16:52:58.204Z"
                     },
@@ -66,9 +61,7 @@
             ],
             "faqs": [
                 {
-                    "_id": {
-                        "$oid": "613e3070d2acf338c07a2d2b"
-                    },
+                    "_id": "43dcecc9-724c-4062-ac8f-402621f18485",
                     "question": "¿Qué pasa si llueve?",
                     "answer": "Si llueve, el tour se suspende hasta que pare."
                 }
@@ -80,25 +73,33 @@
                 "$date": "2021-09-20T00:00:00.000Z"
             },
             "location": {
-                "address": "",
-                "latitude": 0,
-                "longitude": 0
+                "latitude": 11.281764151608279,
+                "longitude": -73.91478437263598,
+                "address": "Entrada Parque Tayrona, Santa Marta, Magdalena"
             },
-            "departure": {
+            "departureTime": {
+                "$date": "2021-09-12T16:52:58.204Z"
+            },
+            "arrivalTime": {
                 "$date": "2021-09-12T16:52:58.204Z"
             },
             "departureLocation": {
-                "address": "",
-                "latitude": 0,
-                "longitude": 0
+                "latitude": 11.281764151608279,
+                "longitude": -73.91478437263598,
+                "address": "Entrada Parque Tayrona, Santa Marta, Magdalena"
             },
             "arrivalLocation": {
-                "address": "",
-                "latitude": 0,
-                "longitude": 0
+                "latitude": 11.281764151608279,
+                "longitude": -73.91478437263598,
+                "address": "Entrada Parque Tayrona, Santa Marta, Magdalena"
             },
-            "transportType": "",
-            "_class": "javeriana.ms.purchase.entities.Product"
+            "transportType": "BUS",
+            "includedItems": [
+                "hamburguesa",
+                "papas",
+                "gaseosa"
+            ],
+            "_class": "com.omega.bioway.products.crosscutting.entities.EcoTour"
         }
     ],
     "required": [
@@ -107,56 +108,24 @@
         "price",
         "type",
         "supplier",
-        "description",
-        "questions",
-        "ratings",
-        "links",
-        "pictures",
-        "updates",
-        "faqs",
-        "checkIn",
-        "checkOut",
-        "location",
-        "departure",
-        "departureLocation",
-        "arrivalLocation",
-        "transportType",
         "_class"
     ],
     "properties": {
         "_id": {
             "$id": "#/properties/_id",
-            "type": "object",
-            "title": "The _id schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": {},
+            "type": "string",
+            "title": "_id schema",
+            "description": "UUID que identifica al producto",
+            "default": "",
             "examples": [
-                {
-                    "$oid": "613e3070d2acf338c07a2d2b"
-                }
-            ],
-            "required": [
-                "$oid"
-            ],
-            "properties": {
-                "$oid": {
-                    "$id": "#/properties/_id/properties/%24oid",
-                    "type": "string",
-                    "title": "The $oid schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        "613e3070d2acf338c07a2d2b"
-                    ]
-                }
-            },
-            "additionalProperties": true
+                "43dcecc9-724c-4062-ac8f-402621f18485"
+            ]
         },
         "name": {
             "$id": "#/properties/name",
             "type": "string",
-            "title": "The name schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "name schema",
+            "description": "Nombre del producto",
             "default": "",
             "examples": [
                 "Tour Parque Tayrona"
@@ -164,9 +133,9 @@
         },
         "price": {
             "$id": "#/properties/price",
-            "type": "integer",
-            "title": "The price schema",
-            "description": "An explanation about the purpose of this instance.",
+            "type": "number",
+            "title": "price schema",
+            "description": "Precio del producto.",
             "default": 0,
             "examples": [
                 90000
@@ -176,23 +145,26 @@
             "$id": "#/properties/type",
             "type": "string",
             "title": "The type schema",
-            "description": "An explanation about the purpose of this instance.",
+            "description": "Tipo del producto. Puede tomar los valores TRANSPORT, ACCOMMODATION, ECOTOUR o FOODANDDRINK",
             "default": "",
             "examples": [
-                "ECOTOUR"
+                "ECOTOUR",
+                "ACCOMMODATION",
+                "ECOTOUR",
+                "FOODANDDRINK"
             ]
         },
         "supplier": {
             "$id": "#/properties/supplier",
             "type": "object",
-            "title": "The supplier schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "supplier schema",
+            "description": "Representación del proveedor del producto.",
             "default": {},
             "examples": [
                 {
                     "id": "613e3070d2acf338c07a2d2b",
                     "name": "Pedro Perez",
-                    "resource": ""
+                    "resource": "http://localhost:8080/suppliers/43dcecc9-724c-4062-ac8f-402621f18485"
                 }
             ],
             "required": [
@@ -204,8 +176,8 @@
                 "id": {
                     "$id": "#/properties/supplier/properties/id",
                     "type": "string",
-                    "title": "The id schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "supplier id schema",
+                    "description": "UUID que identifica al proveedor.",
                     "default": "",
                     "examples": [
                         "613e3070d2acf338c07a2d2b"
@@ -214,8 +186,8 @@
                 "name": {
                     "$id": "#/properties/supplier/properties/name",
                     "type": "string",
-                    "title": "The name schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "supplier name schema",
+                    "description": "Nombre del proveedor.",
                     "default": "",
                     "examples": [
                         "Pedro Perez"
@@ -224,11 +196,11 @@
                 "resource": {
                     "$id": "#/properties/supplier/properties/resource",
                     "type": "string",
-                    "title": "The resource schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "supplier resource schema",
+                    "description": "URI del recurso del proveedor.",
                     "default": "",
                     "examples": [
-                        ""
+                        "http://localhost:8080/suppliers/43dcecc9-724c-4062-ac8f-402621f18485"
                     ]
                 }
             },
@@ -237,29 +209,27 @@
         "description": {
             "$id": "#/properties/description",
             "type": "string",
-            "title": "The description schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "description schema",
+            "description": "Descripción del producto.",
             "default": "",
             "examples": [
-                ""
+                "Tour para entrar en contacto con la naturaleza."
             ]
         },
         "questions": {
             "$id": "#/properties/questions",
             "type": "array",
-            "title": "The questions schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "questions schema",
+            "description": "Lista de preguntas acerca del producto realizadas por clientes.",
             "default": [],
             "examples": [
                 [
                     {
-                        "_id": {
-                            "$oid": "613e3070d2acf338c07a2d2b"
-                        },
-                        "customer": {
-                            "id": "613e3070d2acf338c07a2d2b",
+                        "_id": "43dcecc9-724c-4062-ac8f-402621f18485",
+                        "author": {
+                            "id": "43dcecc9-724c-4062-ac8f-402621f18485",
                             "name": "Pedro Perez",
-                            "resource": ""
+                            "resource": "http://localhost:8080/customers/43dcecc9-724c-4062-ac8f-402621f18485"
                         },
                         "dateTime": {
                             "$date": "2021-09-12T16:52:58.204Z"
@@ -276,18 +246,16 @@
                     {
                         "$id": "#/properties/questions/items/anyOf/0",
                         "type": "object",
-                        "title": "The first anyOf schema",
-                        "description": "An explanation about the purpose of this instance.",
+                        "title": "question schema",
+                        "description": "Objeto de pregunta realizada por cliente.",
                         "default": {},
                         "examples": [
                             {
-                                "_id": {
-                                    "$oid": "613e3070d2acf338c07a2d2b"
-                                },
-                                "customer": {
-                                    "id": "613e3070d2acf338c07a2d2b",
+                                "_id": "43dcecc9-724c-4062-ac8f-402621f18485",
+                                "author": {
+                                    "id": "43dcecc9-724c-4062-ac8f-402621f18485",
                                     "name": "Pedro Perez",
-                                    "resource": ""
+                                    "resource": "http://localhost:8080/customers/43dcecc9-724c-4062-ac8f-402621f18485"
                                 },
                                 "dateTime": {
                                     "$date": "2021-09-12T16:52:58.204Z"
@@ -298,7 +266,7 @@
                         ],
                         "required": [
                             "_id",
-                            "customer",
+                            "author",
                             "dateTime",
                             "content",
                             "answer"
@@ -306,43 +274,25 @@
                         "properties": {
                             "_id": {
                                 "$id": "#/properties/questions/items/anyOf/0/properties/_id",
-                                "type": "object",
-                                "title": "The _id schema",
-                                "description": "An explanation about the purpose of this instance.",
-                                "default": {},
+                                "type": "string",
+                                "title": "question _id schema",
+                                "description": "UUID que identifica a la pregunta.",
+                                "default": "",
                                 "examples": [
-                                    {
-                                        "$oid": "613e3070d2acf338c07a2d2b"
-                                    }
-                                ],
-                                "required": [
-                                    "$oid"
-                                ],
-                                "properties": {
-                                    "$oid": {
-                                        "$id": "#/properties/questions/items/anyOf/0/properties/_id/properties/%24oid",
-                                        "type": "string",
-                                        "title": "The $oid schema",
-                                        "description": "An explanation about the purpose of this instance.",
-                                        "default": "",
-                                        "examples": [
-                                            "613e3070d2acf338c07a2d2b"
-                                        ]
-                                    }
-                                },
-                                "additionalProperties": true
+                                    "43dcecc9-724c-4062-ac8f-402621f18485"
+                                ]
                             },
-                            "customer": {
+                            "author": {
                                 "$id": "#/properties/questions/items/anyOf/0/properties/customer",
                                 "type": "object",
-                                "title": "The customer schema",
-                                "description": "An explanation about the purpose of this instance.",
+                                "title": "question author schema",
+                                "description": "Representación del cliente que realizó la pregunta.",
                                 "default": {},
                                 "examples": [
                                     {
-                                        "id": "613e3070d2acf338c07a2d2b",
+                                        "id": "43dcecc9-724c-4062-ac8f-402621f18485",
                                         "name": "Pedro Perez",
-                                        "resource": ""
+                                        "resource": "http://localhost:8080/customers/43dcecc9-724c-4062-ac8f-402621f18485"
                                     }
                                 ],
                                 "required": [
@@ -354,18 +304,18 @@
                                     "id": {
                                         "$id": "#/properties/questions/items/anyOf/0/properties/customer/properties/id",
                                         "type": "string",
-                                        "title": "The id schema",
-                                        "description": "An explanation about the purpose of this instance.",
+                                        "title": "customer id schema",
+                                        "description": "UUID que identifica al cliente.",
                                         "default": "",
                                         "examples": [
-                                            "613e3070d2acf338c07a2d2b"
+                                            "43dcecc9-724c-4062-ac8f-402621f18485"
                                         ]
                                     },
                                     "name": {
                                         "$id": "#/properties/questions/items/anyOf/0/properties/customer/properties/name",
                                         "type": "string",
-                                        "title": "The name schema",
-                                        "description": "An explanation about the purpose of this instance.",
+                                        "title": "customer name schema",
+                                        "description": "Nombre del cliente.",
                                         "default": "",
                                         "examples": [
                                             "Pedro Perez"
@@ -374,11 +324,11 @@
                                     "resource": {
                                         "$id": "#/properties/questions/items/anyOf/0/properties/customer/properties/resource",
                                         "type": "string",
-                                        "title": "The resource schema",
-                                        "description": "An explanation about the purpose of this instance.",
+                                        "title": "customer resource schema",
+                                        "description": "URI del recurso del cliente.",
                                         "default": "",
                                         "examples": [
-                                            ""
+                                            "http://localhost:8080/customers/43dcecc9-724c-4062-ac8f-402621f18485"
                                         ]
                                     }
                                 },
@@ -387,8 +337,8 @@
                             "dateTime": {
                                 "$id": "#/properties/questions/items/anyOf/0/properties/dateTime",
                                 "type": "object",
-                                "title": "The dateTime schema",
-                                "description": "An explanation about the purpose of this instance.",
+                                "title": "question dateTime schema",
+                                "description": "Objeto de fecha en que se creó la pregunta.",
                                 "default": {},
                                 "examples": [
                                     {
@@ -402,8 +352,8 @@
                                     "$date": {
                                         "$id": "#/properties/questions/items/anyOf/0/properties/dateTime/properties/%24date",
                                         "type": "string",
-                                        "title": "The $date schema",
-                                        "description": "An explanation about the purpose of this instance.",
+                                        "title": "question $date schema",
+                                        "description": "Fecha y hora en que se creó la pregunta.",
                                         "default": "",
                                         "examples": [
                                             "2021-09-12T16:52:58.204Z"
@@ -415,8 +365,8 @@
                             "content": {
                                 "$id": "#/properties/questions/items/anyOf/0/properties/content",
                                 "type": "string",
-                                "title": "The content schema",
-                                "description": "An explanation about the purpose of this instance.",
+                                "title": "question content schema",
+                                "description": "Contenido de la pregunta.",
                                 "default": "",
                                 "examples": [
                                     "¿Cuánto dura el tour?"
@@ -425,8 +375,8 @@
                             "answer": {
                                 "$id": "#/properties/questions/items/anyOf/0/properties/answer",
                                 "type": "string",
-                                "title": "The answer schema",
-                                "description": "An explanation about the purpose of this instance.",
+                                "title": "question answer schema",
+                                "description": "Contenido de la respuesta a la pregunta.",
                                 "default": "",
                                 "examples": [
                                     "2 horas."
@@ -441,15 +391,16 @@
         "ratings": {
             "$id": "#/properties/ratings",
             "type": "array",
-            "title": "The ratings schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "ratings schema",
+            "description": "Lista de calificaciones del producto.",
             "default": [],
             "examples": [
                 [
                     {
-                        "customer": {
-                            "id": "613e3070d2acf338c07a2d2b",
-                            "resource": ""
+                        "author": {
+                            "id": "43dcecc9-724c-4062-ac8f-402621f18485",
+                            "name": "Pedro Perez",
+                            "resource": "http://localhost:8080/customers/43dcecc9-724c-4062-ac8f-402621f18485"
                         },
                         "value": 4,
                         "comment": "Muy bueno."
@@ -463,60 +414,72 @@
                     {
                         "$id": "#/properties/ratings/items/anyOf/0",
                         "type": "object",
-                        "title": "The first anyOf schema",
-                        "description": "An explanation about the purpose of this instance.",
+                        "title": "rating schema",
+                        "description": "Objeto de calificación del producto.",
                         "default": {},
                         "examples": [
                             {
-                                "customer": {
-                                    "id": "613e3070d2acf338c07a2d2b",
-                                    "resource": ""
+                                "author": {
+                                    "id": "43dcecc9-724c-4062-ac8f-402621f18485",
+                                    "name": "Pedro Perez",
+                                    "resource": "http://localhost:8080/customers/43dcecc9-724c-4062-ac8f-402621f18485"
                                 },
                                 "value": 4,
                                 "comment": "Muy bueno."
                             }
                         ],
                         "required": [
-                            "customer",
-                            "value",
-                            "comment"
+                            "author",
+                            "value"
                         ],
                         "properties": {
-                            "customer": {
+                            "author": {
                                 "$id": "#/properties/ratings/items/anyOf/0/properties/customer",
                                 "type": "object",
-                                "title": "The customer schema",
-                                "description": "An explanation about the purpose of this instance.",
+                                "title": "question author schema",
+                                "description": "Representación del autor de la pregunta.",
                                 "default": {},
                                 "examples": [
                                     {
-                                        "id": "613e3070d2acf338c07a2d2b",
-                                        "resource": ""
+                                        "id": "43dcecc9-724c-4062-ac8f-402621f18485",
+                                        "name": "Pedro Perez",
+                                        "resource": "http://localhost:8080/customers/43dcecc9-724c-4062-ac8f-402621f18485"
                                     }
                                 ],
                                 "required": [
                                     "id",
+                                    "name",
                                     "resource"
                                 ],
                                 "properties": {
                                     "id": {
                                         "$id": "#/properties/ratings/items/anyOf/0/properties/customer/properties/id",
                                         "type": "string",
-                                        "title": "The id schema",
-                                        "description": "An explanation about the purpose of this instance.",
+                                        "title": "customer id schema",
+                                        "description": "UUID que identifica al cliente.",
                                         "default": "",
                                         "examples": [
-                                            "613e3070d2acf338c07a2d2b"
+                                            "43dcecc9-724c-4062-ac8f-402621f18485"
+                                        ]
+                                    },
+                                    "name": {
+                                        "$id": "#/properties/ratings/items/anyOf/0/properties/customer/properties/name",
+                                        "type": "string",
+                                        "title": "customer name schema",
+                                        "description": "Nombre del cliente.",
+                                        "default": "",
+                                        "examples": [
+                                            "Pedro Perez"
                                         ]
                                     },
                                     "resource": {
                                         "$id": "#/properties/ratings/items/anyOf/0/properties/customer/properties/resource",
                                         "type": "string",
-                                        "title": "The resource schema",
-                                        "description": "An explanation about the purpose of this instance.",
+                                        "title": "customer resource schema",
+                                        "description": "URI del recurso del cliente.",
                                         "default": "",
                                         "examples": [
-                                            ""
+                                            "http://localhost:8080/customers/43dcecc9-724c-4062-ac8f-402621f18485"
                                         ]
                                     }
                                 },
@@ -525,18 +488,23 @@
                             "value": {
                                 "$id": "#/properties/ratings/items/anyOf/0/properties/value",
                                 "type": "integer",
-                                "title": "The value schema",
-                                "description": "An explanation about the purpose of this instance.",
+                                "title": "rating value schema",
+                                "description": "Valor de la calificación. Es un número entero entre 0 y 5",
                                 "default": 0,
                                 "examples": [
-                                    4
+                                    0,
+                                    1,
+                                    2,
+                                    3,
+                                    4,
+                                    5
                                 ]
                             },
                             "comment": {
                                 "$id": "#/properties/ratings/items/anyOf/0/properties/comment",
                                 "type": "string",
-                                "title": "The comment schema",
-                                "description": "An explanation about the purpose of this instance.",
+                                "title": "rating comment schema",
+                                "description": "Comentario de la calificación.",
                                 "default": "",
                                 "examples": [
                                     "Muy bueno."
@@ -551,12 +519,12 @@
         "links": {
             "$id": "#/properties/links",
             "type": "array",
-            "title": "The links schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "links schema",
+            "description": "Lista de enlaces de interés.",
             "default": [],
             "examples": [
                 [
-                    ""
+                    "https://www.youtube.com/"
                 ]
             ],
             "additionalItems": true,
@@ -566,11 +534,11 @@
                     {
                         "$id": "#/properties/links/items/anyOf/0",
                         "type": "string",
-                        "title": "The first anyOf schema",
-                        "description": "An explanation about the purpose of this instance.",
+                        "title": "link schema",
+                        "description": "Enlace de interés.",
                         "default": "",
                         "examples": [
-                            ""
+                            "https://www.youtube.com/"
                         ]
                     }
                 ]
@@ -579,12 +547,12 @@
         "pictures": {
             "$id": "#/properties/pictures",
             "type": "array",
-            "title": "The pictures schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "pictures schema",
+            "description": "Lista de imágenes del producto.",
             "default": [],
             "examples": [
                 [
-                    ""
+                    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.semana.com%2Fimpacto%2Farticulo%2Fparque-tayrona-reabrira-sus-puertas-al-ecoturismo-en-noviembre---colombia-hoy%2F57078%2F&psig=AOvVaw3uNGbT3snTff0edcmXCB8k&ust=1632677684262000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCLix273UmvMCFQAAAAAdAAAAABAI"
                 ]
             ],
             "additionalItems": true,
@@ -594,11 +562,11 @@
                     {
                         "$id": "#/properties/pictures/items/anyOf/0",
                         "type": "string",
-                        "title": "The first anyOf schema",
-                        "description": "An explanation about the purpose of this instance.",
+                        "title": "image schema",
+                        "description": "Enlace de imagen del producto.",
                         "default": "",
                         "examples": [
-                            ""
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.semana.com%2Fimpacto%2Farticulo%2Fparque-tayrona-reabrira-sus-puertas-al-ecoturismo-en-noviembre---colombia-hoy%2F57078%2F&psig=AOvVaw3uNGbT3snTff0edcmXCB8k&ust=1632677684262000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCLix273UmvMCFQAAAAAdAAAAABAI"
                         ]
                     }
                 ]
@@ -607,15 +575,13 @@
         "updates": {
             "$id": "#/properties/updates",
             "type": "array",
-            "title": "The updates schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "updates schema",
+            "description": "Lista de novedades del producto.",
             "default": [],
             "examples": [
                 [
                     {
-                        "_id": {
-                            "$oid": "613e3070d2acf338c07a2d2b"
-                        },
+                        "_id": "43dcecc9-724c-4062-ac8f-402621f18485",
                         "dateTime": {
                             "$date": "2021-09-12T16:52:58.204Z"
                         },
@@ -631,14 +597,12 @@
                     {
                         "$id": "#/properties/updates/items/anyOf/0",
                         "type": "object",
-                        "title": "The first anyOf schema",
-                        "description": "An explanation about the purpose of this instance.",
+                        "title": "update schema",
+                        "description": "Objeto de novedad del producto.",
                         "default": {},
                         "examples": [
                             {
-                                "_id": {
-                                    "$oid": "613e3070d2acf338c07a2d2b"
-                                },
+                                "_id": "43dcecc9-724c-4062-ac8f-402621f18485",
                                 "dateTime": {
                                     "$date": "2021-09-12T16:52:58.204Z"
                                 },
@@ -655,37 +619,19 @@
                         "properties": {
                             "_id": {
                                 "$id": "#/properties/updates/items/anyOf/0/properties/_id",
-                                "type": "object",
-                                "title": "The _id schema",
-                                "description": "An explanation about the purpose of this instance.",
-                                "default": {},
+                                "type": "string",
+                                "title": "update _id schema",
+                                "description": "UUID que identifica a la novedad.",
+                                "default": "",
                                 "examples": [
-                                    {
-                                        "$oid": "613e3070d2acf338c07a2d2b"
-                                    }
-                                ],
-                                "required": [
-                                    "$oid"
-                                ],
-                                "properties": {
-                                    "$oid": {
-                                        "$id": "#/properties/updates/items/anyOf/0/properties/_id/properties/%24oid",
-                                        "type": "string",
-                                        "title": "The $oid schema",
-                                        "description": "An explanation about the purpose of this instance.",
-                                        "default": "",
-                                        "examples": [
-                                            "613e3070d2acf338c07a2d2b"
-                                        ]
-                                    }
-                                },
-                                "additionalProperties": true
+                                    "43dcecc9-724c-4062-ac8f-402621f18485"
+                                ]
                             },
                             "dateTime": {
                                 "$id": "#/properties/updates/items/anyOf/0/properties/dateTime",
                                 "type": "object",
-                                "title": "The dateTime schema",
-                                "description": "An explanation about the purpose of this instance.",
+                                "title": "update dateTime schema",
+                                "description": "Fecha en la que se publicó la novedad.",
                                 "default": {},
                                 "examples": [
                                     {
@@ -699,8 +645,8 @@
                                     "$date": {
                                         "$id": "#/properties/updates/items/anyOf/0/properties/dateTime/properties/%24date",
                                         "type": "string",
-                                        "title": "The $date schema",
-                                        "description": "An explanation about the purpose of this instance.",
+                                        "title": "update $date schema",
+                                        "description": "Fecha y hora en la que se publicó la novedad.",
                                         "default": "",
                                         "examples": [
                                             "2021-09-12T16:52:58.204Z"
@@ -712,8 +658,8 @@
                             "title": {
                                 "$id": "#/properties/updates/items/anyOf/0/properties/title",
                                 "type": "string",
-                                "title": "The title schema",
-                                "description": "An explanation about the purpose of this instance.",
+                                "title": "update title schema",
+                                "description": "Título de la novedad.",
                                 "default": "",
                                 "examples": [
                                     "Cambios al tour"
@@ -722,8 +668,8 @@
                             "content": {
                                 "$id": "#/properties/updates/items/anyOf/0/properties/content",
                                 "type": "string",
-                                "title": "The content schema",
-                                "description": "An explanation about the purpose of this instance.",
+                                "title": "update content schema",
+                                "description": "Contenido de la novedad.",
                                 "default": "",
                                 "examples": [
                                     "El tour cambia de ruta desde el 2 de noviembre."
@@ -738,15 +684,13 @@
         "faqs": {
             "$id": "#/properties/faqs",
             "type": "array",
-            "title": "The faqs schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "faqs schema",
+            "description": "Lista de preguntas frecuentes del producto.",
             "default": [],
             "examples": [
                 [
                     {
-                        "_id": {
-                            "$oid": "613e3070d2acf338c07a2d2b"
-                        },
+                        "_id": "43dcecc9-724c-4062-ac8f-402621f18485",
                         "question": "¿Qué pasa si llueve?",
                         "answer": "Si llueve, el tour se suspende hasta que pare."
                     }
@@ -759,14 +703,12 @@
                     {
                         "$id": "#/properties/faqs/items/anyOf/0",
                         "type": "object",
-                        "title": "The first anyOf schema",
-                        "description": "An explanation about the purpose of this instance.",
+                        "title": "faq",
+                        "description": "Objeto de pregunta frecuente.",
                         "default": {},
                         "examples": [
                             {
-                                "_id": {
-                                    "$oid": "613e3070d2acf338c07a2d2b"
-                                },
+                                "_id": "43dcecc9-724c-4062-ac8f-402621f18485",
                                 "question": "¿Qué pasa si llueve?",
                                 "answer": "Si llueve, el tour se suspende hasta que pare."
                             }
@@ -779,37 +721,19 @@
                         "properties": {
                             "_id": {
                                 "$id": "#/properties/faqs/items/anyOf/0/properties/_id",
-                                "type": "object",
-                                "title": "The _id schema",
-                                "description": "An explanation about the purpose of this instance.",
-                                "default": {},
+                                "type": "string",
+                                "title": "faq _id schema",
+                                "description": "UUID que identifica a la pregunta frecuente.",
+                                "default": "",
                                 "examples": [
-                                    {
-                                        "$oid": "613e3070d2acf338c07a2d2b"
-                                    }
-                                ],
-                                "required": [
-                                    "$oid"
-                                ],
-                                "properties": {
-                                    "$oid": {
-                                        "$id": "#/properties/faqs/items/anyOf/0/properties/_id/properties/%24oid",
-                                        "type": "string",
-                                        "title": "The $oid schema",
-                                        "description": "An explanation about the purpose of this instance.",
-                                        "default": "",
-                                        "examples": [
-                                            "613e3070d2acf338c07a2d2b"
-                                        ]
-                                    }
-                                },
-                                "additionalProperties": true
+                                    "43dcecc9-724c-4062-ac8f-402621f18485"
+                                ]
                             },
                             "question": {
                                 "$id": "#/properties/faqs/items/anyOf/0/properties/question",
                                 "type": "string",
-                                "title": "The question schema",
-                                "description": "An explanation about the purpose of this instance.",
+                                "title": "question schema",
+                                "description": "Contenido de la pregunta frecuente.",
                                 "default": "",
                                 "examples": [
                                     "¿Qué pasa si llueve?"
@@ -818,8 +742,8 @@
                             "answer": {
                                 "$id": "#/properties/faqs/items/anyOf/0/properties/answer",
                                 "type": "string",
-                                "title": "The answer schema",
-                                "description": "An explanation about the purpose of this instance.",
+                                "title": "faq answer schema",
+                                "description": "Contenido de la respuesta a la pregunta frecuente.",
                                 "default": "",
                                 "examples": [
                                     "Si llueve, el tour se suspende hasta que pare."
@@ -834,8 +758,8 @@
         "checkIn": {
             "$id": "#/properties/checkIn",
             "type": "object",
-            "title": "The checkIn schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "checkIn schema",
+            "description": "Fecha para la cual está programado el check-in. Solo aplica para productos de tipo ACCOMMODATION.",
             "default": {},
             "examples": [
                 {
@@ -849,8 +773,8 @@
                 "$date": {
                     "$id": "#/properties/checkIn/properties/%24date",
                     "type": "string",
-                    "title": "The $date schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "checkin $date schema",
+                    "description": "Fecha y hora a la que está programado el check-in.",
                     "default": "",
                     "examples": [
                         "2021-09-12T00:00:00.000Z"
@@ -862,8 +786,8 @@
         "checkOut": {
             "$id": "#/properties/checkOut",
             "type": "object",
-            "title": "The checkOut schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "checkOut schema",
+            "description": "Fecha para la cual está programado el check-out. Solo aplica para productos de tipo ACCOMMODATION.",
             "default": {},
             "examples": [
                 {
@@ -877,8 +801,8 @@
                 "$date": {
                     "$id": "#/properties/checkOut/properties/%24date",
                     "type": "string",
-                    "title": "The $date schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "checkout $date schema",
+                    "description": "Fecha y hora a la que está programado el check-out.",
                     "default": "",
                     "examples": [
                         "2021-09-20T00:00:00.000Z"
@@ -890,60 +814,60 @@
         "location": {
             "$id": "#/properties/location",
             "type": "object",
-            "title": "The location schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "location schema",
+            "description": "Ubicación donde se prestará el servicio. Solo aplica para productos de tipo ACCOMMODATION.",
             "default": {},
             "examples": [
                 {
-                    "address": "",
-                    "latitude": 0,
-                    "longitude": 0
+                    "latitude": 11.281764151608279,
+                    "longitude": -73.91478437263598,
+                    "address": "Entrada Parque Tayrona, Santa Marta, Magdalena"
                 }
             ],
             "required": [
-                "address",
                 "latitude",
-                "longitude"
+                "longitude",
+                "address"
             ],
             "properties": {
-                "address": {
-                    "$id": "#/properties/location/properties/address",
-                    "type": "string",
-                    "title": "The address schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        ""
-                    ]
-                },
                 "latitude": {
                     "$id": "#/properties/location/properties/latitude",
-                    "type": "integer",
-                    "title": "The latitude schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": 0,
+                    "type": "number",
+                    "title": "latitude schema",
+                    "description": "Coordenada de latitud.",
+                    "default": 0.0,
                     "examples": [
-                        0
+                        11.281764151608279
                     ]
                 },
                 "longitude": {
                     "$id": "#/properties/location/properties/longitude",
-                    "type": "integer",
-                    "title": "The longitude schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": 0,
+                    "type": "number",
+                    "title": "longitude schema",
+                    "description": "Coordenada de longitud.",
+                    "default": 0.0,
                     "examples": [
-                        0
+                        -73.91478437263598
+                    ]
+                },
+                "address": {
+                    "$id": "#/properties/location/properties/address",
+                    "type": "string",
+                    "title": "address schema",
+                    "description": "Dirección de la ubicación.",
+                    "default": "",
+                    "examples": [
+                        "Entrada Parque Tayrona, Santa Marta, Magdalena"
                     ]
                 }
             },
             "additionalProperties": true
         },
-        "departure": {
-            "$id": "#/properties/departure",
+        "departureTime": {
+            "$id": "#/properties/departureTime",
             "type": "object",
-            "title": "The departure schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "departureTime schema",
+            "description": "Fecha y hora de partida. Solo aplica para productos de tipo TRANSPORT o ECOTOUR.",
             "default": {},
             "examples": [
                 {
@@ -955,10 +879,38 @@
             ],
             "properties": {
                 "$date": {
-                    "$id": "#/properties/departure/properties/%24date",
+                    "$id": "#/properties/departureTime/properties/%24date",
                     "type": "string",
-                    "title": "The $date schema",
-                    "description": "An explanation about the purpose of this instance.",
+                    "title": "departureTime $date schema",
+                    "description": "Fecha y hora.",
+                    "default": "",
+                    "examples": [
+                        "2021-09-12T16:52:58.204Z"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "arrivalTime": {
+            "$id": "#/properties/arrivalTime",
+            "type": "object",
+            "title": "arrivalTime schema",
+            "description": "Fecha y hora de llegada. Solo aplica para productos de tipo TRANSPORT o ECOTOUR.",
+            "default": {},
+            "examples": [
+                {
+                    "$date": "2021-09-12T16:52:58.204Z"
+                }
+            ],
+            "required": [
+                "$date"
+            ],
+            "properties": {
+                "$date": {
+                    "$id": "#/properties/arrivalTime/properties/%24date",
+                    "type": "string",
+                    "title": "departureTime $date schema",
+                    "description": "Fecha y hora.",
                     "default": "",
                     "examples": [
                         "2021-09-12T16:52:58.204Z"
@@ -970,50 +922,50 @@
         "departureLocation": {
             "$id": "#/properties/departureLocation",
             "type": "object",
-            "title": "The departureLocation schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "departureLocation schema",
+            "description": "Ubicación de partida solo aplica para productos de tipo TRANSPORT o ECOTOUR.",
             "default": {},
             "examples": [
                 {
-                    "address": "",
-                    "latitude": 0,
-                    "longitude": 0
+                    "latitude": 11.281764151608279,
+                    "longitude": -73.91478437263598,
+                    "address": "Entrada Parque Tayrona, Santa Marta, Magdalena"
                 }
             ],
             "required": [
-                "address",
                 "latitude",
-                "longitude"
+                "longitude",
+                "address"
             ],
             "properties": {
-                "address": {
-                    "$id": "#/properties/departureLocation/properties/address",
-                    "type": "string",
-                    "title": "The address schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        ""
-                    ]
-                },
                 "latitude": {
                     "$id": "#/properties/departureLocation/properties/latitude",
-                    "type": "integer",
-                    "title": "The latitude schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": 0,
+                    "type": "number",
+                    "title": "latitude schema",
+                    "description": "Coordenada de latitud.",
+                    "default": 0.0,
                     "examples": [
-                        0
+                        11.281764151608279
                     ]
                 },
                 "longitude": {
                     "$id": "#/properties/departureLocation/properties/longitude",
-                    "type": "integer",
-                    "title": "The longitude schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": 0,
+                    "type": "number",
+                    "title": "longitude schema",
+                    "description": "Coordenada de longitud.",
+                    "default": 0.0,
                     "examples": [
-                        0
+                        -73.91478437263598
+                    ]
+                },
+                "address": {
+                    "$id": "#/properties/departureLocation/properties/address",
+                    "type": "string",
+                    "title": "address schema",
+                    "description": "Dirección de la ubicación.",
+                    "default": "",
+                    "examples": [
+                        "Entrada Parque Tayrona, Santa Marta, Magdalena"
                     ]
                 }
             },
@@ -1022,50 +974,50 @@
         "arrivalLocation": {
             "$id": "#/properties/arrivalLocation",
             "type": "object",
-            "title": "The arrivalLocation schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "arrivalLocation schema",
+            "description": "Ubicación de llegada solo aplica para productos de tipo TRANSPORT o ECOTOUR.",
             "default": {},
             "examples": [
                 {
-                    "address": "",
-                    "latitude": 0,
-                    "longitude": 0
+                    "latitude": 11.281764151608279,
+                    "longitude": -73.91478437263598,
+                    "address": "Entrada Parque Tayrona, Santa Marta, Magdalena"
                 }
             ],
             "required": [
-                "address",
                 "latitude",
-                "longitude"
+                "longitude",
+                "address"
             ],
             "properties": {
-                "address": {
-                    "$id": "#/properties/arrivalLocation/properties/address",
-                    "type": "string",
-                    "title": "The address schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        ""
-                    ]
-                },
                 "latitude": {
                     "$id": "#/properties/arrivalLocation/properties/latitude",
-                    "type": "integer",
-                    "title": "The latitude schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": 0,
+                    "type": "number",
+                    "title": "latitude schema",
+                    "description": "Coordenada de latitud.",
+                    "default": 0.0,
                     "examples": [
-                        0
+                        11.281764151608279
                     ]
                 },
                 "longitude": {
                     "$id": "#/properties/arrivalLocation/properties/longitude",
-                    "type": "integer",
-                    "title": "The longitude schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": 0,
+                    "type": "number",
+                    "title": "longitude schema",
+                    "description": "Coordenada de longitud.",
+                    "default": 0.0,
                     "examples": [
-                        0
+                        -73.91478437263598
+                    ]
+                },
+                "address": {
+                    "$id": "#/properties/arrivalLocation/properties/address",
+                    "type": "string",
+                    "title": "address schema",
+                    "description": "Dirección de la ubicación.",
+                    "default": "",
+                    "examples": [
+                        "Entrada Parque Tayrona, Santa Marta, Magdalena"
                     ]
                 }
             },
@@ -1074,21 +1026,51 @@
         "transportType": {
             "$id": "#/properties/transportType",
             "type": "string",
-            "title": "The transportType schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "transportType schema",
+            "description": "Tipo de transporte. Solo aplica para productos de tipo TRANSPORT.",
             "default": "",
             "examples": [
-                ""
+                "BUS"
             ]
+        },
+        "includedItems": {
+            "$id": "#/properties/includedItems",
+            "type": "array",
+            "title": "includedItems schema",
+            "description": "Lista de items incluidos en producto de implementación. Solo aplica para productos de tipo FOODANDDRINK.",
+            "default": [],
+            "examples": [
+                [
+                    "hamburguesa",
+                    "papas"
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/includedItems/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/includedItems/items/anyOf/0",
+                        "type": "string",
+                        "title": "item schema",
+                        "description": "Item incluido en producto de alimentación.",
+                        "default": "",
+                        "examples": [
+                            "hamburguesa",
+                            "papas"
+                        ]
+                    }
+                ]
+            }
         },
         "_class": {
             "$id": "#/properties/_class",
             "type": "string",
-            "title": "The _class schema",
-            "description": "An explanation about the purpose of this instance.",
+            "title": "_class schema",
+            "description": "Clase de la aplicación a la que se mapea el objeto.",
             "default": "",
             "examples": [
-                "javeriana.ms.purchase.entities.Product"
+                "com.omega.bioway.products.crosscutting.entities.EcoTour"
             ]
         }
     },
