@@ -50,10 +50,10 @@
   "_class": "com.omega.bioway.products.crosscutting.entities.Accommodation"
 },{
   "_id": "227e4e0d-320e-491e-9258-15b100a7ed08",
-  "startTime": {
+  "departureTime": {
     "$date": "2021-10-08T14:11:58.157Z"
   },
-  "endTime": {
+  "arrivalTime": {
     "$date": "2021-10-08T19:11:58.157Z"
   },
   "departureLocation": {
@@ -82,7 +82,21 @@
     "name": "Pedro Perez",
     "resource": "http://localhost:8080/suppliers/cd96b919-d54d-43ca-b648-b90153def1b2"
   },
-  "questions": [],
+  "questions": [
+    {
+      "_id": "7a5b6111-054a-43a1-b36f-abc22e768ca8",
+      "content": "¿El tour es apto para niños?",
+      "answer": "Claro que sí.",
+      "date": {
+        "$date": "2021-09-24T14:23:31.762Z"
+      },
+      "author": {
+        "_id": "123456",
+        "name": "Pedro Perez",
+        "resource": "http://localhost:8080/customers/123456"
+      }
+    }
+  ],
   "ratings": [],
   "faqs": [
     {
