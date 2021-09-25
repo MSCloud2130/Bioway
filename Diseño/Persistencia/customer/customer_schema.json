@@ -7,21 +7,19 @@
     "default": {},
     "examples": [
         {
-            "_id": {
-                "$oid": "613e3070d2acf338c07a2d2b"
-            },
-            "email": "pedro.perez@gmail.com",
-            "name": "Pedro Perez",
-            "age": 25,
-            "picture": "",
-            "description": "Me gusta viajar.",
-            "_class": "javeriana.ms.customer.entities.Customer"
+            "_id": "8c11d34a-61cb-4b40-b269-a6864a2aeb6b",
+            "name": "Pedro tully",
+            "email": "pedtul@supplier.com",
+            "age": 30,
+            "picture": "picture",
+            "description": "description",
+            "_class": "com.omega.bioway.customers.crosscutting.entities.Customer"
         }
     ],
     "required": [
         "_id",
-        "email",
         "name",
+        "email",
         "age",
         "picture",
         "description",
@@ -30,40 +28,12 @@
     "properties": {
         "_id": {
             "$id": "#/properties/_id",
-            "type": "object",
-            "title": "The _id schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": {},
-            "examples": [
-                {
-                    "$oid": "613e3070d2acf338c07a2d2b"
-                }
-            ],
-            "required": [
-                "$oid"
-            ],
-            "properties": {
-                "$oid": {
-                    "$id": "#/properties/_id/properties/%24oid",
-                    "type": "string",
-                    "title": "The $oid schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        "613e3070d2acf338c07a2d2b"
-                    ]
-                }
-            },
-            "additionalProperties": true
-        },
-        "email": {
-            "$id": "#/properties/email",
             "type": "string",
-            "title": "The email schema",
+            "title": "The _id schema",
             "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
-                "pedro.perez@gmail.com"
+                "8c11d34a-61cb-4b40-b269-a6864a2aeb6b"
             ]
         },
         "name": {
@@ -73,7 +43,17 @@
             "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
-                "Pedro Perez"
+                "Pedro tully"
+            ]
+        },
+        "email": {
+            "$id": "#/properties/email",
+            "type": "string",
+            "title": "The email schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "pedtul@supplier.com"
             ]
         },
         "age": {
@@ -83,7 +63,7 @@
             "description": "An explanation about the purpose of this instance.",
             "default": 0,
             "examples": [
-                25
+                30
             ]
         },
         "picture": {
@@ -93,7 +73,7 @@
             "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
-                ""
+                "picture"
             ]
         },
         "description": {
@@ -103,7 +83,7 @@
             "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
-                "Me gusta viajar."
+                "description"
             ]
         },
         "_class": {
@@ -113,7 +93,7 @@
             "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
-                "javeriana.ms.customer.entities.Customer"
+                "com.omega.bioway.customers.crosscutting.entities.Customer"
             ]
         }
     },

@@ -7,65 +7,45 @@
     "default": {},
     "examples": [
         {
-            "_id": {
-                "$oid": "613e3070d2acf338c07a2d2b"
+            "_id": "89978bd4-a149-46e1-a1e3-74977980277d",
+            "date": {
+                "$date": "2021-09-12T21:52:58.204Z"
             },
-            "dateTime": {
-                "$date": "2021-09-12T16:52:58.204Z"
-            },
+            "value": 400000,
             "card": {
                 "$ref": "card",
                 "$id": "1234567890123456"
             },
-            "value": 100000,
-            "_class": "javeriana.ms.payment.entities.Payment"
+            "_class": "com.omega.bioway.payments.crosscutting.entities.Payment"
         }
     ],
     "required": [
         "_id",
-        "dateTime",
-        "card",
+        "date",
         "value",
+        "card",
         "_class"
     ],
     "properties": {
         "_id": {
             "$id": "#/properties/_id",
-            "type": "object",
+            "type": "string",
             "title": "The _id schema",
             "description": "An explanation about the purpose of this instance.",
-            "default": {},
+            "default": "",
             "examples": [
-                {
-                    "$oid": "613e3070d2acf338c07a2d2b"
-                }
-            ],
-            "required": [
-                "$oid"
-            ],
-            "properties": {
-                "$oid": {
-                    "$id": "#/properties/_id/properties/%24oid",
-                    "type": "string",
-                    "title": "The $oid schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        "613e3070d2acf338c07a2d2b"
-                    ]
-                }
-            },
-            "additionalProperties": true
+                "89978bd4-a149-46e1-a1e3-74977980277d"
+            ]
         },
-        "dateTime": {
-            "$id": "#/properties/dateTime",
+        "date": {
+            "$id": "#/properties/date",
             "type": "object",
-            "title": "The dateTime schema",
+            "title": "The date schema",
             "description": "An explanation about the purpose of this instance.",
             "default": {},
             "examples": [
                 {
-                    "$date": "2021-09-12T16:52:58.204Z"
+                    "$date": "2021-09-12T21:52:58.204Z"
                 }
             ],
             "required": [
@@ -73,17 +53,27 @@
             ],
             "properties": {
                 "$date": {
-                    "$id": "#/properties/dateTime/properties/%24date",
+                    "$id": "#/properties/date/properties/%24date",
                     "type": "string",
                     "title": "The $date schema",
                     "description": "An explanation about the purpose of this instance.",
                     "default": "",
                     "examples": [
-                        "2021-09-12T16:52:58.204Z"
+                        "2021-09-12T21:52:58.204Z"
                     ]
                 }
             },
             "additionalProperties": true
+        },
+        "value": {
+            "$id": "#/properties/value",
+            "type": "integer",
+            "title": "The value schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+                400000
+            ]
         },
         "card": {
             "$id": "#/properties/card",
@@ -125,16 +115,6 @@
             },
             "additionalProperties": true
         },
-        "value": {
-            "$id": "#/properties/value",
-            "type": "integer",
-            "title": "The value schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": 0,
-            "examples": [
-                100000
-            ]
-        },
         "_class": {
             "$id": "#/properties/_class",
             "type": "string",
@@ -142,7 +122,7 @@
             "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
-                "javeriana.ms.payment.entities.Payment"
+                "com.omega.bioway.payments.crosscutting.entities.Payment"
             ]
         }
     },

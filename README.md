@@ -22,7 +22,7 @@ Linux:
 - mvn clean install
 - mvn spring-boot:run
 
-A continuación se mostraran todos los directorios en los que se debe estar ubicado en la consola de comandos, para correr cada servicio. Cuando se este en el directorio indicado, se debe ejecutar los siguientes comandos:
+A continuación se mostraran todos los directorios en los que se debe estar ubicado en la consola de comandos, para correr cada servicio. Cuando se este en el directorio indicado, se debe ejecutar el siguiente comando:
 
 > mvn clean install
 - mvn spring-boot:run

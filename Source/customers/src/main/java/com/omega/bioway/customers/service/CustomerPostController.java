@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("/customers")
 public class CustomerPostController {
 
     @Autowired
     CustomerCreator customerCreator;
 
-    @PostMapping(value = "/{customerId}", produces = "application/json")
+    @PostMapping(produces = "application/json")
     public ResponseEntity execute(@RequestBody Customer customer){
         Customer customerResult = customerCreator.execute(customer);
         return ResponseEntity.status(HttpStatus.CREATED).body(customerResult);

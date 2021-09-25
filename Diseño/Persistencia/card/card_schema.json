@@ -7,25 +7,25 @@
     "default": {},
     "examples": [
         {
-            "cardNumber": "1234567890123456",
+            "_id": "1234567890123456",
             "name": "Pedro Pérez",
             "expirationDate": "12/25",
             "securityCode": "123",
-            "_class": "javeriana.ms.payment.entities.Card"
+            "_class": "com.omega.bioway.payments.crosscutting.entities.Card"
         }
     ],
     "required": [
-        "cardNumber",
+        "_id",
         "name",
         "expirationDate",
         "securityCode",
         "_class"
     ],
     "properties": {
-        "cardNumber": {
-            "$id": "#/properties/cardNumber",
+        "_id": {
+            "$id": "#/properties/_id",
             "type": "string",
-            "title": "The cardNumber schema",
+            "title": "The _id schema",
             "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
@@ -69,7 +69,7 @@
             "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
-                "javeriana.ms.payment.entities.Card"
+                "com.omega.bioway.payments.crosscutting.entities.Card"
             ]
         }
     },

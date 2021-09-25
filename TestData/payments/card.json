@@ -1,7 +1,7 @@
-{
+[{
     "_id":"1234567890123456",
     "name":"Pedro Pérez",
     "expirationDate":"12/25",
     "securityCode":"123",
     "_class":"com.omega.bioway.payments.crosscutting.entities.Card"
-}
+}]
