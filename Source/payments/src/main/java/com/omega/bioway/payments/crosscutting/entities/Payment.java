@@ -19,11 +19,12 @@ public class Payment {
 
     public Payment(){
         id = UUID.randomUUID().toString();
+        this.date = LocalDateTime.now();
     }
 
-    public Payment(LocalDateTime date, Double value, Card card) {
+    public Payment(Double value, Card card) {
         id = UUID.randomUUID().toString();
-        this.date = date;
+        this.date = LocalDateTime.now();
         this.value = value;
         this.card = card;
     }

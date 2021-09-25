@@ -21,7 +21,7 @@ public class PaymentPostController {
 
    @PostMapping (produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity execute(@RequestBody PaymentRequest payment){
-        paymentCreator.execute(new Payment(payment.getDate(), payment.getValue(), payment.getCard()));
+        paymentCreator.execute(new Payment(payment.getValue(), payment.getCard()));
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
    }
 
@@ -40,16 +40,6 @@ public class PaymentPostController {
 
         public PaymentRequest(){
 
-        }
-
-
-
-        public LocalDateTime getDate() {
-            return date;
-        }
-
-        public void setDate(LocalDateTime date) {
-            this.date = date;
         }
 
         public Double getValue() {
