@@ -22,7 +22,7 @@ public class CustomerGetController {
     @Autowired
     AllCustomersFinder customersFinder;
 
-    @GetMapping(value = "products/{id}", produces = "application/json")
+    @GetMapping(value = "/{id}", produces = "application/json")
     public ResponseEntity execute(@PathVariable String id){
         Customer customer = customerFinder.execute(id);
         return ResponseEntity.status(HttpStatus.OK).body(customer);

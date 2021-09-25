@@ -17,7 +17,7 @@ public class CustomerPostController {
     @Autowired
     CustomerCreator customerCreator;
 
-    @PostMapping(value = "products/{id}", produces = "application/json")
+    @PostMapping(value = "/{customerId}", produces = "application/json")
     public ResponseEntity execute(@RequestBody Customer customer){
         customerCreator.execute(customer);
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
