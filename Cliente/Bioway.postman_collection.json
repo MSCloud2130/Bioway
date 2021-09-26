@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b1a88d9e-709f-456d-84b0-950a25a11bb7",
+		"_postman_id": "71b5674f-7888-4d98-9e49-8f54bc8dbf21",
 		"name": "Bioway",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -278,9 +278,28 @@
 				{
 					"name": "Pagar servicios",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
-						"url": null
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"value\": 700000,\r\n    \"card\": {\r\n        \"number\": \"5234567890123459\",\r\n        \"name\": \"Pedro Pérez\",\r\n        \"expirationDate\": \"12/25\",\r\n        \"securityCode\": \"123\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/payments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payments"
+							]
+						}
 					},
 					"response": []
 				}
@@ -294,43 +313,105 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Eliminar Customer",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/customers/8c11d34a-61cb-4b40-b269-a6864a2aeb6b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"8c11d34a-61cb-4b40-b269-a6864a2aeb6b"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Crear customer",
 					"request": {
-						"method": "GET",
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
 						"header": [],
-						"url": null
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"sup@supplier.com\",\r\n    \"password\":\"12345\",\r\n    \"type\":\"customer\",\r\n    \"name\": \"Name LastName\",\r\n    \"description\": \"description\",\r\n    \"age\": \"30\",\r\n    \"picture\": \"picture\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Obtener customer",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/customers/8c11d34a-61cb-4b40-b269-a6864a2aeb6b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"8c11d34a-61cb-4b40-b269-a6864a2aeb6b"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Obtener todos los customers",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers"
+							]
+						}
 					},
 					"response": []
 				}
