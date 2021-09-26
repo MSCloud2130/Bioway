@@ -25,7 +25,7 @@ public class CartController {
         this.restTemplate = builder.build();
     }
 
-    @PostMapping(value = "cart/")
+    @PostMapping(value = "cart", produces = "application/json")
     public ResponseEntity createCart(){
         try {
             return restTemplate.postForEntity("http://cart-service/cart/", null, Object.class, "");

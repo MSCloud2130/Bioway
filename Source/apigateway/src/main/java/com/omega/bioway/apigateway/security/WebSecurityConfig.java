@@ -25,6 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET,"/supplier/{supplier_id}").permitAll()
                 .antMatchers(HttpMethod.PUT,"/suppliers/{supplier_id}").hasAnyAuthority(SUPPLIER)
                 .antMatchers(HttpMethod.DELETE,"/suppliers/{supplier_id}").hasAnyAuthority(SUPPLIER)
+                .antMatchers(HttpMethod.GET, "/products").permitAll()
                 .antMatchers(HttpMethod.GET,"/products/{id}").permitAll()
                 .antMatchers(HttpMethod.POST,"/products/{productId}/questions").hasAnyAuthority(CUSTOMER)
                 .antMatchers(HttpMethod.PUT,"/products/{productId}/questions").hasAnyAuthority(SUPPLIER)
@@ -32,7 +33,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/customers").permitAll()
                 .antMatchers(HttpMethod.GET, "/customers").permitAll()
                 .antMatchers(HttpMethod.PUT, "/customers/{customerId}").hasAnyAuthority(CUSTOMER)
-                .antMatchers(HttpMethod.DELETE, "/customers/{customerId}").hasAnyAuthority(CUSTOMER)
+                .antMatchers(HttpMethod.POST, "/cart").hasAnyAuthority(CUSTOMER)
+                .antMatchers(HttpMethod.GET, "/cart/{cartId}").hasAnyAuthority(CUSTOMER)
+                .antMatchers(HttpMethod.PUT, "/cart/{cartId}/items").hasAnyAuthority(CUSTOMER)
+                .antMatchers(HttpMethod.PATCH, "/cart/{cartId}/items").hasAnyAuthority(CUSTOMER)
+                .antMatchers(HttpMethod.DELETE, "/cart/{cartId}/items/{productId}").hasAnyAuthority(CUSTOMER)
                 .anyRequest().authenticated();
     }
 }

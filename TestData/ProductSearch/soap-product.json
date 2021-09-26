@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "43dcecc9-724c-4062-ac8f-402621f18485",
+    "name": "Hotel Santa Marta",
+    "type": "ACCOMMODATION",
+    "uri": "http://localhost:8080/products/43dcecc9-724c-4062-ac8f-402621f18485",
+    "supplierId": "cd96b919-d54d-43ca-b648-b90153def1b2",
+    "_class": "com.omega.bioway.ProductSearch.crosscutting.entities.Product"
+  },
+  {
+    "_id": "227e4e0d-320e-491e-9258-15b100a7ed08",
+    "name": "Tour Parque Tayrona",
+    "type": "ECOTOUR",
+    "uri": "http://localhost:8080/products/227e4e0d-320e-491e-9258-15b100a7ed08",
+    "supplierId": "cd96b919-d54d-43ca-b648-b90153def1b2",
+    "_class": "com.omega.bioway.ProductSearch.crosscutting.entities.Product"
+  }
+]

@@ -20,14 +20,16 @@ import com.omega.bioway.apigateway.service.products.SOAP.ProductsClient;
 public class ProductsController {
 
     private RestTemplate restTemplate;
-    private ProductsClient soapClient = new ProductsClient();
+
+    @Autowired
+    private ProductsClient soapClient;
 
     @Autowired
     public ProductsController(RestTemplateBuilder builder) {
         this.restTemplate = builder.build();
     }
 
-    @GetMapping(value = "products/", produces = "application/json")
+    @GetMapping(value = "products", produces = "application/json")
     public ResponseEntity getProducts(@RequestParam(required = false) String productName, @RequestParam(required = false) String productType, @RequestParam(required = false) String supplierId){
         try{
             return new ResponseEntity<List<ProductSOAP>>(soapClient.getProducts(productName, productType, supplierId).getProducts(), HttpStatus.OK);

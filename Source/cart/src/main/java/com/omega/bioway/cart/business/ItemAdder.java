@@ -14,11 +14,21 @@ public class ItemAdder {
     @Autowired
     private CartFinder cartFinder;
 
+    @Autowired
+    private ItemQuantityEdit itemQuantityEdit;
+
     public void execute(String productId, double unitPrice, String cartId, String productUrl, int quantity) {
         Cart cart = cartFinder.execute(cartId);
-        cart.addItem(new Item(productId,productUrl,quantity,unitPrice));
-        cart.setTotalCost(cart.getTotalCost()+(unitPrice*quantity));
-        repository.save(cart);
+
+        Item aux = cart.isInTheCar(productId);
+        if(aux != null)
+            itemQuantityEdit.execute(productId, cartId, aux.getQuantity()+quantity);
+        else
+        {
+            cart.addItem(new Item(productId,productUrl,quantity,unitPrice));
+            cart.setTotalCost(cart.getTotalCost()+(unitPrice*quantity));
+            repository.save(cart);
+        }
     }
 
 }
