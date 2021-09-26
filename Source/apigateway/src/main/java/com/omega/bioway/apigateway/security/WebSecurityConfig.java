@@ -33,7 +33,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/customers").permitAll()
                 .antMatchers(HttpMethod.GET, "/customers").permitAll()
                 .antMatchers(HttpMethod.PUT, "/customers/{customerId}").hasAnyAuthority(CUSTOMER)
-                .antMatchers(HttpMethod.DELETE, "/customers/{customerId}").hasAnyAuthority(CUSTOMER)
+                .antMatchers(HttpMethod.POST, "/cart").hasAnyAuthority(CUSTOMER)
+                .antMatchers(HttpMethod.GET, "/cart/{cartId}").hasAnyAuthority(CUSTOMER)
+                .antMatchers(HttpMethod.PUT, "/cart/{cartId}/items").hasAnyAuthority(CUSTOMER)
+                .antMatchers(HttpMethod.PATCH, "/cart/{cartId}/items").hasAnyAuthority(CUSTOMER)
+                .antMatchers(HttpMethod.DELETE, "/cart/{cartId}/items/{productId}").hasAnyAuthority(CUSTOMER)
                 .anyRequest().authenticated();
     }
 }
