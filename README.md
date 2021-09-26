@@ -1,5 +1,12 @@
 # Bioway
 
+## Autores
+- Camilo Buitrago
+- Santiago Caroprese
+- Juan Francisco Hamón
+- Daniel Hernández
+- Juan Carlos Suárez
+
 ## Descripción del diseño
 
 La descripción de los elementos de diseño del sistema está incluida en la wiki del repositorio.
@@ -9,41 +16,84 @@ La descripción de los elementos de diseño del sistema está incluida en la wik
 
 ### 1. Iniciar servicios
 
-A continuación, se detallan los comandos que se deben ejecutar en consola para ejecutar todos los componentes del proyecto.
+A continuación, se detallan los comandos que se deben ejecutar en consola para ejecutar cada uno de los componentes del proyecto. Para cada componente, se debe usar una consola de comandos separada. Inicie los servicios en el orden indicado:
 
-Para cada componente, se debe usar una consola de comandos separada.
-
-A continuación se mostrarán todos los directorios en los que se debe estar ubicado en la consola de comandos, para correr cada servicio. Cuando se esté en el directorio indicado, se debe ejecutar el siguiente comando:
+#### 1. Servidor eureka
+Ubíquese en la carpeta Bioway/Source/eurekaserver y ejecute los siguientes comandos:
 
 > mvn clean install
 > 
 > mvn spring-boot:run
 
-#### Directorios: 
+#### 2. Servicio Products
 
-A. Servidor eureka: BIOWAY/Source/eurekaserver  
+Ubíquese en la carpeta Bioway/Source/products y ejecute los siguientes comandos:
 
-B. Servicio Products: BIOWAY/Source/products
+> mvn clean install
+> 
+> mvn spring-boot:run
 
-C. Servicio Customers: BIOWAY/Source/customers
+#### 3. Servicio Customers
 
-D. Servicio Purchases: BIOWAY/Source/purchases
+Ubíquese en la carpeta Bioway/Source/customers y ejecute los siguientes comandos:
 
-E. Servicio Carts: BIOWAY/Source/carts
+> mvn clean install
+> 
+> mvn spring-boot:run
 
-F. Servicio Identity: BIOWAY/Source/identity
+#### 4. Servicio Purchases
 
-G. Servicio Suppliers:  BIOWAY/Source/suppliers
+Ubíquese en la carpeta Bioway/Source/purchases y ejecute los siguientes comandos:
 
-H. Servicio Payment:  BIOWAY/Source/payments
+> mvn clean install
+> 
+> mvn spring-boot:run
 
-J. API Gateway: BIOWAY/Source/apigateway
+#### 5. Servicio Carts
 
-K. Servicio SOAP ProductSearch:
+Ubíquese en la carpeta Bioway/Source/carts y ejecute los siguientes comandos:
 
-Ubicarse en el directorio  BIOWAY/Source/ProductSearch
+> mvn clean install
+> 
+> mvn spring-boot:run
 
-Windows:
+#### 6. Servicio Identity
+
+Ubíquese en la carpeta Bioway/Source/identity y ejecute los siguientes comandos:
+
+> mvn clean install
+> 
+> mvn spring-boot:run
+
+#### 7. Servicio Suppliers
+
+Ubíquese en la carpeta Bioway/Source/suppliers y ejecute los siguientes comandos:
+
+> mvn clean install
+> 
+> mvn spring-boot:run
+
+#### 8. Servicio Payment
+
+Ubíquese en la carpeta Bioway/Source/payments y ejecute los siguientes comandos:
+
+> mvn clean install
+> 
+> mvn spring-boot:run
+
+#### 9. API Gateway
+
+Ubíquese en la carpeta Bioway/Source/apigateway y ejecute los siguientes comandos:
+
+> mvn clean install
+> 
+> mvn spring-boot:run
+
+#### 10. Servicio SOAP ProductSearch:
+
+Ubíquese en la carpeta Bioway/Source/ProductSearch y ejecute los siguientes comandos
+
+##### Windows:
 
 > mvn clean install
 > 
@@ -51,7 +101,7 @@ Windows:
 > 
 > java -jar --illegal-access=permit target/ProductSearch-0.0.1-SNAPSHOT.jar
 
-Linux: 
+##### Linux: 
 
 > mvn clean install
 > 
@@ -62,9 +112,9 @@ Linux:
 
 Desde la sección de colecciones de Postman, se deben seguir las siguientes instrucciones:
 
-1. Seleccionar > import > file > upload file.
-2. Se debe ir al directorio BIOWAY/Cliente.
-3. Seleccionar el archivo Bioway.postman_collection.json y darle a abrir.
+1. Seleccionar > import > file Bioway upload file.
+2. Se debe ir al directorio Bioway/Cliente.
+3. Seleccionar el archivo Bioway.postman_collection.json y abrirlo.
 4. Se abrirá la colección de Endpoints del proyecto. Estos están organizados por microservicio.
 5. Para ejecutar un endpoint, selecciónelo y posteriormente haga click en send, a la derecha de la ventana.
 6. Si el endpoint tiene valores variables en su dirección, puede cambiarlos libremente.
