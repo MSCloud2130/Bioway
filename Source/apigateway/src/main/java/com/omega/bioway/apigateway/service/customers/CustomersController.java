@@ -2,7 +2,7 @@ package com.omega.bioway.apigateway.service.customers;
 
 import com.omega.bioway.apigateway.entities.customer.Customer;
 import com.omega.bioway.apigateway.entities.identity.CreateUserRequest;
-import com.omega.bioway.apigateway.service.user.RegisterRequest;
+import com.omega.bioway.apigateway.service.supplier.RegisterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;

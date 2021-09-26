@@ -5,7 +5,6 @@ import com.omega.bioway.apigateway.entities.supplier.CreateSupplierRequest;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import com.omega.bioway.apigateway.entities.supplier.ModifySupplierRequest;
 import com.omega.bioway.apigateway.entities.supplier.Supplier;
-import com.omega.bioway.apigateway.service.user.RegisterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;

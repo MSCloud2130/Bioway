@@ -1,9 +1,8 @@
-package com.omega.bioway.apigateway.service.user;
+package com.omega.bioway.apigateway.service.supplier;
 
 import java.util.List;
 
-public class SupplierRegisterResponse {
-    private String id;
+public class RegisterRequest {
     private String email;
     private String password;
     private String type;
@@ -15,13 +14,12 @@ public class SupplierRegisterResponse {
     private String webPage;
     private List<String> socialAccounts;
 
-    public SupplierRegisterResponse() {
+    public RegisterRequest() {
     }
 
-    public SupplierRegisterResponse(String id, String email, String password, String type, String name, int age,
-                                    String picture, String description, String phone, String webPage,
-                                    List<String> socialAccounts) {
-        this.id = id;
+    public RegisterRequest(String email, String password, String type, String name, int age,
+                           String picture, String description, String phone, String webPage,
+                           List<String> socialAccounts) {
         this.email = email;
         this.password = password;
         this.type = type;
@@ -32,14 +30,6 @@ public class SupplierRegisterResponse {
         this.phone = phone;
         this.webPage = webPage;
         this.socialAccounts = socialAccounts;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getEmail() {

@@ -59,25 +59,15 @@ public class AuthenticateUserPostController {
     }
 
     static class LogInRequest{
-        private String id;
         private String email;
         private String password;
 
         public LogInRequest() {
         }
 
-        public LogInRequest(String id, String email, String password) {
-            this.id = id;
+        public LogInRequest(String email, String password) {
             this.email = email;
             this.password = password;
-        }
-
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
         }
 
         public String getEmail() {
