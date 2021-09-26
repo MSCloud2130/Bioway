@@ -2,11 +2,9 @@ package com.omega.bioway.apigateway.service.customers;
 
 import com.omega.bioway.apigateway.entities.customer.Customer;
 import com.omega.bioway.apigateway.entities.identity.CreateUserRequest;
-import com.omega.bioway.apigateway.entities.supplier.Supplier;
 import com.omega.bioway.apigateway.service.user.RegisterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
@@ -14,13 +12,11 @@ import org.springframework.web.client.RestTemplate;
 
 public class CustomersController {
 
-    @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
-    @Bean
-    @LoadBalanced
-    RestTemplate restTemplate() {
-        return new RestTemplate();
+    @Autowired
+    public CustomersController(RestTemplateBuilder builder) {
+        this.restTemplate = builder.build();
     }
 
     @GetMapping(value = "/customers", produces = "application/json")

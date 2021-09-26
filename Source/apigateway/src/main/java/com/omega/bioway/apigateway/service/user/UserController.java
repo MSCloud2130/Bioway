@@ -1,10 +1,8 @@
 package com.omega.bioway.apigateway.service.user;
 
-import com.omega.bioway.apigateway.entities.identity.CreateUserRequest;
 import com.omega.bioway.apigateway.entities.identity.LogInRequest;
-import com.omega.bioway.apigateway.entities.supplier.CreateSupplierRequest;
-import com.omega.bioway.apigateway.entities.supplier.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,8 +13,12 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class UserController {
 
+    private RestTemplate restTemplate;
+
     @Autowired
-    RestTemplate restTemplate;
+    public UserController(RestTemplateBuilder builder) {
+        this.restTemplate = builder.build();
+    }
 
     @PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity login(@RequestBody LogInRequest request){

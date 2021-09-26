@@ -1,26 +1,39 @@
 package com.omega.bioway.apigateway.service.products;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.ws.soap.client.SoapFaultClientException;
 
+import com.example.consumingwebservice.wsdl.ProductSOAP;
+import com.omega.bioway.apigateway.service.products.SOAP.ProductsClient;
 
 @RestController
 public class ProductsController {
 
-    @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
+    private ProductsClient soapClient = new ProductsClient();
 
-    @Bean
-    @LoadBalanced
-    RestTemplate restTemplate() {
-        return new RestTemplate();
+    @Autowired
+    public ProductsController(RestTemplateBuilder builder) {
+        this.restTemplate = builder.build();
+    }
+
+    @GetMapping(value = "products/", produces = "application/json")
+    public ResponseEntity getProducts(@RequestParam(required = false) String productName, @RequestParam(required = false) String productType, @RequestParam(required = false) String supplierId){
+        try{
+            return new ResponseEntity<List<ProductSOAP>>(soapClient.getProducts(productName, productType, supplierId).getProducts(), HttpStatus.OK);
+        }catch (SoapFaultClientException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
     }
 
     @GetMapping(value = "products/{id}", produces = "application/json")

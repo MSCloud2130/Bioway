@@ -2,6 +2,7 @@ package com.omega.bioway.apigateway.service.supplier;
 
 import com.omega.bioway.apigateway.entities.identity.CreateUserRequest;
 import com.omega.bioway.apigateway.entities.supplier.CreateSupplierRequest;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import com.omega.bioway.apigateway.entities.supplier.ModifySupplierRequest;
 import com.omega.bioway.apigateway.entities.supplier.Supplier;
 import com.omega.bioway.apigateway.service.user.RegisterRequest;
@@ -14,8 +15,12 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class SupplierController {
 
+    private RestTemplate restTemplate;
+
     @Autowired
-    RestTemplate restTemplate;
+    public SupplierController(RestTemplateBuilder builder) {
+        this.restTemplate = builder.build();
+    }
 
     @PostMapping(value = "/supplier", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity registerSupplier(@RequestBody RegisterRequest request){

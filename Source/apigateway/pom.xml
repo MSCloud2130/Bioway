@@ -56,6 +56,19 @@
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
 		</dependency>
+
+		<!--SOAP DEPENDENCY-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!--END SOAP DEPENDENCY-->
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -69,12 +82,54 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<!--SOAP PROFILE-->
+	<profiles>
+		<profile>
+			<id>java11</id>
+			<activation>
+				<jdk>[11,)</jdk>
+			</activation>
+
+			<dependencies>
+				<dependency>
+					<groupId>org.glassfish.jaxb</groupId>
+					<artifactId>jaxb-runtime</artifactId>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+	<!--END SOAP PROFILE-->
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!--SOAP WSDL PLUGIN-->
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.14.0</version>
+				<executions>
+					<!--SOAP service must be on in order to run mvn clean install-->
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<schemaLanguage>WSDL</schemaLanguage>
+					<generatePackage>com.example.consumingwebservice.wsdl</generatePackage>
+					<schemas>
+						<!--WSDL URL-->
+						<schema>
+							<url>http://localhost:8080/ProductSearch/products.wsdl</url>
+						</schema>
+					</schemas>
+					</configuration>
+			</plugin>
+			<!--END SOAP WSLD PLUGIN-->
 		</plugins>
 	</build>
 

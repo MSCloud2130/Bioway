@@ -1,15 +1,10 @@
 package com.omega.bioway.apigateway.service.cart;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.json.JsonbHttpMessageConverter;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -23,13 +18,11 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class CartController {
-    @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
-    @Bean
-    @LoadBalanced
-    RestTemplate restTemplate() {
-        return new RestTemplate();
+    @Autowired
+    public CartController(RestTemplateBuilder builder) {
+        this.restTemplate = builder.build();
     }
 
     @PostMapping(value = "cart/")
