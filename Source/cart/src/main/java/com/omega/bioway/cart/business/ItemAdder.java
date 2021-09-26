@@ -20,9 +20,9 @@ public class ItemAdder {
     public void execute(String productId, double unitPrice, String cartId, String productUrl, int quantity) {
         Cart cart = cartFinder.execute(cartId);
 
-
-        if(cart.isInTheCar(productId))
-            itemQuantityEdit.execute(productId, cartId, quantity);
+        Item aux = cart.isInTheCar(productId);
+        if(aux != null)
+            itemQuantityEdit.execute(productId, cartId, aux.getQuantity()+quantity);
         else
         {
             cart.addItem(new Item(productId,productUrl,quantity,unitPrice));

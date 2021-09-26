@@ -42,13 +42,13 @@ public class Cart {
         return null;
     }
 
-    public boolean isInTheCar(String productId)
+    public Item isInTheCar(String productId)
     {
         for (Item item : this.items) 
             if(item.getProductId().equals(productId))
-                return true;
+                return item;
         
-        return false;
+        return null;
     }
 
 
