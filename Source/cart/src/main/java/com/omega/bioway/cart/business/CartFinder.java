@@ -3,9 +3,10 @@ import com.omega.bioway.cart.crosscutting.entities.Cart;
 import com.omega.bioway.cart.crosscutting.exceptions.CartNotFoundException;
 import com.omega.bioway.cart.dataaccess.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.Optional;
 
-
+@Service
 public class CartFinder {
     @Autowired
     private CartRepository repository;

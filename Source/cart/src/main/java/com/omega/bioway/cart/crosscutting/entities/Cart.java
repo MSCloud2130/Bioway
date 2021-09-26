@@ -1,6 +1,8 @@
 package com.omega.bioway.cart.crosscutting.entities;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,18 +10,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "cart")
 public class Cart {
     @Id
-    private String  customerId;
+    private String  cartId;
     private double totalCost;
     private List<Item> items;
     
-    public Cart(){
-        this.items = new ArrayList<>();
-    }
 
-    public Cart(String customerId, double totalCost)
+
+    public Cart()
     {
-        this.customerId = customerId;
-        this.totalCost = totalCost;
+        this.cartId = UUID.randomUUID().toString();
+        this.totalCost = 0;
         this.items = new ArrayList<>();
     }
 
@@ -43,25 +43,26 @@ public class Cart {
     }
 
 
-    public Item editItem(String productId,int quantity)
+    public ItemEdited editItem(String productId,int quantity)
     {
         for (Item item : this.items) {
             if(item.getProductId().equals(productId))
                 {   
+                    ItemEdited temp = new ItemEdited(item, quantity > item.getQuantity(),item.getQuantity());
                     item.setQuantity(quantity);
-                    return item;
+                    return temp;
                 }
         }
         return null;
     }
 
 
-    public String getCostumerId() {
-        return customerId;
+    public String getCartId() {
+        return cartId;
     }
 
-    public void setCostumerId(String customerId) {
-        this.customerId = customerId;
+    public void setCartId(String customerId) {
+        this.cartId = customerId;
     }
 
     public double getTotalCost() {
