@@ -6,13 +6,40 @@ La descripción de los elementos de diseño del sistema está incluida en la wik
 
 ## Instrucciones de uso
 
+
+### 1. Iniciar servicios
+
 A continuación, se detallan los comandos que se deben ejecutar en consola para ejecutar todos los componentes del proyecto.
 
 Para cada componente, se debe usar una consola de comandos separada.
 
-### 1. Iniciar servicios
+A continuación se mostrarán todos los directorios en los que se debe estar ubicado en la consola de comandos, para correr cada servicio. Cuando se esté en el directorio indicado, se debe ejecutar el siguiente comando:
 
-A. Servicio SOAP ProductSearch
+> mvn clean install
+> 
+> mvn spring-boot:run
+
+#### Directorios: 
+
+A. Servidor eureka: BIOWAY/Source/eurekaserver  
+
+B. Servicio Products: BIOWAY/Source/products
+
+C. Servicio Customers: BIOWAY/Source/customers
+
+D. Servicio Purchases: BIOWAY/Source/purchases
+
+E. Servicio Carts: BIOWAY/Source/carts
+
+F. Servicio Identity: BIOWAY/Source/identity
+
+G. Servicio Suppliers:  BIOWAY/Source/suppliers
+
+H. Servicio Payment:  BIOWAY/Source/payments
+
+J. API Gateway: BIOWAY/Source/apigateway
+
+K. Servicio SOAP ProductSearch:
 
 Ubicarse en el directorio  BIOWAY/Source/ProductSearch
 
@@ -30,29 +57,6 @@ Linux:
 > 
 > mvn spring-boot:run
 
-A continuación se mostrarán todos los directorios en los que se debe estar ubicado en la consola de comandos, para correr cada servicio. Cuando se esté en el directorio indicado, se debe ejecutar el siguiente comando:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-B. Servicio Products: BIOWAY/Source/products
-
-C. Servicio Customers: BIOWAY/Source/customers
-
-D. Servicio Purchases: BIOWAY/Source/purchases
-
-E. Servicio Carts: BIOWAY/Source/carts
-
-F. Servicio Identity: BIOWAY/Source/identity
-
-G. Servicio Suppliers:  BIOWAY/Source/suppliers
-
-H. Servicio Payment:  BIOWAY/Source/payments
-
-I. EurekaServer: BIOWAY/Source/eurekaserver
-
-J. API Gateway: BIOWAY/Source/apigateway
 
 ### 2. Cliente Postman
 
