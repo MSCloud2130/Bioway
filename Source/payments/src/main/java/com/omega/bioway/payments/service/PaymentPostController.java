@@ -20,8 +20,8 @@ public class PaymentPostController {
    PaymentCreator paymentCreator;
 
    @PostMapping (produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity execute(@RequestBody PaymentRequest payment){
-        paymentCreator.execute(new Payment(payment.getValue(), payment.getCard()));
+    public ResponseEntity execute(@RequestBody Payment payment){
+        paymentCreator.execute(payment);
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
    }
 
@@ -33,29 +33,5 @@ public class PaymentPostController {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 
-    static class PaymentRequest{
-        private LocalDateTime date;
-        private Double value;
-        private Card card;
 
-        public PaymentRequest(){
-
-        }
-
-        public Double getValue() {
-            return value;
-        }
-
-        public void setValue(Double value) {
-            this.value = value;
-        }
-
-        public Card getCard() {
-            return card;
-        }
-
-        public void setCard(Card card) {
-            this.card = card;
-        }
-    }
 }

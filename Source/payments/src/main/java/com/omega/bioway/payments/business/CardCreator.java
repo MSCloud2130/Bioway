@@ -1,25 +1,24 @@
 package com.omega.bioway.payments.business;
 
+import com.omega.bioway.payments.crosscutting.entities.Card;
 import com.omega.bioway.payments.crosscutting.entities.Payment;
 import com.omega.bioway.payments.dataaccess.CardRepository;
-import com.omega.bioway.payments.dataaccess.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PaymentCreator {
+public class CardCreator {
 
     @Autowired
-    PaymentRepository repository;
+    CardRepository repository;
 
     @Autowired
-    CardCreator creator;
+    CardFinder finder;
 
-
-
-    public void execute(Payment payment){
-        creator.execute(payment.getCard());
-        repository.save(payment);
+    public void execute(Card card){
+        if(!finder.execute(card.getNumber())){
+            repository.save(card);
+        }
     }
 
 }
