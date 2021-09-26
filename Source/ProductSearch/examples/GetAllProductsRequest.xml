@@ -4,7 +4,10 @@
 				xmlns:gs="http://spring.io/guides/gs-producing-web-service">
     <soapenv:Header/>
     <soapenv:Body>
-        <gs:getAllProductsRequest>
-        </gs:getAllProductsRequest>
+        <gs:getProductsRequest>
+            <gs:productName></gs:productName>
+            <gs:productType></gs:productType>
+            <gs:supplierId></gs:supplierId>
+        </gs:getProductsRequest>
     </soapenv:Body>
 </soapenv:Envelope>

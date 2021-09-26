@@ -1,5 +1,6 @@
 package com.omega.bioway.ProductSearch.business;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.omega.bioway.ProductSearch.crosscutting.entities.Product;
@@ -15,8 +16,51 @@ public class ProductSearcher {
     @Autowired
     private ProductRepository repository;
 
-    public List<Product> execute(){
-        List<Product> products = repository.findAll();
+    public List<Product> execute(String name, String type, String supplierId){
+        List<Product> products = new ArrayList<>();
+        boolean hasName = !name.equals("");
+        boolean hasType = !type.equals("");
+        boolean hasSupplierId = !supplierId.equals("");
+        
+        //no parameters received
+        if(!hasName && !hasType && !hasSupplierId){
+            products = repository.findAll();
+        }
+        //has name and type and supplierId
+        else if(hasName && hasType && hasSupplierId){
+            products = repository.findByNameAndTypeAndSupplierId(name, type, supplierId);
+        }
+        //has name
+        else if (hasName){
+            //has name and type
+            if(hasType){
+                products = repository.findByNameAndType(name, type);
+            }
+            //has name and supplierId
+            else if(hasSupplierId){
+                products = repository.findByNameAndSupplierId(name, supplierId);
+            }
+            //has only name
+            else{
+                products = repository.findByNameRegex(name);
+            }
+        }
+        //has type
+        else if (hasType){
+            //has type and supplierId
+            if(hasSupplierId){
+                products = repository.findByTypeAndSupplierId(type, supplierId);
+            }
+            //has only type
+            else{
+                products = repository.findByTypeRegex(type);
+            }
+        }
+        //has only supplierId
+        else{
+            products = repository.findBySupplierId(supplierId);
+        }
+
         if(products.isEmpty()){
             throw new ProductsNotFoundException("Products not found");
         }

@@ -5,63 +5,17 @@
     <!--All the clases are generated in target/generated-sources/jaxb/io/spring/guides/gs_producing_web_service/-->
 
     <!--ALL PRODUCTS OPERATION-->
-    <xs:element name="getAllProductsRequest">
-        <xs:complexType>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="getAllProductsResponse">
+    <xs:element name="getProductsRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="products" type="tns:ProductSOAP" minOccurs="0" maxOccurs="unbounded" />
+                <xs:element name="productName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="productType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="supplierId" type="xs:string" minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <!--FILTER BY NAME OPERATION-->
-    <xs:element name="findProductsByNameRequest">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="productName" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="findProductsByNameResponse">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="products" type="tns:ProductSOAP" minOccurs="0" maxOccurs="unbounded" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <!--FILTER BY TYPE OPERATION-->
-    <xs:element name="findProductsByTypeRequest">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="productType" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="findProductsByTypeResponse">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="products" type="tns:ProductSOAP" minOccurs="0" maxOccurs="unbounded" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <!--FILTER BY SUPPLIER-ID OPERATION-->
-    <xs:element name="findProductsBySupplierIdRequest">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="supplierId" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="findProductsBySupplierIdResponse">
+    <xs:element name="getProductsResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="products" type="tns:ProductSOAP" minOccurs="0" maxOccurs="unbounded" />

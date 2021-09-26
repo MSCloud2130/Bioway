@@ -1,9 +1,13 @@
+<!--This is an example to test the Find Products By Supplier Id Request-->
+
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 				xmlns:gs="http://spring.io/guides/gs-producing-web-service">
     <soapenv:Header/>
     <soapenv:Body>
-        <gs:findProductsBySupplierIdRequest>
+        <gs:getProductsRequest>
+            <gs:productName></gs:productName>
+            <gs:productType></gs:productType>
             <gs:supplierId>cd96b919-d54d-43ca-b648-b90153def1b2</gs:supplierId>
-        </gs:findProductsBySupplierIdRequest>
+        </gs:getProductsRequest>
     </soapenv:Body>
 </soapenv:Envelope>
