@@ -3,21 +3,21 @@
     "$id": "http://example.com/example.json",
     "type": "object",
     "title": "The root schema",
-    "description": "The root schema comprises the entire JSON document.",
+    "description": "Schema usado para la persistencia de los productos en el microservicio cart",
     "default": {},
     "examples": [
         {
-            "_id": "613e3070d2acf338c07a2d2b",
-            "totalCost": 100000,
+            "_id": "91a5c64c-f34e-491a-bb40-55c4a0563d6b",
+            "totalCost": 1000,
             "items": [
                 {
-                    "productId": "613e3070d2acf338c07a2d2b",
-                    "productUrl": "localhost:8080/products/613e3070d2acf338c07a2d2b",
-                    "unitPrice": 20000,
-                    "quantity": 5
+                    "productId": "43dcecc9-724c-4062-ac8f-402621f18485",
+                    "productUrl": "http://localhost:8080/products/43dcecc9-724c-4062-ac8f-402621f18485",
+                    "quantity": 2,
+                    "unitPrice": 500
                 }
             ],
-            "_class": "javeriana.ms.cart.entities.Cart"
+            "_class": "com.omega.bioway.cart.crosscutting.entities.Cart"
         }
     ],
     "required": [
@@ -34,7 +34,7 @@
             "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
-                "613e3070d2acf338c07a2d2b"
+                "91a5c64c-f34e-491a-bb40-55c4a0563d6b"
             ]
         },
         "totalCost": {
@@ -44,7 +44,7 @@
             "description": "An explanation about the purpose of this instance.",
             "default": 0,
             "examples": [
-                100000
+                1000
             ]
         },
         "items": {
@@ -56,10 +56,10 @@
             "examples": [
                 [
                     {
-                        "productId": "613e3070d2acf338c07a2d2b",
-                        "productUrl": "localhost:8080/products/613e3070d2acf338c07a2d2b",
-                        "unitPrice": 20000,
-                        "quantity": 5
+                        "productId": "43dcecc9-724c-4062-ac8f-402621f18485",
+                        "productUrl": "http://localhost:8080/products/43dcecc9-724c-4062-ac8f-402621f18485",
+                        "quantity": 2,
+                        "unitPrice": 500
                     }
                 ]
             ],
@@ -75,17 +75,17 @@
                         "default": {},
                         "examples": [
                             {
-                                "productId": "613e3070d2acf338c07a2d2b",
-                                "productUrl": "localhost:8080/products/613e3070d2acf338c07a2d2b",
-                                "unitPrice": 20000,
-                                "quantity": 5
+                                "productId": "43dcecc9-724c-4062-ac8f-402621f18485",
+                                "productUrl": "http://localhost:8080/products/43dcecc9-724c-4062-ac8f-402621f18485",
+                                "quantity": 2,
+                                "unitPrice": 500
                             }
                         ],
                         "required": [
                             "productId",
                             "productUrl",
-                            "unitPrice",
-                            "quantity"
+                            "quantity",
+                            "unitPrice"
                         ],
                         "properties": {
                             "productId": {
@@ -95,7 +95,7 @@
                                 "description": "An explanation about the purpose of this instance.",
                                 "default": "",
                                 "examples": [
-                                    "613e3070d2acf338c07a2d2b"
+                                    "43dcecc9-724c-4062-ac8f-402621f18485"
                                 ]
                             },
                             "productUrl": {
@@ -105,17 +105,7 @@
                                 "description": "An explanation about the purpose of this instance.",
                                 "default": "",
                                 "examples": [
-                                    "localhost:8080/products/613e3070d2acf338c07a2d2b"
-                                ]
-                            },
-                            "unitPrice": {
-                                "$id": "#/properties/items/items/anyOf/0/properties/unitPrice",
-                                "type": "integer",
-                                "title": "The unitPrice schema",
-                                "description": "An explanation about the purpose of this instance.",
-                                "default": 0,
-                                "examples": [
-                                    20000
+                                    "http://localhost:8080/products/43dcecc9-724c-4062-ac8f-402621f18485"
                                 ]
                             },
                             "quantity": {
@@ -125,7 +115,17 @@
                                 "description": "An explanation about the purpose of this instance.",
                                 "default": 0,
                                 "examples": [
-                                    5
+                                    2
+                                ]
+                            },
+                            "unitPrice": {
+                                "$id": "#/properties/items/items/anyOf/0/properties/unitPrice",
+                                "type": "integer",
+                                "title": "The unitPrice schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": 0,
+                                "examples": [
+                                    500
                                 ]
                             }
                         },
@@ -141,7 +141,7 @@
             "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
-                "javeriana.ms.cart.entities.Cart"
+                "com.omega.bioway.cart.crosscutting.entities.Cart"
             ]
         }
     },
