@@ -42,6 +42,15 @@ public class Cart {
         return null;
     }
 
+    public boolean isInTheCar(String productId)
+    {
+        for (Item item : this.items) 
+            if(item.getProductId().equals(productId))
+                return true;
+        
+        return false;
+    }
+
 
     public ItemEdited editItem(String productId,int quantity)
     {
