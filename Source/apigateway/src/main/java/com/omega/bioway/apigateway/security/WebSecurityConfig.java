@@ -25,6 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET,"/supplier/{supplier_id}").permitAll()
                 .antMatchers(HttpMethod.PUT,"/suppliers/{supplier_id}").hasAnyAuthority(SUPPLIER)
                 .antMatchers(HttpMethod.DELETE,"/suppliers/{supplier_id}").hasAnyAuthority(SUPPLIER)
+                .antMatchers(HttpMethod.GET, "/products").permitAll()
                 .antMatchers(HttpMethod.GET,"/products/{id}").permitAll()
                 .antMatchers(HttpMethod.POST,"/products/{productId}/questions").hasAnyAuthority(CUSTOMER)
                 .antMatchers(HttpMethod.PUT,"/products/{productId}/questions").hasAnyAuthority(SUPPLIER)

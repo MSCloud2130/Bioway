@@ -18,9 +18,9 @@ public class ProductSearcher {
 
     public List<Product> execute(String name, String type, String supplierId){
         List<Product> products = new ArrayList<>();
-        boolean hasName = !name.equals("");
-        boolean hasType = !type.equals("");
-        boolean hasSupplierId = !supplierId.equals("");
+        boolean hasName = name != null;
+        boolean hasType = type != null;
+        boolean hasSupplierId = supplierId != null;
         
         //no parameters received
         if(!hasName && !hasType && !hasSupplierId){
