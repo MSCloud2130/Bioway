@@ -2,14 +2,12 @@
     "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "http://example.com/example.json",
     "type": "object",
-    "title": "The root schema",
-    "description": "The root schema comprises the entire JSON document.",
+    "title": "Supplier schema",
+    "description": "Schema usado para la persistencia de los productos en el microservicio suppliers",
     "default": {},
     "examples": [
         {
-            "_id": {
-                "$oid": "613e3070d2acf338c07a2d2b"
-            },
+            "_id": "60f3780b-7489-4b78-883e-96c5bdad9455",
             "email": "pedro.perez@gmail.com",
             "name": "Pedro Perez",
             "age": 25,
@@ -21,7 +19,7 @@
                 "www.twitter.com/qweqwr5q",
                 "www.facebook.com/qrqwrqwr"
             ],
-            "class": "javeriana.ms.supplier.entities.Supplier"
+            "_class": "com.omega.bioway.suppliers.crosscutting.entities.Supplier"
         }
     ],
     "required": [
@@ -34,36 +32,18 @@
         "phone",
         "web_page",
         "social_accounts",
-        "class"
+        "_class"
     ],
     "properties": {
         "_id": {
             "$id": "#/properties/_id",
-            "type": "object",
+            "type": "string",
             "title": "The _id schema",
             "description": "An explanation about the purpose of this instance.",
-            "default": {},
+            "default": "",
             "examples": [
-                {
-                    "$oid": "613e3070d2acf338c07a2d2b"
-                }
-            ],
-            "required": [
-                "$oid"
-            ],
-            "properties": {
-                "$oid": {
-                    "$id": "#/properties/_id/properties/%24oid",
-                    "type": "string",
-                    "title": "The $oid schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        "613e3070d2acf338c07a2d2b"
-                    ]
-                }
-            },
-            "additionalProperties": true
+                "60f3780b-7489-4b78-883e-96c5bdad9455"
+            ]
         },
         "email": {
             "$id": "#/properties/email",
@@ -165,14 +145,14 @@
                 ]
             }
         },
-        "class": {
-            "$id": "#/properties/class",
+        "_class": {
+            "$id": "#/properties/_class",
             "type": "string",
-            "title": "The class schema",
+            "title": "The _class schema",
             "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
-                "javeriana.ms.supplier.entities.Supplier"
+                "com.omega.bioway.suppliers.crosscutting.entities.Supplier"
             ]
         }
     },

@@ -1,7 +1,5 @@
 {
-    "_id": {
-        "$oid": "613e3070d2acf338c07a2d2b"
-    },
+    "_id":"60f3780b-7489-4b78-883e-96c5bdad9455",
     "email": "pedro.perez@gmail.com",
     "name": "Pedro Perez",
     "age": 25,
@@ -13,5 +11,5 @@
         "www.twitter.com/qweqwr5q",
         "www.facebook.com/qrqwrqwr"      
     ],
-    "class": "javeriana.ms.supplier.entities.Supplier"
+    "class": "com.omega.bioway.suppliers.crosscutting.entities.Supplier"
 }
