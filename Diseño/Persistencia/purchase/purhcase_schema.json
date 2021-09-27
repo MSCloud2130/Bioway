@@ -8,34 +8,36 @@
     "examples": [
         {
             "_id": {
-                "$oid": "613e3070d2acf338c07a2d2b"
-            },
-            "dateTime": {
-                "$date": "2021-09-12T16:52:58.204Z"
+                "$oid": "61511b33196464312930cf75"
             },
             "quantity": 3,
             "total": 90000,
             "supplier": {
-                "id": "613e3070d2acf338c07a2d2b",
+                "_id": {
+                    "$oid": "613e3070d2acf338c07a2d2b"
+                },
                 "resource": "",
                 "name": "Pablo Rodríguez"
             },
             "customer": {
-                "id": "613e3070d2acf338c07a2d2b",
+                "_id": {
+                    "$oid": "613e3070d2acf338c07a2d2b"
+                },
                 "resource": "",
                 "name": "Pedro Pérez"
             },
             "product": {
-                "id": "613e3070d2acf338c07a2d2b",
+                "_id": {
+                    "$oid": "613e3070d2acf338c07a2d2b"
+                },
                 "resource": "",
                 "name": "Tour Parque Tayrona"
             },
-            "_class": "javeriana.ms.purchase.entities.Purchase"
+            "_class": "com.omega.bioway.purchases.crosscutting.entities.Purchase"
         }
     ],
     "required": [
         "_id",
-        "dateTime",
         "quantity",
         "total",
         "supplier",
@@ -52,7 +54,7 @@
             "default": {},
             "examples": [
                 {
-                    "$oid": "613e3070d2acf338c07a2d2b"
+                    "$oid": "61511b33196464312930cf75"
                 }
             ],
             "required": [
@@ -66,35 +68,7 @@
                     "description": "An explanation about the purpose of this instance.",
                     "default": "",
                     "examples": [
-                        "613e3070d2acf338c07a2d2b"
-                    ]
-                }
-            },
-            "additionalProperties": true
-        },
-        "dateTime": {
-            "$id": "#/properties/dateTime",
-            "type": "object",
-            "title": "The dateTime schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": {},
-            "examples": [
-                {
-                    "$date": "2021-09-12T16:52:58.204Z"
-                }
-            ],
-            "required": [
-                "$date"
-            ],
-            "properties": {
-                "$date": {
-                    "$id": "#/properties/dateTime/properties/%24date",
-                    "type": "string",
-                    "title": "The $date schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        "2021-09-12T16:52:58.204Z"
+                        "61511b33196464312930cf75"
                     ]
                 }
             },
@@ -128,26 +102,46 @@
             "default": {},
             "examples": [
                 {
-                    "id": "613e3070d2acf338c07a2d2b",
+                    "_id": {
+                        "$oid": "613e3070d2acf338c07a2d2b"
+                    },
                     "resource": "",
                     "name": "Pablo Rodríguez"
                 }
             ],
             "required": [
-                "id",
+                "_id",
                 "resource",
                 "name"
             ],
             "properties": {
-                "id": {
-                    "$id": "#/properties/supplier/properties/id",
-                    "type": "string",
-                    "title": "The id schema",
+                "_id": {
+                    "$id": "#/properties/supplier/properties/_id",
+                    "type": "object",
+                    "title": "The _id schema",
                     "description": "An explanation about the purpose of this instance.",
-                    "default": "",
+                    "default": {},
                     "examples": [
-                        "613e3070d2acf338c07a2d2b"
-                    ]
+                        {
+                            "$oid": "613e3070d2acf338c07a2d2b"
+                        }
+                    ],
+                    "required": [
+                        "$oid"
+                    ],
+                    "properties": {
+                        "$oid": {
+                            "$id": "#/properties/supplier/properties/_id/properties/%24oid",
+                            "type": "string",
+                            "title": "The $oid schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                                "613e3070d2acf338c07a2d2b"
+                            ]
+                        }
+                    },
+                    "additionalProperties": true
                 },
                 "resource": {
                     "$id": "#/properties/supplier/properties/resource",
@@ -180,26 +174,46 @@
             "default": {},
             "examples": [
                 {
-                    "id": "613e3070d2acf338c07a2d2b",
+                    "_id": {
+                        "$oid": "613e3070d2acf338c07a2d2b"
+                    },
                     "resource": "",
                     "name": "Pedro Pérez"
                 }
             ],
             "required": [
-                "id",
+                "_id",
                 "resource",
                 "name"
             ],
             "properties": {
-                "id": {
-                    "$id": "#/properties/customer/properties/id",
-                    "type": "string",
-                    "title": "The id schema",
+                "_id": {
+                    "$id": "#/properties/customer/properties/_id",
+                    "type": "object",
+                    "title": "The _id schema",
                     "description": "An explanation about the purpose of this instance.",
-                    "default": "",
+                    "default": {},
                     "examples": [
-                        "613e3070d2acf338c07a2d2b"
-                    ]
+                        {
+                            "$oid": "613e3070d2acf338c07a2d2b"
+                        }
+                    ],
+                    "required": [
+                        "$oid"
+                    ],
+                    "properties": {
+                        "$oid": {
+                            "$id": "#/properties/customer/properties/_id/properties/%24oid",
+                            "type": "string",
+                            "title": "The $oid schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                                "613e3070d2acf338c07a2d2b"
+                            ]
+                        }
+                    },
+                    "additionalProperties": true
                 },
                 "resource": {
                     "$id": "#/properties/customer/properties/resource",
@@ -232,26 +246,46 @@
             "default": {},
             "examples": [
                 {
-                    "id": "613e3070d2acf338c07a2d2b",
+                    "_id": {
+                        "$oid": "613e3070d2acf338c07a2d2b"
+                    },
                     "resource": "",
                     "name": "Tour Parque Tayrona"
                 }
             ],
             "required": [
-                "id",
+                "_id",
                 "resource",
                 "name"
             ],
             "properties": {
-                "id": {
-                    "$id": "#/properties/product/properties/id",
-                    "type": "string",
-                    "title": "The id schema",
+                "_id": {
+                    "$id": "#/properties/product/properties/_id",
+                    "type": "object",
+                    "title": "The _id schema",
                     "description": "An explanation about the purpose of this instance.",
-                    "default": "",
+                    "default": {},
                     "examples": [
-                        "613e3070d2acf338c07a2d2b"
-                    ]
+                        {
+                            "$oid": "613e3070d2acf338c07a2d2b"
+                        }
+                    ],
+                    "required": [
+                        "$oid"
+                    ],
+                    "properties": {
+                        "$oid": {
+                            "$id": "#/properties/product/properties/_id/properties/%24oid",
+                            "type": "string",
+                            "title": "The $oid schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                                "613e3070d2acf338c07a2d2b"
+                            ]
+                        }
+                    },
+                    "additionalProperties": true
                 },
                 "resource": {
                     "$id": "#/properties/product/properties/resource",
@@ -283,7 +317,7 @@
             "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
-                "javeriana.ms.purchase.entities.Purchase"
+                "com.omega.bioway.purchases.crosscutting.entities.Purchase"
             ]
         }
     },

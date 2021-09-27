@@ -5,6 +5,8 @@ import com.omega.bioway.apigateway.entities.identity.CreateUserRequest;
 import com.omega.bioway.apigateway.service.supplier.RegisterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
@@ -13,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class CustomersController {
 
+    @LoadBalanced
     private RestTemplate restTemplate;
 
     @Autowired
@@ -22,9 +25,8 @@ public class CustomersController {
 
     @GetMapping(value = "/customers", produces = "application/json")
     public ResponseEntity getCustomers(){
-        System.out.println("SOLICITUD GET CUSTOMERS");
         try {
-            return restTemplate.exchange("http://CUSTOMER-SERVICE/customers", HttpMethod.GET, null, Object.class);
+            return restTemplate.exchange("http://customer-service/customers", HttpMethod.GET, null, Object.class);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
