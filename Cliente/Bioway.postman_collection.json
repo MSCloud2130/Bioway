@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "64f85ae0-c660-4e71-a219-13670ab31b4d",
+		"_postman_id": "3a81812a-362e-440b-9522-6e1eadc1e795",
 		"name": "Bioway",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -282,7 +282,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"value\": 700000,\r\n    \"card\": {\r\n        \"number\": \"5234567890123459\",\r\n        \"name\": \"Pedro Pérez\",\r\n        \"expirationDate\": \"12/25\",\r\n        \"securityCode\": \"123\"\r\n    }\r\n}",
+							"raw": "{\r\n    \"cartId\": \"91a5c64c-f34e-491a-bb40-55c4a0563d6b\",\r\n    \"card\": {\r\n        \"number\": \"5234567890123459\",\r\n        \"name\": \"Pedro Pérez\",\r\n        \"expirationDate\": \"12/25\",\r\n        \"securityCode\": \"123\"\r\n    },\r\n    \"purchase\": {\r\n        \"quantity\": 3,\r\n        \"total\": 90000,\r\n        \"supplier\":{\r\n            \"id\": \"613e3070d2acf338c07a2d2b\",\r\n            \"resource\": \"\",\r\n            \"name\": \"Pablo Rodríguez\"\r\n        },\r\n        \"customer\":{\r\n            \"id\": \"613e3070d2acf338c07a2d2b\",\r\n            \"resource\": \"\",\r\n            \"name\": \"Pedro Pérez\"\r\n        },\r\n        \"product\":{\r\n            \"id\": \"613e3070d2acf338c07a2d2b\",\r\n            \"resource\": \"\",\r\n            \"name\": \"Tour Parque Tayrona\"\r\n        }\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -311,10 +311,28 @@
 				{
 					"name": "Modificar Customer",
 					"request": {
-						"method": "GET",
+						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"sup@supplier.com\",\r\n    \"password\":\"12345\",\r\n    \"type\":\"customer\",\r\n    \"name\": \"NameUpdated LastNameUpdated\",\r\n    \"description\": \"description\",\r\n    \"age\": \"30\",\r\n    \"picture\": \"picture\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8080/customers/8c11d34a-61cb-4b40-b269-a6864a2aeb6b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"8c11d34a-61cb-4b40-b269-a6864a2aeb6b"
+							]
 						}
 					},
 					"response": []
@@ -600,6 +618,39 @@
 							"port": "8081",
 							"path": [
 								"ProductSearch"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Purchases",
+			"item": [
+				{
+					"name": "Registrar Purchase",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\": 3,\r\n    \"total\": 90000,\r\n    \"supplier\":{\r\n        \"id\": \"613e3070d2acf338c07a2d2b\",\r\n        \"resource\": \"\",\r\n        \"name\": \"Pablo Rodríguez\"\r\n    },\r\n    \"customer\":{\r\n        \"id\": \"613e3070d2acf338c07a2d2b\",\r\n        \"resource\": \"\",\r\n        \"name\": \"Pedro Pérez\"\r\n    },\r\n    \"product\":{\r\n        \"id\": \"613e3070d2acf338c07a2d2b\",\r\n        \"resource\": \"\",\r\n        \"name\": \"Tour Parque Tayrona\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/purchases",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"purchases"
 							]
 						}
 					},
