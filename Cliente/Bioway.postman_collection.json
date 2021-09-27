@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3a81812a-362e-440b-9522-6e1eadc1e795",
+		"_postman_id": "64f85ae0-c660-4e71-a219-13670ab31b4d",
 		"name": "Bioway",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -9,57 +9,390 @@
 			"name": "Suppliers Auth",
 			"item": [
 				{
-					"name": "Modificar Supplier",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"phone\": \"111 222 3344\",\r\n    \"name\": \"Name LastName\",\r\n    \"description\": \"description\",\r\n    \"webPage\": \"www.xxx.com\",\r\n    \"age\": \"30\",\r\n    \"picture\": \"picture\",\r\n    \"socialAccounts\": [\"SC1\", \"SC2\"]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "Productos",
+					"item": [
+						{
+							"name": "Responder pregunta",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"answerContent\": \"No es muy recomendable.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9090/products/43dcecc9-724c-4062-ac8f-402621f18485/questions/9711a680-8b04-4296-b70d-4c84c9cb48c9/answer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"products",
+										"43dcecc9-724c-4062-ac8f-402621f18485",
+										"questions",
+										"9711a680-8b04-4296-b70d-4c84c9cb48c9",
+										"answer"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:9092/supplier/{supplier_id}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9092",
-							"path": [
-								"supplier",
-								"{supplier_id}"
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Eliminar Supplier",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/supplier/{supplier_id}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"supplier",
-								"{supplier_id}"
-							]
+					"name": "Suppliers",
+					"item": [
+						{
+							"name": "Modificar Supplier",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phone\": \"111 222 3344\",\r\n    \"name\": \"Proveddor\",\r\n    \"description\": \"description\",\r\n    \"webPage\": \"www.xxx.com\",\r\n    \"age\": \"30\",\r\n    \"picture\": \"picture\",\r\n    \"socialAccounts\": [\"SC1\", \"SC2\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9092/supplier/5893026d-9f26-4295-b064-f432f075dff1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9092",
+									"path": [
+										"supplier",
+										"5893026d-9f26-4295-b064-f432f075dff1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar Supplier",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/supplier/5893026d-9f26-4295-b064-f432f075dff1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"supplier",
+										"5893026d-9f26-4295-b064-f432f075dff1"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				}
 			],
 			"auth": {
-				"type": "bearer"
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJpZGVudGl0eSIsInN1YiI6InN1cGxpZXIzMjFAc3VwcGxpZXIuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TVVBQTElFUiJdLCJpYXQiOjE2MzI3Mjc2MzYsImV4cCI6MTYzMjcyNzY5Nn0.q6ZpLmW-OtTWGarKGlzMN5ERyG1uQf_2H7EY0yCXsymkDAEazuGA0MGqq55q72exci-ACpCbwAsOrbiiCEh-Ew",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Customers Auth",
+			"item": [
+				{
+					"name": "Carrito",
+					"item": [
+						{
+							"name": "Insertar producto al carrito",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"productId\":\"43dcecc9-724c-4062-ac8f-402621f18485\",\r\n\t\"unitPrice\":500,\r\n\t\"productUrl\":\"http://localhost:8080/products/43dcecc9-724c-4062-ac8f-402621f18485\",\r\n\t\"quantity\":2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/cart/0230bc47-ae78-4ebe-a508-68ee3e8ea224/items",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cart",
+										"0230bc47-ae78-4ebe-a508-68ee3e8ea224",
+										"items"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar producto del carrito",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/cart/0230bc47-ae78-4ebe-a508-68ee3e8ea224/items/43dcecc9-724c-4062-ac8f-402621f18485",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cart",
+										"0230bc47-ae78-4ebe-a508-68ee3e8ea224",
+										"items",
+										"43dcecc9-724c-4062-ac8f-402621f18485"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obetener un carrito",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/cart/0230bc47-ae78-4ebe-a508-68ee3e8ea224",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cart",
+										"0230bc47-ae78-4ebe-a508-68ee3e8ea224"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear un carrito",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/cart/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cart",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modificar cantidad producto carrito",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"productId\":\"43dcecc9-724c-4062-ac8f-402621f18485\",\r\n\t\"quantity\":5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/cart/{cart_id}/items",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cart",
+										"{cart_id}",
+										"items"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Customers",
+					"item": [
+						{
+							"name": "Modificar Customer",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"juanfra@custmer.com\",\r\n    \"password\":\"12345\",\r\n    \"type\":\"customer\",\r\n    \"name\": \"Juan Francisco\",\r\n    \"description\": \"description\",\r\n    \"age\": \"30\",\r\n    \"picture\": \"picture\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/customers/aef7e13b-cc7e-4e47-8172-69b617ca48cc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customers",
+										"aef7e13b-cc7e-4e47-8172-69b617ca48cc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar Customer",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/customers/aef7e13b-cc7e-4e47-8172-69b617ca48cc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customers",
+										"aef7e13b-cc7e-4e47-8172-69b617ca48cc"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pagos",
+					"item": [
+						{
+							"name": "Pagar servicios",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cartId\": \"0230bc47-ae78-4ebe-a508-68ee3e8ea224\",\r\n    \"card\": {\r\n        \"number\": \"5234567890123459\",\r\n        \"name\": \"Pedro Pérez\",\r\n        \"expirationDate\": \"12/25\",\r\n        \"securityCode\": \"123\"\r\n    },\r\n    \"purchase\": {\r\n        \"quantity\": 2,\r\n        \"total\": 1000.0,\r\n        \"supplier\":{\r\n            \"id\": \"d5798e5d-a6dc-4235-b7bb-255780bad6b4\",\r\n            \"resource\": \"\",\r\n            \"name\": \"Pablo Rodríguez\"\r\n        },\r\n        \"customer\":{\r\n            \"id\": \"20b3b01e-d226-4272-b08e-801597aa4656\",\r\n            \"resource\": \"\",\r\n            \"name\": \"Pedro Pérez\"\r\n        },\r\n        \"product\":{\r\n            \"id\": \"43dcecc9-724c-4062-ac8f-402621f18485\",\r\n            \"resource\": \"http://localhost:8080/products/43dcecc9-724c-4062-ac8f-402621f18485\",\r\n            \"name\": \"Hotel Santa Marta\"\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/payments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"payments"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Productos",
+					"item": [
+						{
+							"name": "Crear pregunta",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"questionContent\": \"¿El tour es apto para personas mayores?\",\r\n    \"userId\": \"20b3b01e-d226-4272-b08e-801597aa4656\",\r\n    \"userName\": \"Pedro Perez\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9090/products/43dcecc9-724c-4062-ac8f-402621f18485/questions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"products",
+										"43dcecc9-724c-4062-ac8f-402621f18485",
+										"questions"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJpZGVudGl0eSIsInN1YiI6Imp1YW5mcmFAY3VzdG1lci5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NVU1RPTUVSIl0sImlhdCI6MTYzMjcyNzMwMywiZXhwIjoxNjMyNzI3MzYzfQ.t7UxNaF-seOUKxjX7y_fwUgdatpPXpSFsMX7yD8LcTN6GEm7EDehsvpQULVa0wh3pZ6P37sERwWVdcvpX3LA6A",
+						"type": "string"
+					}
+				]
 			},
 			"event": [
 				{
@@ -86,13 +419,247 @@
 			"name": "No Auth",
 			"item": [
 				{
-					"name": "Obtener Todos los Suppliers",
+					"name": "SOAP",
+					"item": [
+						{
+							"name": "Obtener productos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/products?productType=ECOTOUR",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "productType",
+											"value": "ECOTOUR"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener productos por SOAP",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n\t\t\t\txmlns:gs=\"http://spring.io/guides/gs-producing-web-service\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <gs:getProductsRequest>\r\n        </gs:getProductsRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/ProductSearch",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ProductSearch"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Productos",
+					"item": [
+						{
+							"name": "Obtener producto",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/products/43dcecc9-724c-4062-ac8f-402621f18485",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products",
+										"43dcecc9-724c-4062-ac8f-402621f18485"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Customers",
+					"item": [
+						{
+							"name": "Obtener todos los customers",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/customers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener customer",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/customers/aef7e13b-cc7e-4e47-8172-69b617ca48cc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customers",
+										"aef7e13b-cc7e-4e47-8172-69b617ca48cc"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Suppliers",
+					"item": [
+						{
+							"name": "Obtener Todos los Suppliers",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/supplier",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"supplier"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Un Supplier",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/supplier/5893026d-9f26-4295-b064-f432f075dff1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"supplier",
+										"5893026d-9f26-4295-b064-f432f075dff1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Crear customer",
 					"request": {
 						"auth": {
 							"type": "noauth"
 						},
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"juanfra@custmer.com\",\r\n    \"password\":\"12345\",\r\n    \"type\":\"customer\",\r\n    \"name\": \"Name LastName\",\r\n    \"description\": \"description\",\r\n    \"age\": \"30\",\r\n    \"picture\": \"picture\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Supplier",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"suplier321@supplier.com\",\r\n    \"password\":\"12345\",\r\n    \"type\":\"supplier\",\r\n    \"phone\": \"111 222 3344\",\r\n    \"name\": \"Name LastName\",\r\n    \"description\": \"description\",\r\n    \"webPage\": \"www.xxx.com\",\r\n    \"age\": \"30\",\r\n    \"picture\": \"picture\",\r\n    \"socialAccounts\": [\"SC1\", \"SC2\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:8080/supplier",
 							"protocol": "http",
@@ -108,28 +675,6 @@
 					"response": []
 				},
 				{
-					"name": "Obtener Un Supplier",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/{supplier_id}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"{supplier_id}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Login",
 					"request": {
 						"auth": {
@@ -139,7 +684,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"sup@supplier.com\",\r\n    \"password\":\"12345\"\r\n}",
+							"raw": "{\r\n    \"email\":\"suplier321@supplier.com\",\r\n    \"password\":\"12345\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -184,510 +729,6 @@
 					}
 				}
 			]
-		},
-		{
-			"name": "Productos",
-			"item": [
-				{
-					"name": "Obtener producto",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/products/227e4e0d-320e-491e-9258-15b100a7ed08",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"products",
-								"227e4e0d-320e-491e-9258-15b100a7ed08"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Crear pregunta",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"questionContent\": \"¿El tour es apto para niños?\",\r\n    \"userId\": \"123456\",\r\n    \"userName\": \"Pedro Perez\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:9090/products/227e4e0d-320e-491e-9258-15b100a7ed08/questions",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9090",
-							"path": [
-								"products",
-								"227e4e0d-320e-491e-9258-15b100a7ed08",
-								"questions"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Responder pregunta",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"answerContent\": \"Claro que sí.\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:9090/products/227e4e0d-320e-491e-9258-15b100a7ed08/questions/7a5b6111-054a-43a1-b36f-abc22e768ca8/answer",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9090",
-							"path": [
-								"products",
-								"227e4e0d-320e-491e-9258-15b100a7ed08",
-								"questions",
-								"7a5b6111-054a-43a1-b36f-abc22e768ca8",
-								"answer"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Pagos",
-			"item": [
-				{
-					"name": "Pagar servicios",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"cartId\": \"91a5c64c-f34e-491a-bb40-55c4a0563d6b\",\r\n    \"card\": {\r\n        \"number\": \"5234567890123459\",\r\n        \"name\": \"Pedro Pérez\",\r\n        \"expirationDate\": \"12/25\",\r\n        \"securityCode\": \"123\"\r\n    },\r\n    \"purchase\": {\r\n        \"quantity\": 3,\r\n        \"total\": 90000,\r\n        \"supplier\":{\r\n            \"id\": \"613e3070d2acf338c07a2d2b\",\r\n            \"resource\": \"\",\r\n            \"name\": \"Pablo Rodríguez\"\r\n        },\r\n        \"customer\":{\r\n            \"id\": \"613e3070d2acf338c07a2d2b\",\r\n            \"resource\": \"\",\r\n            \"name\": \"Pedro Pérez\"\r\n        },\r\n        \"product\":{\r\n            \"id\": \"613e3070d2acf338c07a2d2b\",\r\n            \"resource\": \"\",\r\n            \"name\": \"Tour Parque Tayrona\"\r\n        }\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/payments",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"payments"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Customers",
-			"item": [
-				{
-					"name": "Modificar Customer",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"sup@supplier.com\",\r\n    \"password\":\"12345\",\r\n    \"type\":\"customer\",\r\n    \"name\": \"NameUpdated LastNameUpdated\",\r\n    \"description\": \"description\",\r\n    \"age\": \"30\",\r\n    \"picture\": \"picture\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/customers/8c11d34a-61cb-4b40-b269-a6864a2aeb6b",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"customers",
-								"8c11d34a-61cb-4b40-b269-a6864a2aeb6b"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Eliminar Customer",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/customers/8c11d34a-61cb-4b40-b269-a6864a2aeb6b",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"customers",
-								"8c11d34a-61cb-4b40-b269-a6864a2aeb6b"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Crear customer",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"sup@supplier.com\",\r\n    \"password\":\"12345\",\r\n    \"type\":\"customer\",\r\n    \"name\": \"Name LastName\",\r\n    \"description\": \"description\",\r\n    \"age\": \"30\",\r\n    \"picture\": \"picture\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/customers",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"customers"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Obtener customer",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/customers/8c11d34a-61cb-4b40-b269-a6864a2aeb6b",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"customers",
-								"8c11d34a-61cb-4b40-b269-a6864a2aeb6b"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Obtener todos los customers",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/customers",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"customers"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Carrito",
-			"item": [
-				{
-					"name": "Insertar producto al carrito",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\t\"productId\":\"43dcecc9-724c-4062-ac8f-402621f18485\",\r\n\t\"unitPrice\":500,\r\n\t\"productUrl\":\"http://localhost:8080/products/43dcecc9-724c-4062-ac8f-402621f18485\",\r\n\t\"quantity\":2\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/cart/{id}/items",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cart",
-								"{id}",
-								"items"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Borrar producto del carrito",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/cart/{id_cart}/items/{id_product}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cart",
-								"{id_cart}",
-								"items",
-								"{id_product}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Obetener un carrito",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/cart/{id}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cart",
-								"{id}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Crear un carrito",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/cart/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cart",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Modificar cantidad producto carrito",
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\t\"productId\":\"43dcecc9-724c-4062-ac8f-402621f18485\",\r\n\t\"quantity\":5\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/cart/{cart_id}/items",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cart",
-								"{cart_id}",
-								"items"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "SOAP",
-			"item": [
-				{
-					"name": "Obtener productos",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/products",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"products"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Obtener productos por SOAP",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"content-type": true
-						}
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "text/xml",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n\t\t\t\txmlns:gs=\"http://spring.io/guides/gs-producing-web-service\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <gs:getProductsRequest>\r\n        </gs:getProductsRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
-							"options": {
-								"raw": {
-									"language": "xml"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8081/ProductSearch",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8081",
-							"path": [
-								"ProductSearch"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Purchases",
-			"item": [
-				{
-					"name": "Registrar Purchase",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"quantity\": 3,\r\n    \"total\": 90000,\r\n    \"supplier\":{\r\n        \"id\": \"613e3070d2acf338c07a2d2b\",\r\n        \"resource\": \"\",\r\n        \"name\": \"Pablo Rodríguez\"\r\n    },\r\n    \"customer\":{\r\n        \"id\": \"613e3070d2acf338c07a2d2b\",\r\n        \"resource\": \"\",\r\n        \"name\": \"Pedro Pérez\"\r\n    },\r\n    \"product\":{\r\n        \"id\": \"613e3070d2acf338c07a2d2b\",\r\n        \"resource\": \"\",\r\n        \"name\": \"Tour Parque Tayrona\"\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/purchases",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"purchases"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Create Supplier",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"sup@supplier.com\",\r\n    \"password\":\"12345\",\r\n    \"type\":\"supplier\",\r\n    \"phone\": \"111 222 3344\",\r\n    \"name\": \"Name LastName\",\r\n    \"description\": \"description\",\r\n    \"webPage\": \"www.xxx.com\",\r\n    \"age\": \"30\",\r\n    \"picture\": \"picture\",\r\n    \"socialAccounts\": [\"SC1\", \"SC2\"]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/supplier",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"supplier"
-					]
-				}
-			},
-			"response": []
 		}
 	]
 }
