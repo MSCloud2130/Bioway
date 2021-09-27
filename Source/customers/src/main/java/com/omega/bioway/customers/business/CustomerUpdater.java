@@ -16,6 +16,7 @@ public class CustomerUpdater {
 
     public void execute(Customer customer, String customerId){
         finder.execute(customerId);
+        customer.setId(customerId);
         repository.save(customer);
     }
 }
