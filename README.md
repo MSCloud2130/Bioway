@@ -13,8 +13,9 @@ La descripción de los elementos de diseño del sistema está incluida en la wik
 
 ## Instrucciones de uso
 
-
 ### 1. Iniciar servicios
+
+**NOTA:** Los servicios utilizan MongoDB. Por lo tanto, antes de ejecutar los servicios, es necesario iniciar una instancia de MongoDB en localhost:27017.
 
 A continuación, se detallan los comandos que se deben ejecutar en consola para ejecutar cada uno de los componentes del proyecto. Para cada componente, se debe usar una consola de comandos separada. Inicie los servicios en el orden indicado:
 
