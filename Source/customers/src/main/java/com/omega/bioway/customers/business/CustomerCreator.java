@@ -12,8 +12,14 @@ public class CustomerCreator {
     CustomerRepository repository;
 
     public Customer execute(Customer customer){
-        repository.save(customer);
-        return customer;
+        Customer toCreate = new Customer();
+        toCreate.setAge(customer.getAge());
+        toCreate.setDescription(customer.getDescription());
+        toCreate.setEmail(customer.getEmail());
+        toCreate.setName(customer.getName());
+        toCreate.setPicture(customer.getPicture());
+        repository.save(toCreate);
+        return toCreate;
     }
 
 }

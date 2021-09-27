@@ -45,10 +45,10 @@ public class RestEndpointsController {
     }
 
     //cart
-    @PostMapping(value = "cart", produces = "application/json")
+    @PostMapping(value = "cart")
     public ResponseEntity createCart(){
         try {
-            return restTemplate.postForEntity("http://cart-service/cart/", null, Object.class, "");
+            return restTemplate.postForEntity("http://cart-service/cart/", null, String.class, "");
         } catch (HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -92,7 +92,7 @@ public class RestEndpointsController {
     public ResponseEntity deleteItemCart(@PathVariable String cartId, @PathVariable String productId)
     {   
         try {
-            return restTemplate.exchange("http://cart-service/cart/{cartId}/items", HttpMethod.DELETE, null, Object.class, cartId,productId);
+            return restTemplate.exchange("http://cart-service/cart/{cartId}/items/{productId}", HttpMethod.DELETE, null, Object.class, cartId,productId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -126,16 +126,22 @@ public class RestEndpointsController {
         Customer customer = new Customer(request.getName(), request.getEmail(), request.getAge(),
                 request.getPicture(), request.getDescription(), request.getPassword());
         Customer createdCustomer = null;
+        System.out.println("a");
         try{
             createdCustomer = restTemplate.postForObject("http://customer-service/customers", new HttpEntity<>(customer), Customer.class);
+            System.out.println("b");
         }catch(HttpClientErrorException e){
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
         CreateUserRequest registerRequest = new CreateUserRequest(createdCustomer.getId(),createdCustomer.getEmail(),
-                createdCustomer.getPassword(),request.getType());
+                request.getPassword(),request.getType());
+                System.out.println(createdCustomer.getPassword());
+                System.out.println("c");
         try{
             response=restTemplate.exchange("http://identity-service/register", HttpMethod.POST, new HttpEntity<>(registerRequest), Object.class);
+            System.out.println("d");
         }catch(HttpClientErrorException e){
+            System.out.println(e.getResponseBodyAsString());
             restTemplate.exchange("http://customer-service/customers/{customer_id}", HttpMethod.DELETE,null, Object.class,createdCustomer.getId());
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
