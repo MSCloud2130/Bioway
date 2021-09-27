@@ -126,22 +126,17 @@ public class RestEndpointsController {
         Customer customer = new Customer(request.getName(), request.getEmail(), request.getAge(),
                 request.getPicture(), request.getDescription(), request.getPassword());
         Customer createdCustomer = null;
-        System.out.println("a");
         try{
             createdCustomer = restTemplate.postForObject("http://customer-service/customers", new HttpEntity<>(customer), Customer.class);
-            System.out.println("b");
         }catch(HttpClientErrorException e){
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
         CreateUserRequest registerRequest = new CreateUserRequest(createdCustomer.getId(),createdCustomer.getEmail(),
                 request.getPassword(),request.getType());
-                System.out.println(createdCustomer.getPassword());
-                System.out.println("c");
         try{
             response=restTemplate.exchange("http://identity-service/register", HttpMethod.POST, new HttpEntity<>(registerRequest), Object.class);
-            System.out.println("d");
         }catch(HttpClientErrorException e){
-            System.out.println(e.getResponseBodyAsString());
+            System.out.println(e.getLocalizedMessage());
             restTemplate.exchange("http://customer-service/customers/{customer_id}", HttpMethod.DELETE,null, Object.class,createdCustomer.getId());
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -151,7 +146,7 @@ public class RestEndpointsController {
     @PutMapping(value = "/customers/{customer_id}")
     public ResponseEntity modifyCustomer(@RequestBody Customer customer, @PathVariable(value = "customer_id") String customerId){
         try {
-            return restTemplate.exchange("http://customer-service/customers/{customerId}", HttpMethod.PUT, new HttpEntity<>(customer), Object.class, customerId);
+            return restTemplate.exchange("http://customer-service/customers/{customerId}/", HttpMethod.PUT, new HttpEntity<>(customer), Object.class, customerId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -160,7 +155,7 @@ public class RestEndpointsController {
     @DeleteMapping(value = "/customers/{customer_id}")
     public ResponseEntity deleteCustomer(@PathVariable(value = "customer_id") String customerId){
         try {
-            return restTemplate.exchange("http://customer-service/customers/{customerId}", HttpMethod.DELETE, null, Object.class, customerId);
+            return restTemplate.exchange("http://customer-service/customers/{customerId}/", HttpMethod.DELETE, null, Object.class, customerId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -174,17 +169,17 @@ public class RestEndpointsController {
         payment.setCard(request.getCard());
         payment.setValue(request.getPurchase().getTotal());
         try {
-            restTemplate.postForEntity("http://payment-service/payments", payment, Object.class);
+            restTemplate.postForEntity("http://payment-service/payment", payment, Object.class);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
         try {
-            restTemplate.exchange("http://cart-service/cart/{cartId}/items", HttpMethod.DELETE, null, Object.class, request.getCartId(), request.getPurchase().getProduct().getId() );
+            restTemplate.exchange("http://cart-service/cart/{cartId}/items/{productId}", HttpMethod.DELETE, null, Object.class, request.getCartId(), request.getPurchase().getProduct().getId() );
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
         try {
-            return restTemplate.exchange("http://purchase-service/purchases", HttpMethod.POST, null, Object.class, request.getPurchase());
+            return restTemplate.exchange("http://purchase-service/purchases", HttpMethod.POST, new HttpEntity<>(request.getPurchase()), Object.class);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
