@@ -25,71 +25,7 @@ Ubíquese en la carpeta Bioway/Source/eurekaserver y ejecute los siguientes coma
 > 
 > mvn spring-boot:run
 
-#### 2. Servicio Products
-
-Ubíquese en la carpeta Bioway/Source/products y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 3. Servicio Customers
-
-Ubíquese en la carpeta Bioway/Source/customers y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 4. Servicio Purchases
-
-Ubíquese en la carpeta Bioway/Source/purchases y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 5. Servicio Carts
-
-Ubíquese en la carpeta Bioway/Source/carts y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 6. Servicio Identity
-
-Ubíquese en la carpeta Bioway/Source/identity y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 7. Servicio Suppliers
-
-Ubíquese en la carpeta Bioway/Source/suppliers y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 8. Servicio Payment
-
-Ubíquese en la carpeta Bioway/Source/payments y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 9. API Gateway
-
-Ubíquese en la carpeta Bioway/Source/apigateway y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 10. Servicio SOAP ProductSearch:
+#### 2. Servicio SOAP ProductSearch:
 
 Ubíquese en la carpeta Bioway/Source/ProductSearch y ejecute los siguientes comandos
 
@@ -106,6 +42,71 @@ Ubíquese en la carpeta Bioway/Source/ProductSearch y ejecute los siguientes com
 > mvn clean install
 > 
 > mvn spring-boot:run
+
+#### 3. Servicio Products
+
+Ubíquese en la carpeta Bioway/Source/products y ejecute los siguientes comandos:
+
+> mvn clean install
+> 
+> mvn spring-boot:run
+
+#### 4. Servicio Customers
+
+Ubíquese en la carpeta Bioway/Source/customers y ejecute los siguientes comandos:
+
+> mvn clean install
+> 
+> mvn spring-boot:run
+
+#### 5. Servicio Purchases
+
+Ubíquese en la carpeta Bioway/Source/purchases y ejecute los siguientes comandos:
+
+> mvn clean install
+> 
+> mvn spring-boot:run
+
+#### 6. Servicio Carts
+
+Ubíquese en la carpeta Bioway/Source/carts y ejecute los siguientes comandos:
+
+> mvn clean install
+> 
+> mvn spring-boot:run
+
+#### 7. Servicio Identity
+
+Ubíquese en la carpeta Bioway/Source/identity y ejecute los siguientes comandos:
+
+> mvn clean install
+> 
+> mvn spring-boot:run
+
+#### 8. Servicio Suppliers
+
+Ubíquese en la carpeta Bioway/Source/suppliers y ejecute los siguientes comandos:
+
+> mvn clean install
+> 
+> mvn spring-boot:run
+
+#### 9. Servicio Payment
+
+Ubíquese en la carpeta Bioway/Source/payments y ejecute los siguientes comandos:
+
+> mvn clean install
+> 
+> mvn spring-boot:run
+
+#### 10. API Gateway
+
+Ubíquese en la carpeta Bioway/Source/apigateway y ejecute los siguientes comandos:
+
+> mvn clean install
+> 
+> mvn spring-boot:run
+
 
 
 ### 2. Cliente Postman
