@@ -1,0 +1,301 @@
+version: '3'
+services:
+    #Eureka Server
+    eurekaserver:
+        build: ./tomcat
+        image: tomcat
+        container_name: eurekaserver
+        volumes:
+            - eurekaserver-data:/usr/local/tomcat/webapps
+        ports:
+            - 8761:8761
+        environment: 
+            - TOMCAT_PASSWORD=tomcat
+        networks:
+            - biowaynet
+    ###
+
+    #Microservices
+    apigateway:
+        build: ./tomcat
+        image: tomcat
+        container_name: apigateway
+        volumes:
+            - apigateway-data:/usr/local/tomcat/webapps
+        ports:
+            - 8080:8080
+        environment: 
+            - TOMCAT_PASSWORD=tomcat
+        networks:
+            - biowaynet
+        depends_on:
+            - eurekaserver
+
+    cart:
+        build: ./tomcat
+        image: tomcat
+        container_name: cart
+        volumes:
+            - cart-data:/usr/local/tomcat/webapps
+        ports:
+            - 8081:8080
+        environment: 
+            - TOMCAT_PASSWORD=tomcat
+        networks:
+            - biowaynet
+        depends_on:
+            - mongo-seed
+            - eurekaserver
+
+    customers:
+        build: ./tomcat
+        image: tomcat
+        container_name: customers
+        volumes:
+            - customers-data:/usr/local/tomcat/webapps
+        ports:
+            - 8082:8080
+        environment: 
+            - TOMCAT_PASSWORD=tomcat
+        networks:
+            - biowaynet
+        depends_on:
+            - mongo-seed
+            - eurekaserver
+
+    identity:
+        build: ./tomcat
+        image: tomcat
+        container_name: identity
+        volumes:
+            - identity-data:/usr/local/tomcat/webapps
+        ports:
+            - 8084:8080
+        environment: 
+            - TOMCAT_PASSWORD=tomcat
+        networks:
+            - biowaynet
+        depends_on:
+            - mongo-seed
+            - eurekaserver
+
+    payments:
+        build: ./tomcat
+        image: tomcat
+        container_name: payments
+        volumes:
+            - payments-data:/usr/local/tomcat/webapps
+        ports:
+            - 8085:8080
+        environment: 
+            - TOMCAT_PASSWORD=tomcat
+        networks:
+            - biowaynet
+        depends_on:
+            - mongo-seed
+            - eurekaserver
+
+    products:
+        build: ./tomcat
+        image: tomcat
+        container_name: products
+        volumes:
+            - products-data:/usr/local/tomcat/webapps
+        ports:
+            - 8086:8080
+        environment: 
+            - TOMCAT_PASSWORD=tomcat
+        networks:
+            - biowaynet
+        depends_on:
+            - mongo-seed
+            - eurekaserver
+            - ProductSearch
+
+    ProductSearch:
+        build: ./tomcat
+        image: tomcat
+        container_name: ProductSearch
+        volumes:
+            - ProductSearch-data:/usr/local/tomcat/webapps
+        ports:
+            - 8087:8080
+        environment: 
+            - TOMCAT_PASSWORD=tomcat
+        networks:
+            - biowaynet
+        depends_on:
+            - mongo-seed
+            - eurekaserver
+
+    purchases:
+        build: ./tomcat
+        image: tomcat
+        container_name: purchases
+        volumes:
+            - purchases-data:/usr/local/tomcat/webapps
+        ports:
+            - 8088:8080
+        environment: 
+            - TOMCAT_PASSWORD=tomcat
+        networks:
+            - biowaynet
+        depends_on:
+            - mongo-seed
+            - eurekaserver
+
+    suppliers:
+        build: ./tomcat
+        image: tomcat
+        container_name: suppliers
+        volumes:
+            - suppliers-data:/usr/local/tomcat/webapps
+        ports:
+            - 8089:8080
+        environment: 
+            - TOMCAT_PASSWORD=tomcat
+        networks:
+            - biowaynet
+        depends_on:
+            - mongo-seed
+            - eurekaserver
+    ###
+
+    #Databases
+    mongo-cart:
+        image: mongo
+        container_name: mongo-cart
+        hostname: mongo-cart
+        networks:
+            - biowaynet 
+        ports:
+            - "27027:27017"
+        restart: always
+
+    mongo-customers:
+        image: mongo
+        container_name: mongo-customers
+        hostname: mongo-customers
+        networks:
+            - biowaynet 
+        ports:
+            - "27028:27017"
+        restart: always
+
+    mongo-identity:
+        image: mongo
+        container_name: mongo-identity
+        hostname: mongo-identity
+        networks:
+            - biowaynet 
+        ports:
+            - "27029:27017"
+        restart: always
+    
+    mongo-payments:
+        image: mongo
+        container_name: mongo-payments
+        hostname: mongo-payments
+        networks:
+            - biowaynet 
+        ports:
+            - "27030:27017"
+        restart: always
+
+    mongo-products:
+        image: mongo
+        container_name: mongo-products
+        hostname: mongo-products
+        networks:
+            - biowaynet 
+        ports:
+            - "27031:27017"
+        restart: always
+
+    mongo-products-soap:
+        image: mongo
+        container_name: mongo-products-soap
+        hostname: mongo-products-soap
+        networks:
+            - biowaynet 
+        ports:
+            - "27032:27017"
+        restart: always
+
+    mongo-purchases:
+        image: mongo
+        container_name: mongo-purchases
+        hostname: mongo-purchases
+        networks:
+            - biowaynet 
+        ports:
+            - "27033:27017"
+        restart: always
+
+    mongo-suppliers:
+        image: mongo
+        container_name: mongo-suppliers
+        hostname: mongo-suppliers
+        networks:
+            - biowaynet 
+        ports:
+            - "27034:27017"
+        restart: always
+    ###
+
+    #Test data import
+    mongo-seed:
+        build: ./mongo-seed
+        networks:
+            - biowaynet
+        depends_on:
+            - mongo-cart
+            - mongo-customers
+            - mongo-identity
+            - mongo-payments
+            - mongo-products
+            - mongo-products-soap
+            - mongo-purchases
+            - mongo-suppliers
+    ###
+
+    ###Devops Pipeline
+    jenkins:
+        build: ./jenkins
+        image: jenkins
+        container_name: jenkins
+        restart: always
+        volumes:
+            - jenkins-data:/var/jenkins_home
+            - apigateway-data:/deploy-apigateway
+            - cart-data:/deploy-cart
+            - customers-data:/deploy-customers
+            - eurekaserver-data:/deploy-eurekaserver
+            - identity-data:/deploy-identity
+            - payments-data:/deploy-payments
+            - products-data:/deploy-products
+            - ProductSearch-data:/deploy-ProductSearch
+            - purchases-data:/deploy-purchases
+            - suppliers-data:/deploy-suppliers
+        ports:
+            - 8090:8080
+        networks:
+            - biowaynet
+    ###
+    
+networks:
+    biowaynet:
+        driver: bridge
+
+volumes:
+    apigateway-data:
+    cart-data:
+    customers-data:
+    eurekaserver-data:
+    identity-data:
+    payments-data:
+    products-data:
+    ProductSearch-data:
+    purchases-data:
+    suppliers-data:
+    jenkins-data:
