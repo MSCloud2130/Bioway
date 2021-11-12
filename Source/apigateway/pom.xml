@@ -124,7 +124,7 @@
 					<schemas>
 						<!--WSDL URL-->
 						<schema>
-							<url>http://ProductSearch:8080/app/ProductSearch/products.wsdl</url>
+							<url>http://localhost:8081/ProductSearch/products.wsdl</url>
 						</schema>
 					</schemas>
 					</configuration>
