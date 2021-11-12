@@ -14,7 +14,7 @@ public class ProductsClient extends WebServiceGatewaySupport {
         request.setProductType(productType);
         request.setSupplierId(supplierId);
         GetProductsResponse response = (GetProductsResponse) getWebServiceTemplate()
-            .marshalSendAndReceive("http://localhost:8081/ProductSearch/products.wsdl", request,
+            .marshalSendAndReceive("http://ProductSearch:8080/app/ProductSearch/products.wsdl", request,
                 new SoapActionCallback(
                     "http://spring.io/guides/gs-producing-web-service/getAllProductsRequest"));
         return response;

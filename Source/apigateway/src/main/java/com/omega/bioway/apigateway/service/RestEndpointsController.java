@@ -48,7 +48,7 @@ public class RestEndpointsController {
     @PostMapping(value = "cart")
     public ResponseEntity createCart(){
         try {
-            return restTemplate.postForEntity("http://cart-service/cart/", null, String.class, "");
+            return restTemplate.postForEntity("http://cart-service/app/cart/", null, String.class, "");
         } catch (HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -59,7 +59,7 @@ public class RestEndpointsController {
     public ResponseEntity getCart(@PathVariable String cartId)
     {
         try {
-            return restTemplate.getForEntity("http://cart-service/cart/{cartId}", Object.class, cartId);
+            return restTemplate.getForEntity("http://cart-service/app/cart/{cartId}", Object.class, cartId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -70,7 +70,7 @@ public class RestEndpointsController {
     public ResponseEntity AddItenCart(@PathVariable String cartId,@RequestBody AddItemRequest request)
     {
         try {
-            return restTemplate.exchange("http://cart-service/cart/{cartId}/items", HttpMethod.PUT, new HttpEntity<>(request), Object.class, cartId);
+            return restTemplate.exchange("http://cart-service/app/cart/{cartId}/items", HttpMethod.PUT, new HttpEntity<>(request), Object.class, cartId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -81,7 +81,7 @@ public class RestEndpointsController {
     public ResponseEntity editQuantityItemCart(@PathVariable String cartId, @RequestBody EditItemRequest request)
     {   
         try {
-            return restTemplate.exchange("http://cart-service/cart/{cartId}/items", HttpMethod.PATCH, new HttpEntity<>(request), Object.class, cartId);
+            return restTemplate.exchange("http://cart-service/app/cart/{cartId}/items", HttpMethod.PATCH, new HttpEntity<>(request), Object.class, cartId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -92,7 +92,7 @@ public class RestEndpointsController {
     public ResponseEntity deleteItemCart(@PathVariable String cartId, @PathVariable String productId)
     {   
         try {
-            return restTemplate.exchange("http://cart-service/cart/{cartId}/items/{productId}", HttpMethod.DELETE, null, Object.class, cartId,productId);
+            return restTemplate.exchange("http://cart-service/app/cart/{cartId}/items/{productId}", HttpMethod.DELETE, null, Object.class, cartId,productId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -105,7 +105,7 @@ public class RestEndpointsController {
     public ResponseEntity getCustomers(){
         System.out.println("SOLICITUD GET CUSTOMERS");
         try {
-            return restTemplate.exchange("http://CUSTOMER-SERVICE/customers", HttpMethod.GET, null, Object.class);
+            return restTemplate.exchange("http://CUSTOMER-SERVICE/app/customers", HttpMethod.GET, null, Object.class);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -114,7 +114,7 @@ public class RestEndpointsController {
     @GetMapping(value = "/customers/{customer_id}", produces = "application/json")
     public ResponseEntity getCustomer(@PathVariable(value = "customer_id") String customerId){
         try {
-            return restTemplate.exchange("http://customer-service/customers/{customerId}", HttpMethod.GET, null, Object.class, customerId);
+            return restTemplate.exchange("http://customer-service/app/customers/{customerId}", HttpMethod.GET, null, Object.class, customerId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -127,17 +127,17 @@ public class RestEndpointsController {
                 request.getPicture(), request.getDescription(), request.getPassword());
         Customer createdCustomer = null;
         try{
-            createdCustomer = restTemplate.postForObject("http://customer-service/customers", new HttpEntity<>(customer), Customer.class);
+            createdCustomer = restTemplate.postForObject("http://customer-service/app/customers", new HttpEntity<>(customer), Customer.class);
         }catch(HttpClientErrorException e){
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
         CreateUserRequest registerRequest = new CreateUserRequest(createdCustomer.getId(),createdCustomer.getEmail(),
                 request.getPassword(),request.getType());
         try{
-            response=restTemplate.exchange("http://identity-service/register", HttpMethod.POST, new HttpEntity<>(registerRequest), Object.class);
+            response=restTemplate.exchange("http://identity-service/app/register", HttpMethod.POST, new HttpEntity<>(registerRequest), Object.class);
         }catch(HttpClientErrorException e){
             System.out.println(e.getLocalizedMessage());
-            restTemplate.exchange("http://customer-service/customers/{customer_id}", HttpMethod.DELETE,null, Object.class,createdCustomer.getId());
+            restTemplate.exchange("http://customer-service/app/customers/{customer_id}", HttpMethod.DELETE,null, Object.class,createdCustomer.getId());
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
         return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
@@ -146,7 +146,7 @@ public class RestEndpointsController {
     @PutMapping(value = "/customers/{customer_id}")
     public ResponseEntity modifyCustomer(@RequestBody Customer customer, @PathVariable(value = "customer_id") String customerId){
         try {
-            return restTemplate.exchange("http://customer-service/customers/{customerId}/", HttpMethod.PUT, new HttpEntity<>(customer), Object.class, customerId);
+            return restTemplate.exchange("http://customer-service/app/customers/{customerId}/", HttpMethod.PUT, new HttpEntity<>(customer), Object.class, customerId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -155,7 +155,7 @@ public class RestEndpointsController {
     @DeleteMapping(value = "/customers/{customer_id}")
     public ResponseEntity deleteCustomer(@PathVariable(value = "customer_id") String customerId){
         try {
-            return restTemplate.exchange("http://customer-service/customers/{customerId}/", HttpMethod.DELETE, null, Object.class, customerId);
+            return restTemplate.exchange("http://customer-service/app/customers/{customerId}/", HttpMethod.DELETE, null, Object.class, customerId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -169,17 +169,17 @@ public class RestEndpointsController {
         payment.setCard(request.getCard());
         payment.setValue(request.getPurchase().getTotal());
         try {
-            restTemplate.postForEntity("http://payment-service/payment", payment, Object.class);
+            restTemplate.postForEntity("http://payment-service/app/payment", payment, Object.class);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
         try {
-            restTemplate.exchange("http://cart-service/cart/{cartId}/items/{productId}", HttpMethod.DELETE, null, Object.class, request.getCartId(), request.getPurchase().getProduct().getId() );
+            restTemplate.exchange("http://cart-service/app/cart/{cartId}/items/{productId}", HttpMethod.DELETE, null, Object.class, request.getCartId(), request.getPurchase().getProduct().getId() );
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
         try {
-            return restTemplate.exchange("http://purchase-service/purchases", HttpMethod.POST, new HttpEntity<>(request.getPurchase()), Object.class);
+            return restTemplate.exchange("http://purchase-service/app/purchases", HttpMethod.POST, new HttpEntity<>(request.getPurchase()), Object.class);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -202,7 +202,7 @@ public class RestEndpointsController {
     @GetMapping(value = "products/{id}", produces = "application/json")
     public ResponseEntity getProduct(@PathVariable String id){
         try {
-            return restTemplate.getForEntity("http://products-service/products/{id}", Object.class, id);
+            return restTemplate.getForEntity("http://products-service/app/products/{id}", Object.class, id);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -212,7 +212,7 @@ public class RestEndpointsController {
     @PostMapping(value = "products/{productId}/questions", consumes = "application/json")
     public ResponseEntity createQuestion(@PathVariable String productId, @RequestBody CreateQuestionRequest request){
         try {
-            return restTemplate.postForEntity("http://products-service/products/{productId}/questions", request, Object.class, productId);
+            return restTemplate.postForEntity("http://products-service/app/products/{productId}/questions", request, Object.class, productId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -221,7 +221,7 @@ public class RestEndpointsController {
     @PutMapping(value = "products/{productId}/questions/{questionId}/answer", consumes = "application/json")
     public ResponseEntity submitAnswer(@PathVariable String productId, @PathVariable String questionId, @RequestBody SubmitAnswerRequest request) {
         try {
-            return restTemplate.exchange("http://products-service/products/{productId}/questions/{questionId}/answer", HttpMethod.PUT, new HttpEntity<>(request), Object.class, productId, questionId);
+            return restTemplate.exchange("http://products-service/app/products/{productId}/questions/{questionId}/answer", HttpMethod.PUT, new HttpEntity<>(request), Object.class, productId, questionId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -236,19 +236,19 @@ public class RestEndpointsController {
                 request.getAge(),request.getPicture(),request.getDescription(),request.getPhone(),request.getWebPage(),
                 request.getSocialAccounts());
         try{
-            supplier=restTemplate.postForObject("http://supplier-service/supplier", new HttpEntity<>(supplierRequest), Supplier.class);
+            supplier=restTemplate.postForObject("http://supplier-service/app/supplier", new HttpEntity<>(supplierRequest), Supplier.class);
         }catch(HttpClientErrorException e){
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
         CreateUserRequest registerRequest = new CreateUserRequest(supplier.getId(),supplier.getEmail(),
                 request.getPassword(),request.getType());
         try{
-            response=restTemplate.exchange("http://identity-service/register", HttpMethod.POST, new HttpEntity<>(registerRequest), Object.class);
+            response=restTemplate.exchange("http://identity-service/app/register", HttpMethod.POST, new HttpEntity<>(registerRequest), Object.class);
         }catch(HttpClientErrorException e){
-            restTemplate.exchange("http://supplier-service/supplier/{supplier_id}", HttpMethod.DELETE,null, Object.class,supplier.getId());
+            restTemplate.exchange("http://supplier-service/app/supplier/{supplier_id}", HttpMethod.DELETE,null, Object.class,supplier.getId());
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }catch (IllegalStateException e){
-            restTemplate.exchange("http://supplier-service/supplier/{supplier_id}", HttpMethod.DELETE,null, Object.class,supplier.getId());
+            restTemplate.exchange("http://supplier-service/app/supplier/{supplier_id}", HttpMethod.DELETE,null, Object.class,supplier.getId());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
         return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
@@ -257,8 +257,8 @@ public class RestEndpointsController {
     @DeleteMapping(value = "/supplier/{supplier_id}")
     public ResponseEntity deleteSupplier(@PathVariable(value = "supplier_id")String supplierId){
         try{
-            restTemplate.exchange("http://supplier-service/supplier/{supplier_id}", HttpMethod.DELETE, null, Object.class,supplierId);
-            return restTemplate.exchange("http://identity-service/remove/{user_id}", HttpMethod.DELETE, null, Object.class,supplierId);
+            restTemplate.exchange("http://supplier-service/app/supplier/{supplier_id}", HttpMethod.DELETE, null, Object.class,supplierId);
+            return restTemplate.exchange("http://identity-service/app/remove/{user_id}", HttpMethod.DELETE, null, Object.class,supplierId);
         }catch(HttpClientErrorException e){
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -267,7 +267,7 @@ public class RestEndpointsController {
     @GetMapping(value = "/supplier")
     public ResponseEntity getAllSupplier(){
         try{
-            return restTemplate.exchange("http://supplier-service/supplier", HttpMethod.GET, null, Object.class);
+            return restTemplate.exchange("http://supplier-service/app/supplier", HttpMethod.GET, null, Object.class);
         }catch(HttpClientErrorException e){
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -276,7 +276,7 @@ public class RestEndpointsController {
     @GetMapping(value = "/supplier/{supplier_id}")
     public ResponseEntity getSupplier(@PathVariable(value = "supplier_id")String supplierId){
         try{
-            return restTemplate.exchange("http://supplier-service/supplier/{supplier_id}", HttpMethod.GET, null, Object.class,supplierId);
+            return restTemplate.exchange("http://supplier-service/app/supplier/{supplier_id}", HttpMethod.GET, null, Object.class,supplierId);
         }catch(HttpClientErrorException e){
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -285,7 +285,7 @@ public class RestEndpointsController {
     @PutMapping(value = "/supplier/{supplier_id}")
     public ResponseEntity modifySupplier(@PathVariable(value = "supplier_id")String supplierId, @RequestBody ModifySupplierRequest request){
         try{
-            return restTemplate.exchange("http://supplier-service/supplier/{supplier_id}", HttpMethod.PUT, new HttpEntity<>(request), Object.class, supplierId);
+            return restTemplate.exchange("http://supplier-service/app/supplier/{supplier_id}", HttpMethod.PUT, new HttpEntity<>(request), Object.class, supplierId);
         }catch(HttpClientErrorException e){
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -295,7 +295,7 @@ public class RestEndpointsController {
     @PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity login(@RequestBody LogInRequest request){
         try{
-            return restTemplate.exchange("http://identity-service/login", HttpMethod.POST, new HttpEntity<>(request), Object.class);
+            return restTemplate.exchange("http://identity-service/app/login", HttpMethod.POST, new HttpEntity<>(request), Object.class);
         }catch(HttpClientErrorException e){
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
