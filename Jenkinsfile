@@ -1,268 +1,115 @@
 pipeline {
     agent any
     stages {
-        stage('preparation') {
+        stage('build') {
             steps {
-                sh "chmod +x -R ${env.WORKSPACE}"
-            }
-        }
-        stage('ProductSearch') {
-            stages {
-                stage('build') {
-                    steps {
-                        dir('Source/ProductSearch') {
-                            sh './mvnw clean compile'
-                        }
-                    }
+                dir('Source/eurekaserver') {
+                    sh './mvnw clean compile'
                 }
-                stage('test') {
-                    steps {
-                        dir('Source/ProductSearch') {
-                            sh './mvnw test'
-                        }
-                    }
+                dir('Source/ProductSearch') {
+                    sh './mvnw clean compile'
                 }
-                stage('deploy') {
-                    steps {
-                        dir('Source/ProductSearch') {
-                            sh './mvnw package -Dmaven.test.skip'
-                            sh 'cp ./target/app.war /deploy-ProductSearch'
-                        }
-                    }
+                dir('Source/apigateway') {
+                    sh './mvnw clean compile'
                 }
-            }
-        }
-        stage('eurekaserver') {
-            stages {
-                stage('build') {
-                    steps {
-                        dir('Source/eurekaserver') {
-                            sh './mvnw clean compile'
-                        }
-                    }
+                dir('Source/cart') {
+                    sh './mvnw clean compile'
                 }
-                stage('test') {
-                    steps {
-                        dir('Source/eurekaserver') {
-                            sh './mvnw test'
-                        }
-                    }
+                dir('Source/customers') {
+                    sh './mvnw clean compile'
                 }
-                stage('deploy') {
-                    steps {
-                        dir('Source/eurekaserver') {
-                            sh './mvnw package -Dmaven.test.skip'
-                            sh 'cp ./target/app.war /deploy-eurekaserver'
-                        }
-                    }
+                dir('Source/identity') {
+                    sh './mvnw clean compile'
+                }
+                dir('Source/payments') {
+                    sh './mvnw clean compile'
+                }
+                dir('Source/products') {
+                    sh './mvnw clean compile'
+                }
+                dir('Source/purchases') {
+                    sh './mvnw clean compile'
+                }
+                dir('Source/suppliers') {
+                    sh './mvnw clean compile'
                 }
             }
         }
-        stage('apigateway') {
-            stages {
-                stage('build') {
-                    steps {
-                        dir('Source/apigateway') {
-                            sh './mvnw clean compile'
-                        }
-                    }
+        stage('test') {
+            steps {
+                dir('Source/eurekaserver') {
+                    sh './mvnw test'
                 }
-                stage('test') {
-                    steps {
-                        dir('Source/apigateway') {
-                            sh './mvnw test'
-                        }
-                    }
+                dir('Source/ProductSearch') {
+                    sh './mvnw test'
                 }
-                stage('deploy') {
-                    steps {
-                        dir('Source/apigateway') {
-                            sh './mvnw package -Dmaven.test.skip'
-                            sh 'cp ./target/app.war /deploy-apigateway'
-                        }
-                    }
+                dir('Source/apigateway') {
+                    sh './mvnw test'
                 }
-            }    
-        }
-        stage('cart') {
-            stages {
-                stage('build') {
-                    steps {
-                        dir('Source/cart') {
-                            sh './mvnw clean compile'
-                        }
-                    }
+                dir('Source/cart') {
+                    sh './mvnw test'
                 }
-                stage('test') {
-                    steps {
-                        dir('Source/cart') {
-                            sh './mvnw test'
-                        }
-                    }
+                dir('Source/customers') {
+                    sh './mvnw test'
                 }
-                stage('deploy') {
-                    steps {
-                        dir('Source/cart') {
-                            sh './mvnw package -Dmaven.test.skip'
-                            sh 'cp ./target/app.war /deploy-cart'
-                        }
-                    }
+                dir('Source/identity') {
+                    sh './mvnw test'
+                }
+                dir('Source/payments') {
+                    sh './mvnw test'
+                }
+                dir('Source/products') {
+                    sh './mvnw test'
+                }
+                dir('Source/purchases') {
+                    sh './mvnw test'
+                }
+                dir('Source/suppliers') {
+                    sh './mvnw test'
                 }
             }
         }
-        stage('customers') {
-            stages {
-                stage('build') {
-                    steps {
-                        dir('Source/customers') {
-                            sh './mvnw clean compile'
-                        }
-                    }
+        stage('deploy') {
+            steps {
+                dir('Source/eurekaserver') {
+                    sh './mvnw package -Dmaven.test.skip'
+                    sh 'cp ./target/app.war /deploy-eurekaserver'
                 }
-                stage('test') {
-                    steps {
-                        dir('Source/customers') {
-                            sh './mvnw test'
-                        }
-                    }
+                dir('Source/ProductSearch') {
+                    sh './mvnw package -Dmaven.test.skip'
+                    sh 'cp ./target/app.war /deploy-ProductSearch'
                 }
-                stage('deploy') {
-                    steps {
-                        dir('Source/customers') {
-                            sh './mvnw package -Dmaven.test.skip'
-                            sh 'cp ./target/app.war /deploy-customers'
-                        }
-                    }
+                dir('Source/apigateway') {
+                    sh './mvnw package -Dmaven.test.skip'
+                    sh 'cp ./target/app.war /deploy-apigateway'
                 }
-            }
-        }
-        stage('identity') {
-            stages {
-                stage('build') {
-                    steps {
-                        dir('Source/identity') {
-                            sh './mvnw clean compile'
-                        }
-                    }
+                dir('Source/cart') {
+                    sh './mvnw package -Dmaven.test.skip'
+                    sh 'cp ./target/app.war /deploy-cart'
                 }
-                stage('test') {
-                    steps {
-                        dir('Source/identity') {
-                            sh './mvnw test'
-                        }
-                    }
+                dir('Source/customers') {
+                    sh './mvnw package -Dmaven.test.skip'
+                    sh 'cp ./target/app.war /deploy-customers'
                 }
-                stage('deploy') {
-                    steps {
-                        dir('Source/identity') {
-                            sh './mvnw package -Dmaven.test.skip'
-                            sh 'cp ./target/app.war /deploy-identity'
-                        }
-                    }
+                dir('Source/identity') {
+                    sh './mvnw package -Dmaven.test.skip'
+                    sh 'cp ./target/app.war /deploy-identity'
                 }
-            }
-        }
-        stage('payments') {
-            stages {
-                stage('build') {
-                    steps {
-                        dir('Source/payments') {
-                            sh './mvnw clean compile'
-                        }
-                    }
+                dir('Source/payments') {
+                    sh './mvnw package -Dmaven.test.skip'
+                    sh 'cp ./target/app.war /deploy-payments'
                 }
-                stage('test') {
-                    steps {
-                        dir('Source/payments') {
-                            sh './mvnw test'
-                        }
-                    }
+                dir('Source/products') {
+                    sh './mvnw package -Dmaven.test.skip'
+                    sh 'cp ./target/app.war /deploy-products'
                 }
-                stage('deploy') {
-                    steps {
-                        dir('Source/payments') {
-                            sh './mvnw package -Dmaven.test.skip'
-                            sh 'cp ./target/app.war /deploy-payments'
-                        }
-                    }
+                dir('Source/purchases') {
+                    sh './mvnw package -Dmaven.test.skip'
+                    sh 'cp ./target/app.war /deploy-purchases'
                 }
-            }
-        }
-        stage('products') {
-            stages {
-                stage('build') {
-                    steps {
-                        dir('Source/products') {
-                            sh './mvnw clean compile'
-                        }
-                    }
-                }
-                stage('test') {
-                    steps {
-                        dir('Source/products') {
-                            sh './mvnw test'
-                        }
-                    }
-                }
-                stage('deploy') {
-                    steps {
-                        dir('Source/products') {
-                            sh './mvnw package -Dmaven.test.skip'
-                            sh 'cp ./target/app.war /deploy-products'
-                        }
-                    }
-                }
-            }
-        }
-        stage('purchases') {
-            stages {
-                stage('build') {
-                    steps {
-                        dir('Source/purchases') {
-                            sh './mvnw clean compile'
-                        }
-                    }
-                }
-                stage('test') {
-                    steps {
-                        dir('Source/purchases') {
-                            sh './mvnw test'
-                        }
-                    }
-                }
-                stage('deploy') {
-                    steps {
-                        dir('Source/purchases') {
-                            sh './mvnw package -Dmaven.test.skip'
-                            sh 'cp ./target/app.war /deploy-purchases'
-                        }
-                    }
-                }
-            }
-        }
-        stage('suppliers') {
-            stages {
-                stage('build') {
-                    steps {
-                        dir('Source/suppliers') {
-                            sh './mvnw clean compile'
-                        }
-                    }
-                }
-                stage('test') {
-                    steps {
-                        dir('Source/suppliers') {
-                            sh './mvnw test'
-                        }
-                    }
-                }
-                stage('deploy') {
-                    steps {
-                        dir('Source/suppliers') {
-                            sh './mvnw package -Dmaven.test.skip'
-                            sh 'cp ./target/app.war /deploy-suppliers'
-                        }
-                    }
+                dir('Source/suppliers') {
+                    sh './mvnw package -Dmaven.test.skip'
+                    sh 'cp ./target/app.war /deploy-suppliers'
                 }
             }
         }

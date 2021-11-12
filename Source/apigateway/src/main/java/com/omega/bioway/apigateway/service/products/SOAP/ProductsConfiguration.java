@@ -19,7 +19,7 @@ public class ProductsConfiguration {
     public ProductsClient productsClient(Jaxb2Marshaller marshaller){
         ProductsClient client = new ProductsClient();
         //This is the localtion of the SOAP service
-        client.setDefaultUri("http://ProductSearch:8080/app/ProductSearch");
+        client.setDefaultUri("http://localhost:8080/ProductSearch");
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);
         return client;
