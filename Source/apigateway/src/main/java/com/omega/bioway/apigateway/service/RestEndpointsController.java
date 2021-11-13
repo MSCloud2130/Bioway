@@ -2,6 +2,8 @@ package com.omega.bioway.apigateway.service;
 
 import com.omega.bioway.apigateway.entities.customer.Customer;
 import com.omega.bioway.apigateway.entities.identity.CreateUserRequest;
+import com.omega.bioway.apigateway.entities.product.CreateServiceRequest;
+import com.omega.bioway.apigateway.entities.product.ModifyServiceRequest;
 import com.omega.bioway.apigateway.service.supplier.RegisterRequest;
 import com.omega.bioway.apigateway.entities.payment.CreatePaymentRequest;
 import com.omega.bioway.apigateway.entities.payment.Payment;
@@ -222,6 +224,24 @@ public class RestEndpointsController {
     public ResponseEntity submitAnswer(@PathVariable String productId, @PathVariable String questionId, @RequestBody SubmitAnswerRequest request) {
         try {
             return restTemplate.exchange("http://products-service/products/{productId}/questions/{questionId}/answer", HttpMethod.PUT, new HttpEntity<>(request), Object.class, productId, questionId);
+        } catch(HttpClientErrorException e) {
+            return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
+        }
+    }
+
+    @PostMapping(value = "products")
+    public ResponseEntity execute(@RequestBody CreateServiceRequest request){
+        try {
+            return restTemplate.exchange("http://products-service/products", HttpMethod.POST, new HttpEntity<>(request), Object.class);
+        } catch(HttpClientErrorException e) {
+            return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
+        }
+    }
+
+    @PutMapping(value = "products/{productId}")
+    public ResponseEntity execute(@PathVariable String productId, @RequestBody ModifyServiceRequest request){
+        try {
+            return restTemplate.exchange("http://products-service/products/{productId}", HttpMethod.PUT, new HttpEntity<>(request), Object.class, productId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
