@@ -220,6 +220,15 @@ public class RestEndpointsController {
         }
     }
 
+    @PostMapping(value = "products/{productId}/ratings", consumes = "application/json")
+    public ResponseEntity createRating(@PathVariable String productId, @RequestBody CreateRatingRequest request){
+        try {
+            return restTemplate.postForEntity("http://products-service/products/{productId}/ratings", request, Object.class, productId);
+        } catch(HttpClientErrorException e) {
+            return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
+        }
+    }
+
     @PutMapping(value = "products/{productId}/questions/{questionId}/answer", consumes = "application/json")
     public ResponseEntity submitAnswer(@PathVariable String productId, @PathVariable String questionId, @RequestBody SubmitAnswerRequest request) {
         try {
@@ -246,6 +255,16 @@ public class RestEndpointsController {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
     }
+
+    @DeleteMapping(value = "products/{productId}")
+    public ResponseEntity deleteProduct(@PathVariable String productId){
+        try {
+            return restTemplate.exchange("http://products-service/products/{productId}", HttpMethod.DELETE, null, Object.class,productId);
+        } catch(HttpClientErrorException e) {
+            return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
+        }
+    }
+
 
     //supplier
     @PostMapping(value = "/supplier", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -321,6 +340,9 @@ public class RestEndpointsController {
         }
     }
 
+
+
+
     //product classes
     static class CreateQuestionRequest {
 
@@ -353,6 +375,58 @@ public class RestEndpointsController {
 
         public void setUserName(String userName) {
             this.userName = userName;
+        }
+    }
+
+    static class CreateRatingRequest {
+
+        private int value;
+        private String comment;
+        private String userId;
+        private String userName;
+        private String resource;
+
+        public CreateRatingRequest() {
+        }
+
+        public int getValue() {
+            return this.value;
+        }
+
+        public void setValue(int value) {
+            this.value = value;
+        }
+
+        public String getComment() {
+            return this.comment;
+        }
+
+        public void setComment(String comment) {
+            this.comment = comment;
+        }
+
+        public String getUserId() {
+            return this.userId;
+        }
+
+        public void setUserId(String userId) {
+            this.userId = userId;
+        }
+
+        public String getUserName() {
+            return this.userName;
+        }
+
+        public void setUserName(String userName) {
+            this.userName = userName;
+        }
+
+        public String getResource() {
+            return this.resource;
+        }
+
+        public void setResource(String resource) {
+            this.resource = resource;
         }
     }
 
