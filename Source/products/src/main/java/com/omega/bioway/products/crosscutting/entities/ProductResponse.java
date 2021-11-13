@@ -1,9 +1,11 @@
 package com.omega.bioway.products.crosscutting.entities;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
+
 public class ProductResponse {
     private Product product;
-    private String countryData;
-    private String[] weatherData;
+    private CountryData countryData;
+    private WeatherResponse weatherData;
 
     public ProductResponse(){
 
@@ -17,19 +19,19 @@ public class ProductResponse {
         this.product = product;
     }
 
-    public String getCountryData() {
+    public CountryData getCountryData() {
         return countryData;
     }
 
-    public void setCountryData(String countryData) {
+    public void setCountryData(CountryData countryData) {
         this.countryData = countryData;
     }
 
-    public String[] getWeatherData() {
+    public WeatherResponse getWeatherData() {
         return weatherData;
     }
 
-    public void setWeatherData(String[] weatherData) {
+    public void setWeatherData(WeatherResponse weatherData) {
         this.weatherData = weatherData;
     }
 }

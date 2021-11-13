@@ -1,5 +1,7 @@
 package com.omega.bioway.products.business;
 
+import com.omega.bioway.products.crosscutting.entities.WeatherData;
+import com.omega.bioway.products.crosscutting.entities.WeatherResponse;
 import com.omega.bioway.products.serviceaccess.weatherservice.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,16 +16,23 @@ public class WeatherForecastObtainer {
     @Autowired
     WeatherService service;
 
-    public String[] execute(Double lat, Double lon, long firstDay, long lastDay){
+    public WeatherResponse execute(Double lat, Double lon, long firstDay, long lastDay){
         if(firstDay <= 16){
-            String[] forecast = service.getWeatherForecast(lat.toString(),lon.toString());
-            List<String> coveredDays = new ArrayList<>();
+            WeatherResponse forecast = service.getWeatherForecast(lat.toString(),lon.toString());
+            List<WeatherData> coveredDays = new ArrayList<>();
             int i = (int) firstDay;
-            while(i < 16){
-                coveredDays.add(forecast[i]);
+            for(WeatherData data : forecast.getData()){
+                coveredDays.add(data);
                 i++;
+                if(i > 16){
+                    break;
+                }
             }
-            return (String[]) coveredDays.toArray();
+            WeatherResponse weatherResponse = new WeatherResponse();
+            weatherResponse.setData(coveredDays);
+            weatherResponse.setCity_name( forecast.getCity_name() );
+            weatherResponse.setTimezone( forecast.getTimezone() );
+            return weatherResponse;
         }
         return null;
     }

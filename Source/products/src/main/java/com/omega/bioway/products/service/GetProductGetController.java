@@ -53,7 +53,7 @@ public class GetProductGetController {
 
             productResponse.setCountryData( countryDataObtainer.execute( location.getCountry() ) );
 
-            String[] forecast = weatherForecastObtainer.execute( location.getLatitude(), location.getLongitude(), starsInDays, endsInDays);
+            WeatherResponse forecast = weatherForecastObtainer.execute( location.getLatitude(), location.getLongitude(), starsInDays, endsInDays);
             if(forecast != null){
                 productResponse.setWeatherData(forecast);
             }
@@ -75,6 +75,7 @@ public class GetProductGetController {
         HashMap<String,String> response = new HashMap<>(){{
             put("error",exception.getMessage());
         }};
+        exception.printStackTrace();
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 }
