@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bd252269-2a6e-4d2a-b63f-dc07a03fda6d",
+		"_postman_id": "52cee93f-d56f-490d-aa1b-32f39db69aa3",
 		"name": "Bioway",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -50,7 +50,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"price\": 40000.00,\r\n    \"name\": \"Producto 1\",\r\n    \"type\": \"foodanddrink\",\r\n    \"links\":[\r\n        \"www.producto1.com\",\r\n        \"www.producto1_2.com\"\r\n    ],\r\n    \"pictures\":[\r\n        \"Link_Producto_1_1\",\r\n\t\t\"Link_Producto_1_2\"\r\n\t],\r\n    \"description\": \"Descripción de producto 1\",\r\n    \"transportType\": \"Bus o carro\",\r\n    \"departureTime\": \"2022-01-01T07:00:00\",\r\n    \"arrivalTime\": \"2022-01-03T16:00:00\",\r\n    \"checkIn\": \"2022-01-04T15:00:00\",\r\n    \"checkOut\": \"2022-01-06T09:00:00\",\r\n    \"includedItems\":[\r\n\t\t\"Papa\",\r\n\t\t\"Arroz\",\r\n\t\t\"Pollo\"\r\n\t] ,\r\n    \"supplier\":{\r\n\t\"id\": \"8d10e431-6c2b-4832-a479-3235748f7f0c\",\r\n\t\"name\": \"Best Supplier Lan\",\r\n\t\"resource\": \"www.supplier_resource.com\" \r\n\t} ,\r\n    \"location\":{\r\n\t\"longitude\": 49.456,\r\n\t\"latitude\": 15.01,\r\n\t\"address\": \"Dir Producto 1\"\r\n\t} ,\r\n    \"arrivalLocation\":{\r\n\t\"longitude\": 53.31,\r\n\t\"latitude\": 14.864,\r\n\t\"address\": \"Arr Dir Producto 1\"\r\n\t} ,\r\n    \"departureLocation\":{\r\n\t\"longitude\": 64.489,\r\n\t\"latitude\": 16.5487,\r\n\t\"address\": \"Dep Dir Producto 1\"\r\n\t}\r\n}",
+									"raw": "{\r\n    \"price\": 40000.00,\r\n    \"name\": \"Producto 1\",\r\n    \"type\": \"accommodation\",\r\n    \"links\":[\r\n        \"www.producto1.com\",\r\n        \"www.producto1_2.com\"\r\n    ],\r\n    \"pictures\":[\r\n        \"Link_Producto_1_1\",\r\n\t\t\"Link_Producto_1_2\"\r\n\t],\r\n    \"description\": \"Descripción de producto 1\",\r\n    \"transportType\": \"Bus o carro\",\r\n    \"departureTime\": \"2022-01-01T07:00:00\",\r\n    \"arrivalTime\": \"2022-01-03T16:00:00\",\r\n    \"checkIn\": \"2022-01-04T15:00:00\",\r\n    \"checkOut\": \"2022-01-06T09:00:00\",\r\n    \"includedItems\":[\r\n\t\t\"Papa\",\r\n\t\t\"Arroz\",\r\n\t\t\"Pollo\"\r\n\t] ,\r\n    \"supplier\":{\r\n\t\"id\": \"8d10e431-6c2b-4832-a479-3235748f7f0c\",\r\n\t\"name\": \"Best Supplier Lan\",\r\n\t\"resource\": \"www.supplier_resource.com\" \r\n\t} ,\r\n    \"location\":{\r\n\t\"longitude\": 49.456,\r\n\t\"latitude\": 15.01,\r\n\t\"address\": \"Dir Producto 1\",\r\n    \"country\": \"col\"\r\n\t} ,\r\n    \"arrivalLocation\":{\r\n\t\"longitude\": 53.31,\r\n\t\"latitude\": 14.864,\r\n\t\"address\": \"Arr Dir Producto 1\"\r\n\t} ,\r\n    \"departureLocation\":{\r\n\t\"longitude\": 64.489,\r\n\t\"latitude\": 16.5487,\r\n\t\"address\": \"Dep Dir Producto 1\"\r\n\t}\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -603,7 +603,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/products/43dcecc9-724c-4062-ac8f-402621f18485",
+									"raw": "http://localhost:8080/products/4b50a9b4-4bb8-45f0-b91a-dc34eaa12ea8",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -611,7 +611,7 @@
 									"port": "8080",
 									"path": [
 										"products",
-										"43dcecc9-724c-4062-ac8f-402621f18485"
+										"4b50a9b4-4bb8-45f0-b91a-dc34eaa12ea8"
 									]
 								}
 							},
