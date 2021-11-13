@@ -230,7 +230,7 @@ public class RestEndpointsController {
     }
 
     @PostMapping(value = "products")
-    public ResponseEntity execute(@RequestBody CreateServiceRequest request){
+    public ResponseEntity createProduct(@RequestBody CreateServiceRequest request){
         try {
             return restTemplate.exchange("http://products-service/products", HttpMethod.POST, new HttpEntity<>(request), Object.class);
         } catch(HttpClientErrorException e) {
@@ -239,7 +239,7 @@ public class RestEndpointsController {
     }
 
     @PutMapping(value = "products/{productId}")
-    public ResponseEntity execute(@PathVariable String productId, @RequestBody ModifyServiceRequest request){
+    public ResponseEntity modifyProduct(@PathVariable String productId, @RequestBody ModifyServiceRequest request){
         try {
             return restTemplate.exchange("http://products-service/products/{productId}", HttpMethod.PUT, new HttpEntity<>(request), Object.class, productId);
         } catch(HttpClientErrorException e) {
