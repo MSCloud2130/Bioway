@@ -8,6 +8,7 @@ public class Accommodation extends Product{
     private LocalDateTime checkOut;
     private Location location;
 
+
     public Accommodation() {
     }
 

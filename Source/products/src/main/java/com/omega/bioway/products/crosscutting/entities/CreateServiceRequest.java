@@ -26,12 +26,7 @@ public class CreateServiceRequest {
     public CreateServiceRequest() {
     }
 
-    public CreateServiceRequest(double price, String name, String type, List<String> links, List<String> pictures,
-                                String description, Optional<String> transportType, Optional<LocalDateTime> departureTime,
-                                Optional<LocalDateTime> arrivalTime, Optional<LocalDateTime> checkIn,
-                                Optional<LocalDateTime> checkOut, Optional<List<String>> includedItems,
-                                ProductSupplier supplier, Optional<Location> location, Optional<Location> arrivalLocation,
-                                Optional<Location> departureLocation) {
+    public CreateServiceRequest(double price, String name, String type, List<String> links, List<String> pictures, String description, Optional<String> transportType, Optional<LocalDateTime> departureTime, Optional<LocalDateTime> arrivalTime, Optional<LocalDateTime> checkIn, Optional<LocalDateTime> checkOut, Optional<List<String>> includedItems, ProductSupplier supplier, Optional<Location> location, Optional<Location> arrivalLocation, Optional<Location> departureLocation) {
         this.price = price;
         this.name = name;
         this.type = type;
@@ -49,6 +44,7 @@ public class CreateServiceRequest {
         this.arrivalLocation = arrivalLocation;
         this.departureLocation = departureLocation;
     }
+
 
     public double getPrice() {
         return price;
