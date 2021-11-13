@@ -9,6 +9,12 @@ public class Rating {
     public Rating() {
     }
 
+    public Rating(int value,String comment,ProductCustomer author){
+        this.value = value;
+        this.comment = comment;
+        this.author = author;
+    }
+
     public int getValue() {
         return value;
     }
