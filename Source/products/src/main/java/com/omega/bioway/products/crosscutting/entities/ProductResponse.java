@@ -1,10 +1,10 @@
 package com.omega.bioway.products.crosscutting.entities;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.omega.bioway.products.crosscutting.dto.WeatherResponse;
 
 public class ProductResponse {
     private Product product;
-    private CountryData countryData;
+    private Object countryData;
     private WeatherResponse weatherData;
 
     public ProductResponse(){
@@ -19,11 +19,11 @@ public class ProductResponse {
         this.product = product;
     }
 
-    public CountryData getCountryData() {
+    public Object getCountryData() {
         return countryData;
     }
 
-    public void setCountryData(CountryData countryData) {
+    public void setCountryData(Object countryData) {
         this.countryData = countryData;
     }
 

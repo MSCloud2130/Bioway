@@ -3,6 +3,7 @@ package com.omega.bioway.products.service;
 import com.omega.bioway.products.business.CountryDataObtainer;
 import com.omega.bioway.products.business.ProductFinder;
 import com.omega.bioway.products.business.WeatherForecastObtainer;
+import com.omega.bioway.products.crosscutting.dto.WeatherResponse;
 import com.omega.bioway.products.crosscutting.entities.*;
 import com.omega.bioway.products.crosscutting.exceptions.ProductNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 public class GetProductGetController {

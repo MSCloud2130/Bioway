@@ -1,6 +1,6 @@
 package com.omega.bioway.products.serviceaccess.weatherservice;
 
-import com.omega.bioway.products.crosscutting.entities.WeatherResponse;
+import com.omega.bioway.products.crosscutting.dto.WeatherResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;

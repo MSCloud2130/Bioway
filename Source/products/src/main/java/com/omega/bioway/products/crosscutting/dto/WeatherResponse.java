@@ -1,4 +1,4 @@
-package com.omega.bioway.products.crosscutting.entities;
+package com.omega.bioway.products.crosscutting.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -6,18 +6,18 @@ import java.util.List;
 
 public class WeatherResponse {
     @JsonProperty("data")
-    private List<WeatherData> data;
+    private List<Object> data;
     private String city_name;
     private String timezone;
 
     public WeatherResponse() {
     }
 
-    public List<WeatherData> getData() {
+    public List<Object> getData() {
         return data;
     }
 
-    public void setData(List<WeatherData> data) {
+    public void setData(List<Object> data) {
         this.data = data;
     }
 
