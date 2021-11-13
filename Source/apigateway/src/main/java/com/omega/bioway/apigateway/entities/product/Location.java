@@ -1,4 +1,4 @@
-package com.omega.bioway.products.crosscutting.entities;
+package com.omega.bioway.apigateway.entities.product;
 
 public class Location {
 
