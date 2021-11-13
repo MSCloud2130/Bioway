@@ -24,12 +24,16 @@ public class ServiceCreator {
         while (exist){
             if(request.getType().equalsIgnoreCase("TRANSPORT")){
                 product=new Transport();
+                product.setType("Transport");
             }else if(request.getType().equalsIgnoreCase("ACCOMMODATION")){
                 product=new Accommodation();
+                product.setType("Accommodation");
             }else if(request.getType().equalsIgnoreCase("ECOTOUR")){
                 product=new EcoTour();
+                product.setType("EcoTour");
             }else if(request.getType().equalsIgnoreCase("FOODANDDRINK")){
                 product=new FoodAndDrink();
+                product.setType("FoodAndDrink");
             }else{
                 throw  new BadRequestException("Service type not allowed: "+request.getType());
             }
@@ -42,10 +46,12 @@ public class ServiceCreator {
                 exist=false;
             }
         }
+        if(request.getPrice()<0 | request.getName()==null || request.getDescription()==null){
+            throw new BadRequestException("Error when assigning basic service/product information");
+        }
 
         product.setPrice(request.getPrice());
         product.setName(request.getName());
-        product.setType(request.getType());
         product.setLinks(request.getLinks());
         product.setPictures(request.getPictures());
         product.setDescription(request.getDescription());

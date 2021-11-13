@@ -22,6 +22,11 @@ public class ServiceModifier {
 
     public void execute(String productId, ModifyServiceRequest request){
         Product product=this.productFinder.execute(productId);
+
+        if(request.getPrice()<0 | request.getName()==null || request.getDescription()==null){
+            throw new BadRequestException("Error when assigning basic service/product information");
+        }
+
         product.setPrice(request.getPrice());
         product.setName(request.getName());
         product.setLinks(request.getLinks());
@@ -49,5 +54,6 @@ public class ServiceModifier {
         }catch (Exception e){
             throw new BadRequestException("Error when assigning information for service type "+product.getType());
         }
+        this.repository.save(product);
     }
 }
