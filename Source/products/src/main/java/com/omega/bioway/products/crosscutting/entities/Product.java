@@ -32,6 +32,10 @@ public abstract class Product {
         questions.add(question);
     }
 
+    public void addRating(Rating rating) {
+        ratings.add(rating);
+    }
+
     public String getId() {
         return id;
     }
