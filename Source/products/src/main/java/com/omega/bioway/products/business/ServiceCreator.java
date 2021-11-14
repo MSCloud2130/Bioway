@@ -18,7 +18,7 @@ public class ServiceCreator {
         this.repository = repository;
     }
 
-    public void execute(CreateServiceRequest request){
+    public String execute(CreateServiceRequest request){
         boolean exist=true;
         Product product=null;
         while (exist){
@@ -79,5 +79,6 @@ public class ServiceCreator {
             throw new BadRequestException("Error when assigning information for service type "+product.getType());
         }
         repository.save(product);
+        return product.getId();
     }
 }
