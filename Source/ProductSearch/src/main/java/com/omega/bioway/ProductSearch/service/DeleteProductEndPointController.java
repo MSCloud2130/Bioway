@@ -23,7 +23,7 @@ public class DeleteProductEndPointController {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteProductRequest")
     @ResponsePayload
-    public DeleteProductResponse createProduct(@RequestPayload DeleteProductRequest request){
+    public DeleteProductResponse deleteProduct(@RequestPayload DeleteProductRequest request){
         DeleteProductResponse response = new DeleteProductResponse();
         boolean result = productDeleter.execute(request.getProductId());
         response.setResult(result);
