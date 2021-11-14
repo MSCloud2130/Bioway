@@ -22,8 +22,8 @@ public class CreateServicePostController {
 
     @PostMapping(value = "products")
     public ResponseEntity execute(@RequestBody CreateServiceRequest request){
-        String product_id=serviceCreator.execute(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(product_id);
+        String productId=serviceCreator.execute(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(productId);
     }
 
     @ExceptionHandler(BadRequestException.class)
