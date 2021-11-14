@@ -32,32 +32,6 @@ pipeline {
                 }
             }
         }
-        stage('eurekaserver') {
-            stages {
-                stage('build') {
-                    steps {
-                        dir('Source/eurekaserver') {
-                            sh './mvnw clean compile'
-                        }
-                    }
-                }
-                stage('test') {
-                    steps {
-                        dir('Source/eurekaserver') {
-                            sh './mvnw test'
-                        }
-                    }
-                }
-                stage('deploy') {
-                    steps {
-                        dir('Source/eurekaserver') {
-                            sh './mvnw package -Dmaven.test.skip'
-                            sh 'cp ./target/app.war /deploy-eurekaserver'
-                        }
-                    }
-                }
-            }
-        }
         stage('apigateway') {
             stages {
                 stage('build') {

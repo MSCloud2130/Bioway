@@ -4,6 +4,7 @@ services:
     gitea:
         image: gitea/gitea
         container_name: gitea
+        hostname: gitea
         volumes:
             - gitea-data:/data
             - /etc/timezone:/etc/timezone:ro
@@ -18,24 +19,23 @@ services:
 
     #Eureka Server
     eurekaserver:
-        build: ./tomcat
-        image: tomcat
+        build: ./eurekaserver
         container_name: eurekaserver
+        hostname: eurekaserver
         volumes:
-            - eurekaserver-data:/usr/local/tomcat/webapps
+           - eurekaserver-data:/usr/app
         ports:
             - 8761:8761
-        environment: 
-            - TOMCAT_PASSWORD=tomcat
         networks:
             - biowaynet
+        restart: always
     ###
 
     #Microservices
     apigateway:
         build: ./tomcat
-        image: tomcat
         container_name: apigateway
+        hostname: apigateway
         volumes:
             - apigateway-data:/usr/local/tomcat/webapps
         ports:
@@ -49,8 +49,8 @@ services:
 
     cart:
         build: ./tomcat
-        image: tomcat
         container_name: cart
+        hostname: cart
         volumes:
             - cart-data:/usr/local/tomcat/webapps
         ports:
@@ -67,6 +67,7 @@ services:
         build: ./tomcat
         image: tomcat
         container_name: customers
+        hostname: customers
         volumes:
             - customers-data:/usr/local/tomcat/webapps
         ports:
@@ -83,6 +84,7 @@ services:
         build: ./tomcat
         image: tomcat
         container_name: identity
+        hostname: identity
         volumes:
             - identity-data:/usr/local/tomcat/webapps
         ports:
@@ -99,6 +101,7 @@ services:
         build: ./tomcat
         image: tomcat
         container_name: payments
+        hostname: payments
         volumes:
             - payments-data:/usr/local/tomcat/webapps
         ports:
@@ -115,6 +118,7 @@ services:
         build: ./tomcat
         image: tomcat
         container_name: products
+        hostname: products
         volumes:
             - products-data:/usr/local/tomcat/webapps
         ports:
@@ -132,6 +136,7 @@ services:
         build: ./tomcat
         image: tomcat
         container_name: ProductSearch
+        hostname: ProductSearch
         volumes:
             - ProductSearch-data:/usr/local/tomcat/webapps
         ports:
@@ -148,6 +153,7 @@ services:
         build: ./tomcat
         image: tomcat
         container_name: purchases
+        hostname: purchases
         volumes:
             - purchases-data:/usr/local/tomcat/webapps
         ports:
@@ -164,6 +170,7 @@ services:
         build: ./tomcat
         image: tomcat
         container_name: suppliers
+        container_name: suppliers
         volumes:
             - suppliers-data:/usr/local/tomcat/webapps
         ports:
@@ -178,86 +185,15 @@ services:
     ###
 
     #Databases
-    mongo-cart:
+    mongo:
         image: mongo
-        container_name: mongo-cart
-        hostname: mongo-cart
+        container_name: mongo
+        hostname: mongo
         networks:
             - biowaynet 
         ports:
             - "27027:27017"
         restart: always
-
-    mongo-customers:
-        image: mongo
-        container_name: mongo-customers
-        hostname: mongo-customers
-        networks:
-            - biowaynet 
-        ports:
-            - "27028:27017"
-        restart: always
-
-    mongo-identity:
-        image: mongo
-        container_name: mongo-identity
-        hostname: mongo-identity
-        networks:
-            - biowaynet 
-        ports:
-            - "27029:27017"
-        restart: always
-    
-    mongo-payments:
-        image: mongo
-        container_name: mongo-payments
-        hostname: mongo-payments
-        networks:
-            - biowaynet 
-        ports:
-            - "27030:27017"
-        restart: always
-
-    mongo-products:
-        image: mongo
-        container_name: mongo-products
-        hostname: mongo-products
-        networks:
-            - biowaynet 
-        ports:
-            - "27031:27017"
-        restart: always
-
-    mongo-products-soap:
-        image: mongo
-        container_name: mongo-products-soap
-        hostname: mongo-products-soap
-        networks:
-            - biowaynet 
-        ports:
-            - "27032:27017"
-        restart: always
-
-    mongo-purchases:
-        image: mongo
-        container_name: mongo-purchases
-        hostname: mongo-purchases
-        networks:
-            - biowaynet 
-        ports:
-            - "27033:27017"
-        restart: always
-
-    mongo-suppliers:
-        image: mongo
-        container_name: mongo-suppliers
-        hostname: mongo-suppliers
-        networks:
-            - biowaynet 
-        ports:
-            - "27034:27017"
-        restart: always
-    ###
 
     #Test data import
     mongo-seed:
@@ -265,14 +201,7 @@ services:
         networks:
             - biowaynet
         depends_on:
-            - mongo-cart
-            - mongo-customers
-            - mongo-identity
-            - mongo-payments
-            - mongo-products
-            - mongo-products-soap
-            - mongo-purchases
-            - mongo-suppliers
+            - mongo
     ###
 
     ###Devops Pipeline
