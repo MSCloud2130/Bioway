@@ -22,7 +22,10 @@ public class DeleteProductDeleteController {
     @DeleteMapping(value = "products/{id}", produces = "application/json")
     public ResponseEntity execute(@PathVariable String id){
         productDeleter.execute(id);
-        return ResponseEntity.status(HttpStatus.OK).body("done");
+		HashMap<String,String> response = new HashMap<>(){{
+            put("status","done");
+        }};
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
     @ExceptionHandler(ProductNotFoundException.class)

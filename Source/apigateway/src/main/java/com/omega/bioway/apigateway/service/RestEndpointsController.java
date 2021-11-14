@@ -29,6 +29,7 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.ws.soap.client.SoapFaultClientException;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.example.consumingwebservice.wsdl.ProductSOAP;
@@ -241,7 +242,12 @@ public class RestEndpointsController {
     @PostMapping(value = "products")
     public ResponseEntity createProduct(@RequestBody CreateServiceRequest request){
         try {
-            return restTemplate.exchange("http://products-service/products", HttpMethod.POST, new HttpEntity<>(request), Object.class);
+            ResponseEntity response = restTemplate.exchange("http://products-service/products", HttpMethod.POST, new HttpEntity<>(request), Object.class);
+            HashMap<String,String> body = (HashMap<String,String>)response.getBody();
+            ResponseEntity responseSOAP =  new ResponseEntity<Boolean>(
+                soapClient.createProduct(body.get("productId"), request.getSupplier().getId(), request.getName(), request.getType(), "http://products-service/products/"+body.get("productId"))
+                .isResult(), HttpStatus.OK);
+            return response;
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
         }
@@ -250,6 +256,9 @@ public class RestEndpointsController {
     @PutMapping(value = "products/{productId}")
     public ResponseEntity modifyProduct(@PathVariable String productId, @RequestBody ModifyServiceRequest request){
         try {
+            ResponseEntity responseSOAP = new ResponseEntity<Boolean>(
+                soapClient.editProduct(productId, request.getName(),"http://products-service/products/"+productId)
+                .isResult(), HttpStatus.OK);
             return restTemplate.exchange("http://products-service/products/{productId}", HttpMethod.PUT, new HttpEntity<>(request), Object.class, productId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
@@ -259,6 +268,8 @@ public class RestEndpointsController {
     @DeleteMapping(value = "products/{productId}")
     public ResponseEntity deleteProduct(@PathVariable String productId){
         try {
+            ResponseEntity responseSOAP = new ResponseEntity<Boolean>(
+                soapClient.deleteProduct(productId).isResult(), HttpStatus.OK);
             return restTemplate.exchange("http://products-service/products/{productId}", HttpMethod.DELETE, null, Object.class,productId);
         } catch(HttpClientErrorException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
