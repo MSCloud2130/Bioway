@@ -1,0 +1,23 @@
+[{
+    "_id": "89978bd4-a149-46e1-a1e3-74977980277d",
+    "date": {
+        "$date": "2021-09-12T21:52:58.204Z"
+    },
+    "value": 400000,
+    "card": {
+        "$ref": "card",
+        "$id": "1234567890123456"
+    },
+    "_class": "com.omega.bioway.payments.crosscutting.entities.Payment"
+},{
+    "_id": "3ef63f88-2ea6-4341-b8e1-7499ccd8d4c3",
+    "date": {
+        "$date": "2021-09-12T16:52:58.204Z"
+    },
+    "value": 100000,
+    "card": {
+        "$ref": "card",
+        "$id": "1234567890123456"
+    },
+    "_class": "javeriana.ms.payment.entities.Payment"
+}]

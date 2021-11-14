@@ -1,0 +1,18 @@
+[{
+    "_id": "8c11d34a-61cb-4b40-b269-a6864a2aeb6b",
+    "name": "Pedro tully",
+    "email": "pedtul@supplier.com",
+    "age": 30,
+    "picture": "picture",
+    "description": "description",
+    "_class": "com.omega.bioway.customers.crosscutting.entities.Customer"
+},
+{
+    "_id": "e5789457-484e-4466-844a-a0f1cbe36d84",
+    "name": "Jose torres",
+    "email": "joset@supplier.com",
+    "age": 29,
+    "picture": "picture",
+    "description": "description",
+    "_class": "com.omega.bioway.customers.crosscutting.entities.Customer"
+}]

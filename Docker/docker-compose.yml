@@ -23,7 +23,7 @@ services:
         container_name: eurekaserver
         hostname: eurekaserver
         volumes:
-            - eurekaserver-data:/usr/app
+           - eurekaserver-data:/usr/app
         ports:
             - 8761:8761
         networks:

@@ -1,0 +1,29 @@
+{
+    "_id": {
+        "$oid": "61511b33196464312930cf75"
+    },
+    "quantity": 3,
+    "total": 90000,
+    "supplier": {
+        "_id": {
+            "$oid": "613e3070d2acf338c07a2d2b"
+        },
+        "resource": "",
+        "name": "Pablo Rodríguez"
+    },
+    "customer": {
+        "_id": {
+            "$oid": "613e3070d2acf338c07a2d2b"
+        },
+        "resource": "",
+        "name": "Pedro Pérez"
+    },
+    "product": {
+        "_id": {
+            "$oid": "613e3070d2acf338c07a2d2b"
+        },
+        "resource": "",
+        "name": "Tour Parque Tayrona"
+    },
+    "_class": "com.omega.bioway.purchases.crosscutting.entities.Purchase"
+}
