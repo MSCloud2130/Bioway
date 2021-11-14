@@ -20,7 +20,7 @@ public class ProductsClient extends WebServiceGatewaySupport {
         request.setProductType(productType);
         request.setSupplierId(supplierId);
         GetProductsResponse response = (GetProductsResponse) getWebServiceTemplate()
-            .marshalSendAndReceive("http://localhost:8081/ProductSearch/products.wsdl", request,
+            .marshalSendAndReceive("http://ProductSearch:8080/app/ProductSearch/products.wsdl", request,
                 new SoapActionCallback(
                     "http://spring.io/guides/gs-producing-web-service/getAllProductsRequest"));
         return response;
@@ -34,9 +34,9 @@ public class ProductsClient extends WebServiceGatewaySupport {
         request.setProductType(productType);
         request.setProductUri(productUri);
         CreateProductResponse response = (CreateProductResponse) getWebServiceTemplate()
-            .marshalSendAndReceive("http://localhost:8081/ProductSearch/products.wsdl", request,
+            .marshalSendAndReceive("http://ProductSearch:8080/app/ProductSearch/products.wsdl", request,
             new SoapActionCallback(
-                "http://spring.io/guides/gs-producing-web-service/getAllProductsRequest"));
+                "http://spring.io/guides/gs-producing-web-service/createProductRequest"));
         return response;
     }
 
@@ -46,9 +46,9 @@ public class ProductsClient extends WebServiceGatewaySupport {
         request.setProductName(productName);
         request.setProductUri(productUri);
         EditProductResponse response = (EditProductResponse) getWebServiceTemplate()
-            .marshalSendAndReceive("http://localhost:8081/ProductSearch/products.wsdl", request,
+            .marshalSendAndReceive("http://ProductSearch:8080/app/ProductSearch/products.wsdl", request,
             new SoapActionCallback(
-                "http://spring.io/guides/gs-producing-web-service/getAllProductsRequest"));
+                "http://spring.io/guides/gs-producing-web-service/editProductRequest"));
         return response;
     }
 
@@ -56,9 +56,9 @@ public class ProductsClient extends WebServiceGatewaySupport {
         DeleteProductRequest request = new DeleteProductRequest();
         request.setProductId(productId);
         DeleteProductResponse response = (DeleteProductResponse) getWebServiceTemplate()
-        .marshalSendAndReceive("http://localhost:8081/ProductSearch/products.wsdl", request,
+        .marshalSendAndReceive("http://ProductSearch:8080/app/ProductSearch/products.wsdl", request,
         new SoapActionCallback(
-            "http://spring.io/guides/gs-producing-web-service/getAllProductsRequest"));
+            "http://spring.io/guides/gs-producing-web-service/deleteProductRequest"));
         return response;
     }
 
