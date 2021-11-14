@@ -35,7 +35,7 @@ public class Product {
     }
 
     public void setName(String nName){
-        this.id = nName;
+        this.name = nName;
     }
 
     public String getType(){
@@ -43,7 +43,7 @@ public class Product {
     }
 
     public void setType(String nType){
-        this.id = nType;
+        this.type = nType;
     }
 
     public String getUri(){
@@ -51,7 +51,7 @@ public class Product {
     }
 
     public void setUri(String nUri){
-        this.id = nUri;
+        this.uri = nUri;
     }
 
     public String getSupplierId(){

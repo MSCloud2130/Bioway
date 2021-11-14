@@ -5,8 +5,24 @@ public class Location {
     private double latitude;
     private double longitude;
     private String address;
+    private String country;
 
     public Location() {
+    }
+
+    public Location(double latitude, double longitude, String address, String country) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.address = address;
+        this.country = country;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public double getLatitude() {
