@@ -10,25 +10,25 @@ ADD ssh-config .
 USER root
 ADD start.sh .
 RUN mkdir /deploy-apigateway
-RUN chmod -R 777 /deploy-apigateway
+RUN chown jenkins:jenkins /deploy-apigateway
 RUN mkdir /deploy-cart
-RUN chmod -R 777 /deploy-cart
+RUN chown jenkins:jenkins /deploy-cart
 RUN mkdir /deploy-customers
-RUN chmod -R 777 /deploy-customers
+RUN chown jenkins:jenkins /deploy-customers
 RUN mkdir /deploy-eurekaserver
-RUN chmod -R 777 /deploy-eurekaserver
+RUN chown jenkins:jenkins /deploy-eurekaserver
 RUN mkdir /deploy-identity
-RUN chmod -R 777 /deploy-identity
+RUN chown jenkins:jenkins /deploy-identity
 RUN mkdir /deploy-payments
-RUN chmod -R 777 /deploy-payments
+RUN chown jenkins:jenkins /deploy-payments
 RUN mkdir /deploy-products
-RUN chmod -R 777 /deploy-products
+RUN chown jenkins:jenkins /deploy-products
 RUN mkdir /deploy-ProductSearch
-RUN chmod -R 777 /deploy-ProductSearch
+RUN chown jenkins:jenkins /deploy-ProductSearch
 RUN mkdir /deploy-purchases
-RUN chmod -R 777 /deploy-purchases
+RUN chown jenkins:jenkins /deploy-purchases
 RUN mkdir /deploy-suppliers
-RUN chmod -R 777 /deploy-suppliers
+RUN chown jenkins:jenkins /deploy-suppliers
 
 USER jenkins
 ENTRYPOINT [ "/start.sh" ]
