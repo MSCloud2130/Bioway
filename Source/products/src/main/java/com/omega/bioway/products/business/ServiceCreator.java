@@ -46,10 +46,11 @@ public class ServiceCreator {
                 exist=false;
             }
         }
-        if(request.getPrice()<0 | request.getName()==null || request.getDescription()==null){
+        if(request.getPrice()<0 | request.getName()==null || request.getDescription()==null || request.getSupplier()==null){
             throw new BadRequestException("Error when assigning basic service/product information");
         }
 
+        product.setSupplier(request.getSupplier());
         product.setPrice(request.getPrice());
         product.setName(request.getName());
         product.setLinks(request.getLinks());
