@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "52cee93f-d56f-490d-aa1b-32f39db69aa3",
+		"_postman_id": "06334684-1c5f-46cb-b1c3-a97e7dfb9525",
 		"name": "Bioway",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -26,13 +26,17 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:9090/products/43dcecc9-724c-4062-ac8f-402621f18485/questions/9711a680-8b04-4296-b70d-4c84c9cb48c9/answer",
+									"raw": "http://10.43.100.21:8080/app/products/43dcecc9-724c-4062-ac8f-402621f18485/questions/9711a680-8b04-4296-b70d-4c84c9cb48c9/answer",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
-									"port": "9090",
+									"port": "8080",
 									"path": [
+										"app",
 										"products",
 										"43dcecc9-724c-4062-ac8f-402621f18485",
 										"questions",
@@ -50,7 +54,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"price\": 40000.00,\r\n    \"name\": \"Producto 1\",\r\n    \"type\": \"accommodation\",\r\n    \"links\":[\r\n        \"www.producto1.com\",\r\n        \"www.producto1_2.com\"\r\n    ],\r\n    \"pictures\":[\r\n        \"Link_Producto_1_1\",\r\n\t\t\"Link_Producto_1_2\"\r\n\t],\r\n    \"description\": \"Descripción de producto 1\",\r\n    \"transportType\": \"Bus o carro\",\r\n    \"departureTime\": \"2022-01-01T07:00:00\",\r\n    \"arrivalTime\": \"2022-01-03T16:00:00\",\r\n    \"checkIn\": \"2022-01-04T15:00:00\",\r\n    \"checkOut\": \"2022-01-06T09:00:00\",\r\n    \"includedItems\":[\r\n\t\t\"Papa\",\r\n\t\t\"Arroz\",\r\n\t\t\"Pollo\"\r\n\t] ,\r\n    \"supplier\":{\r\n\t\"id\": \"8d10e431-6c2b-4832-a479-3235748f7f0c\",\r\n\t\"name\": \"Best Supplier Lan\",\r\n\t\"resource\": \"www.supplier_resource.com\" \r\n\t} ,\r\n    \"location\":{\r\n\t\"longitude\": 49.456,\r\n\t\"latitude\": 15.01,\r\n\t\"address\": \"Dir Producto 1\",\r\n    \"country\": \"col\"\r\n\t} ,\r\n    \"arrivalLocation\":{\r\n\t\"longitude\": 53.31,\r\n\t\"latitude\": 14.864,\r\n\t\"address\": \"Arr Dir Producto 1\"\r\n\t} ,\r\n    \"departureLocation\":{\r\n\t\"longitude\": 64.489,\r\n\t\"latitude\": 16.5487,\r\n\t\"address\": \"Dep Dir Producto 1\"\r\n\t}\r\n}",
+									"raw": "{\r\n    \"price\": 19900.00,\r\n    \"name\": \"Producto FoodAndDrink\",\r\n    \"type\": \"FoodAndDrink\",\r\n    \"links\":[\r\n        \"www.productoFoodAndDrink_1.com\",\r\n        \"www.productoFoodAndDrink_2.com\"\r\n    ],\r\n    \"pictures\":[\r\n        \"Link_Producto_FoodAndDrink_1\",\r\n\t\t\"Link_Producto_FoodAndDrink_2\"\r\n\t],\r\n    \"description\": \"Descripción de producto FoodAndDrink\",\r\n    \"includedItems\":[\r\n\t\t\"Papa\",\r\n\t\t\"Arroz\",\r\n\t\t\"Pollo\"\r\n\t] ,\r\n    \"supplier\":{\r\n\t    \"id\": \"1025c3be-3f7d-46b5-8812-2e9a1b01675e\",\r\n\t    \"name\": \"SuppliedName LastSuppliedName\",\r\n\t    \"resource\": \"www.supplier_resource.com\" \r\n\t}\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -58,13 +62,17 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:9090/products",
+									"raw": "http://10.43.100.21:8080/app/products",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
-									"port": "9090",
+									"port": "8080",
 									"path": [
+										"app",
 										"products"
 									]
 								}
@@ -78,7 +86,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"price\": 55050.00,\r\n    \"name\": \"Producto 1 Cambiado\",\r\n    \"links\":[\r\n        \"www.producto1_Mod.com\",\r\n        \"www.producto1_2_Mod.com\",\r\n        \"www.producto1_3_Mod.com\"\r\n    ],\r\n    \"pictures\":[\r\n        \"Link2_Producto_1_1\",\r\n\t\t\"Link2_Producto_1_2\",\r\n        \"Link2_Producto_1_2\"\r\n\t],\r\n    \"description\": \"Descripción de producto 1 cambiado\",\r\n    \"transportType\": \"Bici o Patineta\",\r\n    \"departureTime\": \"2023-01-01T07:00:00\",\r\n    \"arrivalTime\": \"2023-01-03T16:00:00\",\r\n    \"checkIn\": \"2023-01-04T15:00:00\",\r\n    \"checkOut\": \"2023-01-06T09:00:00\",\r\n    \"includedItems\":[\r\n\t\t\"Lechuga\",\r\n\t\t\"Zanahoria\",\r\n\t\t\"Banano\"\r\n\t] ,\r\n    \"location\":{\r\n\t    \"longitude\": -49.456,\r\n\t    \"latitude\": -15.01,\r\n\t    \"address\": \"Dir Producto 1 Mod\"\r\n\t} ,\r\n    \"arrivalLocation\":{\r\n\t    \"longitude\": -53.31,\r\n\t    \"latitude\": -14.864,\r\n\t    \"address\": \"Arr Dir Producto 1 Mod\"\r\n\t} ,\r\n    \"departureLocation\":{\r\n\t    \"longitude\": -64.489,\r\n\t    \"latitude\": -16.5487,\r\n\t    \"address\": \"Dep Dir Producto 1 Mod\"\r\n\t}\r\n}",
+									"raw": "{\r\n    \"price\": 19900.00,\r\n    \"name\": \"Producto FoodAndDrink\",\r\n    \"links\":[\r\n        \"www.productoFoodAndDrink_1.com\",\r\n        \"www.productoFoodAndDrink_2.com\"\r\n    ],\r\n    \"pictures\":[\r\n        \"Link_Producto_FoodAndDrink_1\",\r\n\t\t\"Link_Producto_FoodAndDrink_2\"\r\n\t],\r\n    \"description\": \"Descripción de producto FoodAndDrink\",\r\n    \"includedItems\":[\r\n\t\t\"Papa\",\r\n\t\t\"Pollo\"\r\n\t]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -86,15 +94,19 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:9090/products/15d3dfba-6617-4777-b927-90108f8f56e6",
+									"raw": "http://10.43.100.21:8080/app/products/7d7d0023-f7ce-478f-b2db-204afd5b2c44",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
-									"port": "9090",
+									"port": "8080",
 									"path": [
+										"app",
 										"products",
-										"15d3dfba-6617-4777-b927-90108f8f56e6"
+										"7d7d0023-f7ce-478f-b2db-204afd5b2c44"
 									]
 								}
 							},
@@ -106,13 +118,17 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:9090/products/15d3dfba-6617-4777-b927-90108f8f56e6",
+									"raw": "http://10.43.100.21:8080/app/products/15d3dfba-6617-4777-b927-90108f8f56e6",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
-									"port": "9090",
+									"port": "8080",
 									"path": [
+										"app",
 										"products",
 										"15d3dfba-6617-4777-b927-90108f8f56e6"
 									]
@@ -140,13 +156,17 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:9092/supplier/5893026d-9f26-4295-b064-f432f075dff1",
+									"raw": "http://10.43.100.21:8080/app/supplier/5893026d-9f26-4295-b064-f432f075dff1",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
-									"port": "9092",
+									"port": "8080",
 									"path": [
+										"app",
 										"supplier",
 										"5893026d-9f26-4295-b064-f432f075dff1"
 									]
@@ -160,13 +180,17 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/supplier/5893026d-9f26-4295-b064-f432f075dff1",
+									"raw": "http://10.43.100.21:8080/app/supplier/5893026d-9f26-4295-b064-f432f075dff1",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
 									"port": "8080",
 									"path": [
+										"app",
 										"supplier",
 										"5893026d-9f26-4295-b064-f432f075dff1"
 									]
@@ -182,7 +206,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJpZGVudGl0eSIsInN1YiI6InN1cGxpZXIzMjFAc3VwcGxpZXIuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TVVBQTElFUiJdLCJpYXQiOjE2MzI3Mjc2MzYsImV4cCI6MTYzMjcyNzY5Nn0.q6ZpLmW-OtTWGarKGlzMN5ERyG1uQf_2H7EY0yCXsymkDAEazuGA0MGqq55q72exci-ACpCbwAsOrbiiCEh-Ew",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJpZGVudGl0eSIsInN1YiI6InN1cGxpZXIzMjFAc3VwcGxpZXIuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TVVBQTElFUiJdLCJpYXQiOjE2MzY5OTg3MTYsImV4cCI6MTYzNjk5ODc3Nn0.vtdKBZNLFvPzUq1YWIsCDX3C1en4NenhwAMRAXnSCdxGwUn0NDgI1ndfLcdb_RIl66ATr4lIBMsrfleVzMILsQ",
 						"type": "string"
 					}
 				]
@@ -229,13 +253,17 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/cart/0230bc47-ae78-4ebe-a508-68ee3e8ea224/items",
+									"raw": "http://10.43.100.21:8080/app/cart/0230bc47-ae78-4ebe-a508-68ee3e8ea224/items",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
 									"port": "8080",
 									"path": [
+										"app",
 										"cart",
 										"0230bc47-ae78-4ebe-a508-68ee3e8ea224",
 										"items"
@@ -250,13 +278,17 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/cart/0230bc47-ae78-4ebe-a508-68ee3e8ea224/items/43dcecc9-724c-4062-ac8f-402621f18485",
+									"raw": "http://10.43.100.21:8080/app/cart/0230bc47-ae78-4ebe-a508-68ee3e8ea224/items/43dcecc9-724c-4062-ac8f-402621f18485",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
 									"port": "8080",
 									"path": [
+										"app",
 										"cart",
 										"0230bc47-ae78-4ebe-a508-68ee3e8ea224",
 										"items",
@@ -272,13 +304,17 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/cart/0230bc47-ae78-4ebe-a508-68ee3e8ea224",
+									"raw": "http://10.43.100.21:8080/app/cart/0230bc47-ae78-4ebe-a508-68ee3e8ea224",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
 									"port": "8080",
 									"path": [
+										"app",
 										"cart",
 										"0230bc47-ae78-4ebe-a508-68ee3e8ea224"
 									]
@@ -292,13 +328,17 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/cart/",
+									"raw": "http://10.43.100.21:8080/app/cart/",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
 									"port": "8080",
 									"path": [
+										"app",
 										"cart",
 										""
 									]
@@ -356,13 +396,17 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/customers/aef7e13b-cc7e-4e47-8172-69b617ca48cc",
+									"raw": "http://10.43.100.21:8080/app/customers/aef7e13b-cc7e-4e47-8172-69b617ca48cc",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
 									"port": "8080",
 									"path": [
+										"app",
 										"customers",
 										"aef7e13b-cc7e-4e47-8172-69b617ca48cc"
 									]
@@ -376,13 +420,17 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/customers/aef7e13b-cc7e-4e47-8172-69b617ca48cc",
+									"raw": "http://10.43.100.21:8080/app/customers/aef7e13b-cc7e-4e47-8172-69b617ca48cc",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
 									"port": "8080",
 									"path": [
+										"app",
 										"customers",
 										"aef7e13b-cc7e-4e47-8172-69b617ca48cc"
 									]
@@ -410,13 +458,18 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/payments",
+									"raw": "http://10.43.100.21:8080/app/app/payments",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
 									"port": "8080",
 									"path": [
+										"app",
+										"app",
 										"payments"
 									]
 								}
@@ -443,13 +496,17 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:9090/products/43dcecc9-724c-4062-ac8f-402621f18485/questions",
+									"raw": "http://10.43.100.21:8080/app/products/43dcecc9-724c-4062-ac8f-402621f18485/questions",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
-									"port": "9090",
+									"port": "8080",
 									"path": [
+										"app",
 										"products",
 										"43dcecc9-724c-4062-ac8f-402621f18485",
 										"questions"
@@ -465,7 +522,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"value\":4,\r\n    \"userId\": \"20b3b01e-d226-4272-b08e-801597aa4656\",\r\n    \"userName\": \"Pedro Perez\",\r\n    \"comment\":\"me gusto mucho\",\r\n    \"resource\":\"http://localhost:8080/customers/20b3b01e-d226-4272-b08e-801597aa4656\"\r\n}",
+									"raw": "{\r\n    \"value\":1,\r\n    \"userId\": \"12d03276-69be-4a54-8b0f-b910554d00a8\",\r\n    \"userName\": \"Name LastName\",\r\n    \"comment\":\"El pollo esta muy seco\",\r\n    \"resource\":\"\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -473,15 +530,19 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:9090/products/43dcecc9-724c-4062-ac8f-402621f18485/ratings",
+									"raw": "http://10.43.100.21:8080/app/products/7d7d0023-f7ce-478f-b2db-204afd5b2c44/ratings",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
-									"port": "9090",
+									"port": "8080",
 									"path": [
+										"app",
 										"products",
-										"43dcecc9-724c-4062-ac8f-402621f18485",
+										"7d7d0023-f7ce-478f-b2db-204afd5b2c44",
 										"ratings"
 									]
 								}
@@ -496,7 +557,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJpZGVudGl0eSIsInN1YiI6Imp1YW5mcmFAY3VzdG1lci5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NVU1RPTUVSIl0sImlhdCI6MTYzMjcyNzMwMywiZXhwIjoxNjMyNzI3MzYzfQ.t7UxNaF-seOUKxjX7y_fwUgdatpPXpSFsMX7yD8LcTN6GEm7EDehsvpQULVa0wh3pZ6P37sERwWVdcvpX3LA6A",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJpZGVudGl0eSIsInN1YiI6ImN1c3RvbUBjdXN0bWVyLmNvbSIsImF1dGhvcml0aWVzIjpbIlJPTEVfQ1VTVE9NRVIiXSwiaWF0IjoxNjM2OTk4ODAwLCJleHAiOjE2MzY5OTg4NjB9.K_HpDWaLF_gqTHdsu6GfF3uRrET89YX45UMHkC6VWdbdreAFOSY34tyKNCRYYRDOt3E0zedNnKaZGTDLXz2ALw",
 						"type": "string"
 					}
 				]
@@ -534,19 +595,24 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/products?productType=ECOTOUR",
+									"raw": "http://10.43.100.21:8080/app/products",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
 									"port": "8080",
 									"path": [
+										"app",
 										"products"
 									],
 									"query": [
 										{
 											"key": "productType",
-											"value": "ECOTOUR"
+											"value": "ECOTOUR",
+											"disabled": true
 										}
 									]
 								}
@@ -579,13 +645,17 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8081/ProductSearch",
+									"raw": "http://10.43.100.21:8080/app/ProductSearch",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
-									"port": "8081",
+									"port": "8080",
 									"path": [
+										"app",
 										"ProductSearch"
 									]
 								}
@@ -603,15 +673,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/products/4b50a9b4-4bb8-45f0-b91a-dc34eaa12ea8",
+									"raw": "http://10.43.100.21:8080/app/products/7d7d0023-f7ce-478f-b2db-204afd5b2c44",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
 									"port": "8080",
 									"path": [
+										"app",
 										"products",
-										"4b50a9b4-4bb8-45f0-b91a-dc34eaa12ea8"
+										"7d7d0023-f7ce-478f-b2db-204afd5b2c44"
 									]
 								}
 							},
@@ -631,13 +705,17 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/customers",
+									"raw": "http://10.43.100.21:8080/app/customers",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
 									"port": "8080",
 									"path": [
+										"app",
 										"customers"
 									]
 								}
@@ -653,13 +731,17 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/customers/aef7e13b-cc7e-4e47-8172-69b617ca48cc",
+									"raw": "http://10.43.100.21:8080/app/customers/aef7e13b-cc7e-4e47-8172-69b617ca48cc",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
 									"port": "8080",
 									"path": [
+										"app",
 										"customers",
 										"aef7e13b-cc7e-4e47-8172-69b617ca48cc"
 									]
@@ -681,13 +763,17 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/supplier",
+									"raw": "http://10.43.100.21:8080/app/supplier",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
 									"port": "8080",
 									"path": [
+										"app",
 										"supplier"
 									]
 								}
@@ -703,13 +789,17 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/supplier/5893026d-9f26-4295-b064-f432f075dff1",
+									"raw": "http://10.43.100.21:8080/app/supplier/5893026d-9f26-4295-b064-f432f075dff1",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"10",
+										"43",
+										"100",
+										"21"
 									],
 									"port": "8080",
 									"path": [
+										"app",
 										"supplier",
 										"5893026d-9f26-4295-b064-f432f075dff1"
 									]
@@ -720,7 +810,7 @@
 					]
 				},
 				{
-					"name": "Crear customer",
+					"name": "Crear Customer",
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -729,7 +819,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"juanfra@custmer.com\",\r\n    \"password\":\"12345\",\r\n    \"type\":\"customer\",\r\n    \"name\": \"Name LastName\",\r\n    \"description\": \"description\",\r\n    \"age\": \"30\",\r\n    \"picture\": \"picture\"\r\n}",
+							"raw": "{\r\n    \"email\":\"custom@custmer.com\",\r\n    \"password\":\"12345!\",\r\n    \"type\":\"customer\",\r\n    \"name\": \"CustomName LastCustomName\",\r\n    \"description\": \"Custom description\",\r\n    \"age\": \"30\",\r\n    \"picture\": \"Custom picture\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -737,13 +827,17 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/customers",
+							"raw": "http://10.43.100.21:8080/app/customers",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"10",
+								"43",
+								"100",
+								"21"
 							],
 							"port": "8080",
 							"path": [
+								"app",
 								"customers"
 							]
 						}
@@ -760,7 +854,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"suplier321@supplier.com\",\r\n    \"password\":\"12345\",\r\n    \"type\":\"supplier\",\r\n    \"phone\": \"111 222 3344\",\r\n    \"name\": \"Name LastName\",\r\n    \"description\": \"description\",\r\n    \"webPage\": \"www.xxx.com\",\r\n    \"age\": \"30\",\r\n    \"picture\": \"picture\",\r\n    \"socialAccounts\": [\"SC1\", \"SC2\"]\r\n}",
+							"raw": "{\r\n    \"email\":\"suplier321@supplier.com\",\r\n    \"password\":\"12345\",\r\n    \"type\":\"supplier\",\r\n    \"phone\": \"111 222 3344\",\r\n    \"name\": \"SuppliedName LastSuppliedName\",\r\n    \"description\": \"Supplieddescription\",\r\n    \"webPage\": \"www.xxx.com\",\r\n    \"age\": \"30\",\r\n    \"picture\": \"Supplied picture\",\r\n    \"socialAccounts\": [\"Supplied.SC1\", \"Supplied.SC2\"]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -768,13 +862,17 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/supplier",
+							"raw": "http://10.43.100.21:8080/app/supplier",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"10",
+								"43",
+								"100",
+								"21"
 							],
 							"port": "8080",
 							"path": [
+								"app",
 								"supplier"
 							]
 						}
@@ -799,13 +897,17 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/login",
+							"raw": "http://10.43.100.21:8080/app/login",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"10",
+								"43",
+								"100",
+								"21"
 							],
 							"port": "8080",
 							"path": [
+								"app",
 								"login"
 							]
 						}
