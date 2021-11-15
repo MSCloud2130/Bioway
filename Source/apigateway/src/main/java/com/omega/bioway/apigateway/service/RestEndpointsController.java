@@ -245,7 +245,7 @@ public class RestEndpointsController {
             ResponseEntity response = restTemplate.exchange("http://products-service/app/products", HttpMethod.POST, new HttpEntity<>(request), Object.class);
             HashMap<String,String> body = (HashMap<String,String>)response.getBody();
             ResponseEntity responseSOAP =  new ResponseEntity<Boolean>(
-                soapClient.createProduct(body.get("productId"), request.getSupplier().getId(), request.getName(), request.getType(), "http://products-service/products/"+body.get("productId"))
+                soapClient.createProduct(body.get("productId"), request.getSupplier().getId(), request.getName(), request.getType(), "http://products-service/app/products/"+body.get("productId"))
                 .isResult(), HttpStatus.OK);
             return response;
         } catch(HttpClientErrorException e) {
