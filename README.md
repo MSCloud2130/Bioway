@@ -15,100 +15,31 @@ La descripción de los elementos de diseño del sistema está incluida en la wik
 
 ### 1. Iniciar servicios
 
-**NOTA:** Los servicios utilizan MongoDB. Por lo tanto, antes de ejecutar los servicios, es necesario iniciar una instancia de MongoDB en localhost:27017.
+#### 1. Iniciar contendores
+Ubíquese en la carpeta Bioway/Docker y ejecute el siguiente comando
 
-A continuación, se detallan los comandos que se deben ejecutar en consola para ejecutar cada uno de los componentes del proyecto. Para cada componente, se debe usar una consola de comandos separada. Inicie los servicios en el orden indicado:
+> docker-compose up --build
 
-#### 1. Servidor eureka
-Ubíquese en la carpeta Bioway/Source/eurekaserver y ejecute los siguientes comandos:
-
-> mvn clean install
+#### 2. Configurar Gitea
+1. Acceda desde el navegador a la URL http://localhost:3000
+2. Cree una cuenta.
+3. Cree un nuevo repositorio.
+4. Suba al repositorio los contenidos de este repositorio.
+5. Ejecute los siguientes comandos en la terminal:
+> sudo docker exec -it jenkins bash
 > 
-> mvn spring-boot:run
-
-#### 2. Servicio SOAP ProductSearch:
-
-Ubíquese en la carpeta Bioway/Source/ProductSearch y ejecute los siguientes comandos
-
-##### Windows:
-
-> mvn clean install
+> cd
 > 
-> ./mvnw clean package
-> 
-> java -jar --illegal-access=permit target/ProductSearch-0.0.1-SNAPSHOT.jar
+> cat .ssh/id_rsa.pub
+6. Copie la cadena de caracteres que imprime el último comando y agruéguela a la cuenta de Gitea como clave SSH.
 
-##### Linux: 
+#### 3. Configurar Jenkins
+1. Acceda desde el navegador a la URL http://localhost:8090
+2. Cree un nuevo pipeline.
+3. Vincule el pipeline al repositorio de Gitea.
+4. Ejecute el pipeline.
 
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 3. Servicio Products
-
-Ubíquese en la carpeta Bioway/Source/products y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 4. Servicio Customers
-
-Ubíquese en la carpeta Bioway/Source/customers y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 5. Servicio Purchases
-
-Ubíquese en la carpeta Bioway/Source/purchases y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 6. Servicio Carts
-
-Ubíquese en la carpeta Bioway/Source/carts y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 7. Servicio Identity
-
-Ubíquese en la carpeta Bioway/Source/identity y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 8. Servicio Suppliers
-
-Ubíquese en la carpeta Bioway/Source/suppliers y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 9. Servicio Payment
-
-Ubíquese en la carpeta Bioway/Source/payments y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-#### 10. API Gateway
-
-Ubíquese en la carpeta Bioway/Source/apigateway y ejecute los siguientes comandos:
-
-> mvn clean install
-> 
-> mvn spring-boot:run
-
-
+Una vez termine de ejecutarse el pipeline correctamente, todos los microservicios estarán desplegados en sus respectivos contenedores.
 
 ### 2. Cliente Postman
 
